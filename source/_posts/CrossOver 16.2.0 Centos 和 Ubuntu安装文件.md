@@ -7,6 +7,7 @@ categories:
     - ubuntu
     - 其他Linux系统
   - - 其他分类
+abbrlink: 969aa2f5
 date: 2018-03-27 22:28:00
 ---
 

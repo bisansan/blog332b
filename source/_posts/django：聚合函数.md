@@ -4,6 +4,7 @@ tags: []
 id: '290'
 categories:
   - - Django
+abbrlink: 7c2366e
 date: 2018-11-21 18:05:28
 ---
 

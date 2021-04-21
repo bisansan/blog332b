@@ -5,6 +5,7 @@ id: '827'
 categories:
   - - '%e7%94%b5%e8%84%91%e7%b3%bb%e7%bb%9f'
     - ubuntu
+abbrlink: d14dba64
 date: 2019-08-21 15:22:21
 ---
 

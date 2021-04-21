@@ -6,6 +6,7 @@ categories:
   - - '%e7%94%b5%e8%84%91%e7%b3%bb%e7%bb%9f'
     - 其他Linux系统
   - - 技术分享
+abbrlink: e4168f1d
 date: 2018-10-20 21:15:32
 ---
 

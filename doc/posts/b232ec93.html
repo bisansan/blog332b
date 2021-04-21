@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"332b.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="如图所示的上表，group by分组必须在select中存在，就在这样 123456正确SELECT zuming AS new_id FROM demo GROUP BY zuming;错误一，因为指定了zuming分组，而name却不知道怎么归类，所以报错了SELECT name,zuming AS new_id FROM demo GROUP BY zuming错误二SELECT * FR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql分组查询和聚合函数，数据截取和排序">
+<meta property="og:url" content="http://332b.com/posts/b232ec93.html">
+<meta property="og:site_name" content="笔三三博客">
+<meta property="og:description" content="如图所示的上表，group by分组必须在select中存在，就在这样 123456正确SELECT zuming AS new_id FROM demo GROUP BY zuming;错误一，因为指定了zuming分组，而name却不知道怎么归类，所以报错了SELECT name,zuming AS new_id FROM demo GROUP BY zuming错误二SELECT * FR">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://post.332b.com/wp-content/uploads/2019/10/20191031142611.png">
+<meta property="og:image" content="https://post.332b.com/wp-content/uploads/2019/10/20191031143806.png">
+<meta property="og:image" content="https://post.332b.com/wp-content/uploads/2019/10/20191031144501.png">
+<meta property="og:image" content="https://post.332b.com/wp-content/uploads/2019/10/20191031151117.png">
+<meta property="og:image" content="https://post.332b.com/wp-content/uploads/2019/10/20191031153129.png">
+<meta property="og:image" content="https://post.332b.com/wp-content/uploads/2019/10/20191031154311.png">
+<meta property="article:published_time" content="2019-10-31T07:45:36.000Z">
+<meta property="article:modified_time" content="2021-04-21T07:08:40.287Z">
+<meta property="article:author" content="Witt">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://post.332b.com/wp-content/uploads/2019/10/20191031142611.png">
+
+<link rel="canonical" href="http://332b.com/posts/b232ec93.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>mysql分组查询和聚合函数，数据截取和排序 | 笔三三博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">笔三三博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://332b.com/posts/b232ec93.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Witt">
+      <meta itemprop="description" content="回到原始的初心，记录自己的生活的点点滴滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笔三三博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          mysql分组查询和聚合函数，数据截取和排序
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-31 15:45:36" itemprop="dateCreated datePublished" datetime="2019-10-31T15:45:36+08:00">2019-10-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-21 15:08:40" itemprop="dateModified" datetime="2021-04-21T15:08:40+08:00">2021-04-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e6-95-b0-e6-8d-ae-e5-ba-93/" itemprop="url" rel="index"><span itemprop="name">%e6%95%b0%e6%8d%ae%e5%ba%93</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e6-95-b0-e6-8d-ae-e5-ba-93/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://post.332b.com/wp-content/uploads/2019/10/20191031142611.png"></p>
+<p>如图所示的上表，group by分组必须在select中存在，就在这样</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">正确</span><br><span class="line"><span class="keyword">SELECT</span> zuming <span class="keyword">AS</span> new_id <span class="keyword">FROM</span> demo <span class="keyword">GROUP</span> <span class="keyword">BY</span> zuming;</span><br><span class="line">错误一，因为指定了zuming分组，而<span class="type">name</span>却不知道怎么归类，所以报错了</span><br><span class="line"><span class="keyword">SELECT</span> <span class="type">name</span>,zuming <span class="keyword">AS</span> new_id <span class="keyword">FROM</span> demo <span class="keyword">GROUP</span> <span class="keyword">BY</span> zuming</span><br><span class="line">错误二</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> demo <span class="keyword">GROUP</span> <span class="keyword">BY</span> zuming </span><br></pre></td></tr></table></figure>
+
+<p>上面的错误使用会引发sql_mode=only_full_group_by，这是因为sql语法越来越严谨了，具体关闭方法百度，不推荐关闭</p>
+<p>在查询语句中使用了groups和group均报错，所以就换成 zuming</p>
+<p>SELECT zuming AS new_id FROM demo GROUP BY zuming;查询如图</p>
+<p><img src="https://post.332b.com/wp-content/uploads/2019/10/20191031143806.png"></p>
+<p>如果我们要查询这个组的某个字段有那些值，我们可以用GROUP_CONCAT</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> zuming,GROUP_CONCAT(<span class="type">name</span>),GROUP_CONCAT(age) <span class="keyword">FROM</span> demo <span class="keyword">GROUP</span> <span class="keyword">BY</span> zuming</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://post.332b.com/wp-content/uploads/2019/10/20191031144501.png"></p>
+<p>如果GROUP BY指定了两个字段，就会这样，ORDER BY指定排序字段， DESC 可以让排序相反</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="type">name</span>,age,zuming,GROUP_CONCAT(salary),COUNT(age) <span class="keyword">FROM</span> demo <span class="keyword">GROUP</span> <span class="keyword">BY</span> zuming,<span class="type">name</span>,age <span class="keyword">ORDER</span> <span class="keyword">BY</span> zuming <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://post.332b.com/wp-content/uploads/2019/10/20191031151117.png"></p>
+<p>GROUP BY 可以配合聚合函数来统计分组组的salary的总和，AS可以将字段改名</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> zuming,GROUP_CONCAT(<span class="type">name</span>),GROUP_CONCAT(salary),SUM(salary) <span class="keyword">as</span> salary_count <span class="keyword">FROM</span> demo <span class="keyword">GROUP</span> <span class="keyword">BY</span> zuming</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://post.332b.com/wp-content/uploads/2019/10/20191031153129.png"></p>
+<p>Limit number,number 第一个数字指定从第几个开始截取，第二个指定截取多少个</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> demo <span class="keyword">LIMIT</span> <span class="number">0</span>,<span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://post.332b.com/wp-content/uploads/2019/10/20191031154311.png"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/c2ed5e85.html" rel="prev" title="python ORM数据库操作框架大全">
+      <i class="fa fa-chevron-left"></i> python ORM数据库操作框架大全
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/55bc568a.html" rel="next" title="七年级数学上  笔记">
+      七年级数学上  笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Witt</p>
+  <div class="site-description" itemprop="description">回到原始的初心，记录自己的生活的点点滴滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">149</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Witt</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

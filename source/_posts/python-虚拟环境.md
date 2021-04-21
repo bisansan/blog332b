@@ -6,6 +6,7 @@ categories:
   - - Python
   - - '%e7%94%b5%e8%84%91%e7%b3%bb%e7%bb%9f'
     - ubuntu
+abbrlink: 1a63df8e
 date: 2019-08-11 18:32:54
 ---
 

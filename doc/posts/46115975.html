@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"332b.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="javascript引入的常见三种方式 1.行内使用 &lt;input type&#x3D;&quot;button&quot; name&#x3D;&quot;button&quot; value&#x3D;&quot;点击&quot; onclick&#x3D;&quot;window.alert(&#39;嘻嘻&#39;)&quot;&gt;   2.内部使用    function myfunc() { window.aler">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript  基本使用方法">
+<meta property="og:url" content="http://332b.com/posts/46115975.html">
+<meta property="og:site_name" content="笔三三博客">
+<meta property="og:description" content="javascript引入的常见三种方式 1.行内使用 &lt;input type&#x3D;&quot;button&quot; name&#x3D;&quot;button&quot; value&#x3D;&quot;点击&quot; onclick&#x3D;&quot;window.alert(&#39;嘻嘻&#39;)&quot;&gt;   2.内部使用    function myfunc() { window.aler">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-02-04T04:11:47.000Z">
+<meta property="article:modified_time" content="2021-04-21T07:08:40.451Z">
+<meta property="article:author" content="Witt">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://332b.com/posts/46115975.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Javascript  基本使用方法 | 笔三三博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">笔三三博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://332b.com/posts/46115975.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Witt">
+      <meta itemprop="description" content="回到原始的初心，记录自己的生活的点点滴滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笔三三博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Javascript  基本使用方法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-04 12:11:47" itemprop="dateCreated datePublished" datetime="2019-02-04T12:11:47+08:00">2019-02-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-21 15:08:40" itemprop="dateModified" datetime="2021-04-21T15:08:40+08:00">2021-04-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>javascript引入的常见三种方式</strong> 1.行内使用 <code>&lt;input type=&quot;button&quot; name=&quot;button&quot; value=&quot;点击&quot; onclick=&quot;window.alert(&#39;嘻嘻&#39;)&quot;&gt;</code>   2.内部使用</p>
+ <input type="button" name="aaa" value="点击" onclick="myfunc()">
+<script type="text/javascript">
+function myfunc()
+{
+window.alert('弹出框');
+};
+</script>
+
+<p>  三.外部引入</p>
+<script src="js/test.js"></script>
+
+<p>  常用的一下几种方式引入js代码：</p>
+<ol>
+<li> 在页面中直接写入<script type="text/javascript">js代码</script>。</li>
+<li> 在页面中引入外部文件<script src="xx.js"></script>。</li>
+<li> 在js中引入外部js，通过document.wirite(“scr”+”ipt src=’xx.js’&gt;&lt;/scr”+”ipt”&gt;。</li>
+<li> 在js中引用其他js片段，document.write(“&lt;scr”+”ipt&gt;alert(xxx)&lt;/scr”+”ipt&gt;”)。</li>
+<li> 通过DOM添加：var scr=document.createElement(“script”); scr.src=”xxx.js”;</li>
+</ol>
+<p>  <strong>javascript输出的四种方式</strong> 一、window.alert()       弹出一个对话框 <code>window.alert(&#39;我是对话框&#39;)</code>   二、innerHTML       操作html里面的元素 <code>&lt;p id=&#39;demo&#39;&gt;我是一个段落&lt;/p&gt;</code> <code>&lt;script&gt;</code> <code>document.getElementById(&quot;demo&quot;).innerHTML = &quot;修改这个段落&quot;;</code> <code>window.alert(document.getElementById(&quot;demo&quot;).innerHTML);</code> <code>//获取这个元素里面的值</code> <code>&lt;/script&gt;</code>   三、document.write()  直接输出内容 <code>&lt;script&gt;document.write(&#39;我是文字&#39;)&lt;/script&gt;</code> <em>如果在文档已完成加载后执行 document.write，整个 HTML 页面将被覆盖。</em>   四、console.log()  输出到控制台 chrome浏览器中使用 F12 来启用调试模式， 在调试窗口中点击 “Console” 菜单，输入的内容会出现在哪里 <code>&lt;script&gt;console.log(&#39;我是文字，请在控制台查看我&#39;);&lt;/script&gt;</code>    </p>
+<p>1.当编写 JavaScript 语句时，请留意是否关闭大小写切换键。 函数 <strong>getElementById</strong> 与 <strong>getElementbyID</strong> 是不同的。 同样，变量 <strong>myVariable</strong> 与 <strong>MyVariable</strong> 也是不同的。   2. 单行注释”//“，多行注释以”/*“开始，用”*/“来注释   3.关键字</p>
+<p>语句</p>
+<p>描述</p>
+<p>break</p>
+<p>用于跳出循环。</p>
+<p>catch</p>
+<p>语句块，在 try 语句块执行出错时执行 catch 语句块。</p>
+<p>continue</p>
+<p>跳过循环中的一个迭代。</p>
+<p>do … while</p>
+<p>执行一个语句块，在条件语句为 true 时继续执行该语句块。</p>
+<p>for</p>
+<p>在条件语句为 true 时，可以将代码块执行指定的次数。</p>
+<p>for … in</p>
+<p>用于遍历数组或者对象的属性（对数组或者对象的属性进行循环操作）。</p>
+<p>function</p>
+<p>定义一个函数</p>
+<p>if … else</p>
+<p>用于基于不同的条件来执行不同的动作。</p>
+<p>return</p>
+<p>退出函数</p>
+<p>switch</p>
+<p>用于基于不同的条件来执行不同的动作。</p>
+<p>throw</p>
+<p>抛出（生成）错误 。</p>
+<p>try</p>
+<p>实现错误处理，与 catch 一同使用。</p>
+<p>var</p>
+<p>声明一个变量。</p>
+<p>while</p>
+<p>当条件语句为 true 时，执行语句块。</p>
+<p>  4.声明变量用var，例如：<code>var beare = &#39;good&#39;;</code>，声明多个变量的方法：<code>var beare = &#39;good&#39;,beis = &#39;bad&#39;;</code> <em>注意不能这样定义多个变量为一个值，这样定义只有benot=1，其他为空值</em> <code>var beare,beis,benot=1;</code>   5.数据类型 数据类型变量声明办法 var carname=new String;       ##字符串 var x=      new Number;     ##数字类型 var y=      new Boolean;     ##布尔类型 var cars=   new Array;      ##数组类型 var person= new Object;      ##对象类型（类似字典） 代码演示：<code>var you123 = new String(&#39;我是字符串&#39;);</code> 对象的值可以通过关键key和属性来访问，假如有代码如下 <code>var person= &#123; firstname : &quot;John&quot;, lastname : &quot;Doe&quot;, id : 5566 &#125;;</code> <code>person.firstname</code>和<code>person[&#39;firstname&#39;]</code>都可以得到“John”这个值 如果函数作为属性存入对象里面，它有一个属性this就是代表这个对象本身，这个是方便再对象自身中引用 假如一个值重新声明变量，它的值是不会改变的，除非再给它重新赋值 如果你在声明变量的时候没有使用var，那么这个变量就会成为window的一个属性，</p>
+<p>bbc =  ‘我是字符串’;     //没有使用var可以配置全局属性</p>
+<p>document.write(this.bbc);   //获取上面的的字符串</p>
+<p>document.write(window.bbc);   //效果一样，等同上面</p>
+<p>delete bbc; //无法删除，只能删除var声明的变量</p>
+<p>1.通过<code>var str123 = new String(&#39;字符串&#39;);</code> 中的new来声明，是一个对象，而不是一个字符串，和<code>var str123 = &#39;字符串&#39;;</code> 不相等 2.’===‘代表数据和类型绝对相等，string.length可以返回字符串的长度   onload 和  onpageshow  区别 onload : 在元素载入完成后执行的代码，载入缓存不执行 onpageshow：每次载入图片元素后执行的代码，载入缓存依旧会执行 支持onload的标签：<body>, <frame>, <frameset>, <iframe>, <img>, <input type="image">, <link>, <script>, <style> 例如我们在img标签中使用onload标签，就可以判断图片是否载入</p>
+<script>
+      var loadimage = document.getElementById('loadimageid');
+      var loadimageerror = "alert('载入错误')";
+      // loadimage.onload="alert('图片载入成功')";
+      loadimage.onpageshow=alert('载入图片成功');
+</script>
+
+<p>  if…else if…else  判断语句 if：条件一   else if：条件二    else：都不满足，就执行这里 and：符号&amp;&amp;   多个条件拼接 ，必须满足所有条件 or：符号      多个条件拼接，满足其中一个就行了 not：符号!     条件相关的结果</p>
+<script>
+    var a = 3;
+    if (a != 3) {
+        window.alert('条件一')
+    }
+    else if (a = 3) {
+        window.alert('条件二')
+    }
+    else {
+        window.alert('都不满足，就执行else')
+    }
+</script>
+
+<p>  switch…case…default switch是基于不同条件执行不同命令，switch中通常是一个变量，如果满足case就执行case的命令，（）用break隔开，防止满足一次条件，就执后面所有代码）如果不满足就继续向下寻找，如果没找到就默认执行default</p>
+<script>
+    var a = 9;
+    switch (a) {
+        case 1:alert('1');
+        break;
+        case 2:alert('2');
+        break;
+        default:alert('默认值');
+    }
+</script>
+
+<p>  for 循环执行某一块的代码 for (a;b;c) { 需要被循环执行的代码 } a 循环执行前执行的代码 b 决定循环执行的条件 c 每次循环执行后执行的代码 实例代码</p>
+<script>
+    for (var a=1;a<5;a++) {
+        document.write('数字'+a+'<br>');
+    };
+</script>
+
+<p>  for….in 循环 循环一个数组</p>
+<script>
+    var a = \['a','b','c'\];
+    for (var b in a) {
+        window.alert(b+'：'+a\[0\]);
+    };
+</script>
+
+<p>循环一个对象</p>
+<script>
+    var a = {a1:'a',a2:'b',a3:'c'};
+    for (var b in a) {
+        window.alert(b+'：'+a\[b\]);
+    };
+</script>
+
+<p>  while循环</p>
+<script>
+    var a = 1;
+    while (a<5 && a>0) {
+        a++;
+        window.alert(a);
+    }
+</script>
+
+<p>  Break 和 Continue 语句 Break：跳出整个循环（可以在switch和循环中使用） Continue：跳出当前循环，去执行下一个循环（只能在循环中使用）   javascript标签 label: statements 通过标签引用，break 语句可用于跳出任何 JavaScript 代码块   NaN和isNaN 判断这个值是不是数字 详细说明：<a target="_blank" rel="noopener" href="http://www.w3school.com.cn/jsref/jsref_nan_number.asp">http://www.w3school.com.cn/jsref/jsref_nan_number.asp</a>   在 JavaScript 中有 5 种不同的数据类型： string number boolean object function 3 种对象类型： Object Date Array 2 个不包含任何值的数据类型： null undefined 判断是不是字符串的方法</p>
+<script>
+    var a = 'aaa';
+    if (typeof(a) == 'string') {
+        document.write('他是字符串');
+    }
+    else{
+        document.write('他不是字符串');
+    };
+</script>
+
+<p>  查询对应的构造函数key.constructor “John”.constructor   //function String() { [native code] } 根据它来判断对应的对象类型   数据转换 字符串转换：全局方法String()和value.toString() 1.toString可以将所有类型转换成字符串，但不包括null和undefined 2.String可以将null和undefined转换为字符串，但是没法转进制字符串，例如二进制，八进制，十六进值 String(value);或者value.toString()</p>
+<ol>
+<li> toExponential() 把对象的值转换为指数计数法。</li>
+<li> toFixed() 把数字转换为字符串，结果的小数点后有指定位数的数字。</li>
+<li> toPrecision() 把数字格式化为指定的长度。</li>
+</ol>
+<p>  数字转换：Number() 空字符串会转换成0，如果不是字符串就会转换成NaN Number(value);</p>
+<ol>
+<li> parseFloat() 解析一个字符串，并返回一个浮点数。</li>
+<li> parseInt() 解析一个字符串，并返回一个整数。</li>
+</ol>
+<p>  一元运算符 + Operator + 可用于将变量转换为数字： 实例 var y = “5”; // y 是一个字符串 var x = + y; // x 是一个数字   将布尔值转换为数字 全局方法 Number() 可将布尔值转换为数字。 Number(false) // 返回 0 Number(true) // 返回 1   布尔类型：Boolean()   javascript正则表达式 var patt = /runoob/i 加i代表不区分大小写   javascript错误 1.try 和 catch是用来处理 try 语句测试代码块的错误。 catch 语句处理错误。 如果try中没有任何错误，就不会执行catch里面的语句   2.throw  自定义错误 如果把 throw 与 try 和 catch 一起使用，那么您能够控制程序流，并生成自定义的错误消息。下面是验证输入的数字 注意：input输入值是字符串，需要用Number格式化成数字</p>
+<p>不管输入是否正确，输入框都会再输入后清空。</p>
+<p>请输入 5 ~ 10 之间的数字：</p>
+
+<input id="demo" type="text">
+<button type="button" onclick="myFunction()">点我</button>
+
+<p id="p01"></p>
+
+<script>
+    function myFunction() {
+        var message, x;
+        message = document.getElementById("p01");
+        message.innerHTML = "";
+        x = document.getElementById("demo").value;
+        try {
+            if(x == "") throw "值是空的";
+            if(isNaN(x)) throw "值不是一个数字";
+            x = Number(x);   //input输入值是字符串，用Number格式化成数字
+            if(x > 10) throw "太大";
+            if(x < 5) throw "太小";
+        }
+        catch(err) {
+            message.innerHTML = "错误: " + err + ".";
+        }
+        finally {
+            document.getElementById("demo").value = "";
+        }
+    }
+</script>
+
+<p>  3.finally 语句 finally 语句不论之前的 try 和 catch 中是否产生异常都会执行该代码块。 try { … //异常的抛出 } catch(e) { … //异常的捕获与处理 } finally { … //结束处理 }   JS验证表单</p>
+<script>
+    function fa() {
+        return false;   //返回false阻止表单提交
+    }
+</script>
+<form action="#" onsubmit="return fa()">      <!--用return阻止提交-->
+    <input type="text">
+    <input type="submit">
+</form>
+
+<p>js获取表单值 <a target="_blank" rel="noopener" href="http://www.runoob.com/js/js-form-validation.html">http://www.runoob.com/js/js-form-validation.html</a>   javascript Json JSON.parse() 用于将一个 JSON 字符串转换为 JavaScript 对象。 JSON.stringify() 用于将 JavaScript 值转换为 JSON 字符串。</p>
+<script>
+    var asy = \['ad','ac','aqw'\];
+    var obj = JSON.stringify(asy);
+    document.write(obj)
+</script>
+
+<p>  javascript  查找最大的数</p>
+<script>
+    var ti=\[123,45,73,1048\];
+    var i=0,x=ti\[0\];
+    for (;ti.length > i;i++) {
+        if (x < ti\[i\]){
+            x = ti\[i\]
+        }
+    }
+    alert(x)
+</script>
+
+<p>  1.在一个函数里面使用this代表整个window对象，除非你在里面嵌套一个函数，这样你在嵌套里面使用this就代表外面包括的这个函数本身 2.函数可以这样调用window.function()   DOM javascript查找html方式 1.javascript 通过tag标签来查找元素，tag来查找元素，他会将这个页面的所有该元素的东西放入一个array数组里面去</p>
+<body>
+<p>111111</p>
+<button onclick="x()">点击</button>
+<script>
+    function x (){
+        x = window.document.getElementsByTagName('p')
+        alert(x\[0\].innerHTML)
+    }
+</script>
+</body>
+
+<p>  2.通过id来查找元素 var x=document.getElementById(“intro”);   3.通过类名来查找 var x=document.getElementsByClassName(“intro”);   4.修改html的属性</p>
+<p><a target="_blank" rel="noopener" href="http://www.baidu.com" id="po">百度</a><br><button onclick="x()">点击</button></p>
+<script>
+    function x (){
+        x = window.document.getElementById('po')
+        alert(x.href)
+    }
+</script>
+
+<p>  5.通过javascript修改css样式</p>
+<p><a target="_blank" rel="noopener" href="http://www.baidu.com" id="po">百度</a></p>
+<script>
+        window.document.getElementById('po').style.color = 'red';
+</script>
+
+<p>6.HTML DOM EventListener  监听事务</p>
+<p><em>element</em>.addEventListener(<em>event, function, useCapture</em>);</p>
+<p>第一个参数是事件的类型 (如 “click” 或 “mousedown”). 第二个参数是事件触发后调用的函数。 第三个参数是个布尔值用于描述事件是冒泡还是捕获。该参数是可选的。 addEventListener() 方法允许向同一个元素添加多个事件，且不会覆盖已存在的事件：</p>
+<script>
+x = document.getElementById("myBtn");
+x.addEventListener("click", function(){alert("Hello World!");});
+</script>
+
+<p>冒泡事件和事务事件 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/christineqing/p/7607113.html">https://www.cnblogs.com/christineqing/p/7607113.html</a>   7.添加和删除、替换html元素 appendChild() 添加元素，添加在末尾</p>
+<div id="div1">
+</div>
+<script>
+    var p1 = document.createElement("p");  //创建p元素
+    var text = document.createTextNode('这是一段文本！');  //创建文本元素
+    p1.appendChild(text);    //将文本元素添加p元素里
+    var div1 = document.getElementById('div1');
+    div1.appendChild(p1);     //将p1元素添加到div1当中
+</script>
+
+<p>  insertBefore()  添加元素，插入指定元素前面</p>
+<div id="div1">
+    <p id="p2">这是第二段文本，没有js它就是第一行</p>
+</div>
+<script>
+    var p1 = document.createElement("p");  //创建p元素
+    var text = document.createTextNode('这是一段文本！');  //创建文本元素
+    p1.appendChild(text);    //将文本元素添加p元素里
+    var div1 = document.getElementById('div1');
+    var p2 = document.getElementById('p2');
+    div1.insertBefore(p1,p2)
+</script>
+
+<p>  removeChild() 移除已存在的元素</p>
+<div id="div1">
+    <p id="p1">这是一段文本！</p>
+    <p id="p2">这是第二段文本！</p>
+</div>
+<script>
+    var div1 = document.getElementById('div1');
+    var p2 = document.getElementById('p2');
+    div1.removeChild(p2);
+</script>
+
+<p>  replaceChild()  替换 HTML 元素</p>
+<div id="div1">
+    <p id="p1">这是一段文本！</p>
+    <p id="p2">这是第二段文本！</p>
+</div>
+<script>
+    var pdemo = document.createElement("p");  //创建p元素
+    var text = document.createTextNode('这是一段特殊文本！');  //创建文本元素
+    pdemo.appendChild(text);    //将文本元素添加p元素里
+    var div1 = document.getElementById('div1');
+    var p2 = document.getElementById('p2');
+    div1.replaceChild(pdemo,p2)
+</script>
+
+<p>  javascript高级对象 1.遍历一个对象</p>
+<div id="div1">
+    <p id="p1">这是一段文本！</p>
+    <p id="p2">这是第二段文本！</p>
+</div>
+<button onclick="f()">点击</button>
+<script>
+    var p2 = document.getElementById('p2');
+    var k1 = {
+      k1:'我是苹果',
+      k2:'我是香蕉',
+      k3:'我是栗子'
+    };
+    function f() {
+        for (x in k1) {
+            p2.innerHTML +=x+'：'+k1\[x\]+"<br>";
+        }
+    }
+</script>
+
+<p>  2.创建一个对象的三种方式 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/dongjc/p/5179561.html">https://www.cnblogs.com/dongjc/p/5179561.html</a>   字符串转为数组</p>
+<p id="demo">单击按钮显示数组。</p>
+<button onclick="myFunction()">点我</button>
+<script>
+    function myFunction(){
+        var str="a,b,c,d,e,f";
+        var n=str.split(",");
+        document.getElementById("demo").innerHTML=n\[0\];
+    }
+</script>
+
+<p>  给变量设置时间（可用于对当前时间做比较）</p>
+<p id="demo">单击按钮显示修改后的年月日。</p>
+<button onclick="myFunction()">点我</button>
+<script>
+    function myFunction(){
+        var d = new Date();
+        d.setFullYear(2020,10,3);
+        var x = document.getElementById("demo");
+        x.innerHTML=d;
+    }
+</script>
+<p>记住 JavaScript 月数是从0至11。10是11月。</p>
+
+<p>  数组对象 合并一个数组或者多个 array1.concat(array2, array3);   如果布尔对象无初始值或者其值为:</p>
+<ol>
+<li> 0</li>
+<li> -0</li>
+<li> null</li>
+<li> “”</li>
+<li> false</li>
+<li> undefined</li>
+<li> NaN</li>
+</ol>
+<p>  window.location.assign和window.location.replace(url) 区别 window.location.assign(url) ： 加载 URL 指定的新的 HTML 文档。 就相当于一个链接，跳转到指定的url，当前页面会转为新页面内容，可以点击后退返回上一个页面。 window.location.replace(url) ： 通过加载 URL 指定的文档来替换当前文档 ，这个方法是替换当前窗口页面，前后两个页面共用一个   三种弹框 警告框 window.alert(“<em>sometext</em>“);   确认框 当你点击 “确认”, 确认框返回 true， 如果点击 “取消”, 确认框返回 false。 window.confirm(“<em>sometext</em>“);   提示框 提示用户输入某个值，可以指定默认值 window.prompt(“<em>sometext</em>“,”<em>defaultvalue</em>“);   计时执行 不间断间隔执行 setInterval() 间隔指定的毫秒数不停地执行指定的代码 window.setInterval(“<em>javascript function</em>“,<em>milliseconds</em>);   停止制作 clearInterval() window.clearInterval(<em>intervalVariable</em>)   指定时间执行    setTimeout() window.setTimeout(“<em>javascript function</em>“, <em>milliseconds</em>);   停止执行 setTimeout() window.setTimeout(“<em>javascript function</em>“, <em>milliseconds</em>);</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/5ea41924.html" rel="prev" title="linux系统：玩转ubuntu18.04 LTS长期稳定版(二)">
+      <i class="fa fa-chevron-left"></i> linux系统：玩转ubuntu18.04 LTS长期稳定版(二)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/7f7e5a1.html" rel="next" title="html  文档基本格式">
+      html  文档基本格式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Witt</p>
+  <div class="site-description" itemprop="description">回到原始的初心，记录自己的生活的点点滴滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">149</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Witt</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

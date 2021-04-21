@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"332b.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="边框属性 单独给某一个方向设置边框 上：border-top 下：border-bottom 左：border-left 右：border-right 给四个方向统一设置边框：border 他们的格式为border：边框宽度 边框样式 边框颜色 边框样式：http:&#x2F;&#x2F;www.w3school.com.cn&#x2F;tiy&#x2F;t.asp?f&#x3D;csse_border-style  border-top: 2p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS学习：盒模型">
+<meta property="og:url" content="http://332b.com/posts/cb25ebcd.html">
+<meta property="og:site_name" content="笔三三博客">
+<meta property="og:description" content="边框属性 单独给某一个方向设置边框 上：border-top 下：border-bottom 左：border-left 右：border-right 给四个方向统一设置边框：border 他们的格式为border：边框宽度 边框样式 边框颜色 边框样式：http:&#x2F;&#x2F;www.w3school.com.cn&#x2F;tiy&#x2F;t.asp?f&#x3D;csse_border-style  border-top: 2p">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://post.332b.com/wp-content/uploads/2019/01/QQ%E6%88%AA%E5%9B%BE20190124152329.png">
+<meta property="article:published_time" content="2019-01-23T04:38:08.000Z">
+<meta property="article:modified_time" content="2021-04-21T07:08:40.114Z">
+<meta property="article:author" content="Witt">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://post.332b.com/wp-content/uploads/2019/01/QQ%E6%88%AA%E5%9B%BE20190124152329.png">
+
+<link rel="canonical" href="http://332b.com/posts/cb25ebcd.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CSS学习：盒模型 | 笔三三博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">笔三三博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://332b.com/posts/cb25ebcd.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Witt">
+      <meta itemprop="description" content="回到原始的初心，记录自己的生活的点点滴滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笔三三博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS学习：盒模型
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-23 12:38:08" itemprop="dateCreated datePublished" datetime="2019-01-23T12:38:08+08:00">2019-01-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-21 15:08:40" itemprop="dateModified" datetime="2021-04-21T15:08:40+08:00">2021-04-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML%E5%92%8CCSS/" itemprop="url" rel="index"><span itemprop="name">HTML和CSS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>边框属性</strong> 单独给某一个方向设置边框 上：border-top 下：border-bottom 左：border-left 右：border-right 给四个方向统一设置边框：border 他们的格式为border：边框宽度 边框样式 边框颜色 边框样式：<a target="_blank" rel="noopener" href="http://www.w3school.com.cn/tiy/t.asp?f=csse_border-style">http://www.w3school.com.cn/tiy/t.asp?f=csse_border-style</a></p>
+<p> border-top: 2px solid blue;</p>
+<p>  同时给四个方向设置边框 给四个方向设置不同的颜色，依次排序是上、右、下、左</p>
+<p>border-color: red pink yellow aliceblue;</p>
+<p>给上下，左右各设置统一样式</p>
+<p>border-color: red pink;</p>
+<p>border-width   设置宽度，用法同上 border-style  设置样式，用法同上 他们的取值可以是none，就代表没有属性，最大左右是覆盖自己不想要的区域   内边距：padding 内容和边框之间的距离，它的用法和上面一样，padding也有padding-width、padding-style等等，不同的是 1.使用内边距之后，内边距会改变原边框的大小 2.内边框也会有背景颜色   外边距：margin 标签与标签之间的距离，它的用法和上面一样，margin也有margin-width、margin-style等等 外边距合并现象是指外边距在垂直方向时，两个标签同时有垂直方向外边距，那么标签外边距大的会覆盖小的； <a target="_blank" rel="noopener" href="http://www.w3school.com.cn/css/css/_margin/_collapsing.asp">http://www.w3school.com.cn/css/css\_margin\_collapsing.asp</a>   margin注意点： 1.两个盒子是嵌套关系，里面的盒子设置了外边距，那么外面的盒子就会使用里盒子的外边距，而里面盒子的外边距不会改变，参考外边距合并 2.解决上面的方法是给外面的盒子设置边框，例如border: 5px solid #000;，就不会出现这种情况 3.在企业开发中，要控制嵌套关系首先考虑padding，再才考虑margin，margin的主要作用是用来控制兄弟关系之间的距离 margin设置水平居中方法：margin：0 auto；，垂直居中是无法使用margin实现的，它只能通过px像素控制   box-sizing   Css3推出的 box-sizing:border-box;可以将盒子放在一起，让它固定到一个圈子里面，不会出现到处跑的情况   清楚默认边距 事实上，很多标签在浏览器中都有默认边距，那么这样就不理于我们进行css定位，我可以可以通过以下方法清楚所有标签的默认边距 1.利用通配符去遍历每个标签，缺点是性能低</p>
+<p>* {<br>    padding: 0px;<br>    margin: 0px;<br>}</p>
+<p>2.利用下面CSS样式，直接屏蔽指定标签（推荐）</p>
+<p>body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{<br>    margin:0;<br>    padding:0;<br>}</p>
+<p>3.在html引入css样式，参考文档<a target="_blank" rel="noopener" href="https://yuilibrary.com/yui/docs/cssreset/">https://yuilibrary.com/yui/docs/cssreset/</a></p>
+<link rel\="stylesheet" type\="text/css" href\="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css"\>
+
+<p>    行高line-height line-height为一行的行高，下面是设置示例</p>
+<p>line-height: 20px;</p>
+<p>1.在企业开发中，我们要保证一行文字正好在一个文本框中居中，最常见的就是直接将行高和盒子的高度设置成一样 2.如果是两行或者多行的话，我们可以这样设置，通过padding内边距来控制，然后用box-sizing:border-box;把文字固定到一个文本框中 <img src="https://post.332b.com/wp-content/uploads/2019/01/QQ%E6%88%AA%E5%9B%BE20190124152329.png"></p>
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;
+            padding:0;
+        }
+        div {
+            width: 80px;
+            height: 80px;
+            border: 1px solid #000;
+            line-height: 20px;
+            box-sizing:border-box;
+            padding-bottom: 20px;
+            padding-top: 20px;
+        }
+    </style>
+    <title>首页</title>
+</head>
+<body>
+<div>
+    <p>我是文字1</p>
+    <p>我是文字2</p>
+</div>
+
+<p>  文字和字号 1.在企业开发中，盒子储存文字的形式，一般是以左边的内边距为准，因为会有误差，这个误差是由于换行导致的 2.文字的内边距不是文字直接到边框的距离，而是内边距+行高</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/7413711c.html" rel="prev" title="CSS学习：背景和精灵图">
+      <i class="fa fa-chevron-left"></i> CSS学习：背景和精灵图
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/7146a28f.html" rel="next" title="浮动流排版：清楚默认边距和清除浮动的5种方式">
+      浮动流排版：清楚默认边距和清除浮动的5种方式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Witt</p>
+  <div class="site-description" itemprop="description">回到原始的初心，记录自己的生活的点点滴滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">149</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Witt</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

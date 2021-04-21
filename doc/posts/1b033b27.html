@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"332b.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="一、修改&#x2F;etc&#x2F;mysql&#x2F;my.conf 找到bind-address &#x3D; 127.0.0.1这一行 改为bind-address &#x3D; 0.0.0.0即可 二、为需要远程登录的用户赋予权限 1、新建用户远程连接mysql数据库 grant all on *.* to admin@’%’ identified by ‘123456’ with grant option; flush privil">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql 的基本操作">
+<meta property="og:url" content="http://332b.com/posts/1b033b27.html">
+<meta property="og:site_name" content="笔三三博客">
+<meta property="og:description" content="一、修改&#x2F;etc&#x2F;mysql&#x2F;my.conf 找到bind-address &#x3D; 127.0.0.1这一行 改为bind-address &#x3D; 0.0.0.0即可 二、为需要远程登录的用户赋予权限 1、新建用户远程连接mysql数据库 grant all on *.* to admin@’%’ identified by ‘123456’ with grant option; flush privil">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://post.332b.com/wp-content/uploads/2019/01/QQ%E6%88%AA%E5%9B%BE20190123172412.png">
+<meta property="article:published_time" content="2019-01-16T09:29:08.000Z">
+<meta property="article:modified_time" content="2021-04-21T07:08:40.286Z">
+<meta property="article:author" content="Witt">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://post.332b.com/wp-content/uploads/2019/01/QQ%E6%88%AA%E5%9B%BE20190123172412.png">
+
+<link rel="canonical" href="http://332b.com/posts/1b033b27.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Mysql 的基本操作 | 笔三三博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">笔三三博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://332b.com/posts/1b033b27.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Witt">
+      <meta itemprop="description" content="回到原始的初心，记录自己的生活的点点滴滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笔三三博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mysql 的基本操作
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-16 17:29:08" itemprop="dateCreated datePublished" datetime="2019-01-16T17:29:08+08:00">2019-01-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-21 15:08:40" itemprop="dateModified" datetime="2021-04-21T15:08:40+08:00">2021-04-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e6-95-b0-e6-8d-ae-e5-ba-93/" itemprop="url" rel="index"><span itemprop="name">%e6%95%b0%e6%8d%ae%e5%ba%93</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e6-95-b0-e6-8d-ae-e5-ba-93/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>一、修改/etc/mysql/my.conf</strong> 找到bind-address = 127.0.0.1这一行 改为bind-address = 0.0.0.0即可 <strong>二、为需要远程登录的用户赋予权限</strong> 1、新建用户远程连接mysql数据库 grant all on *.* to admin@’%’ identified by ‘123456’ with grant option; flush privileges; 允许任何ip地址(%表示允许任何ip地址)的电脑用admin帐户和密码(123456)来访问这个mysql server。 注意admin账户不一定要存在。 2、支持root用户允许远程连接mysql数据库 grant all privileges on *.* to ‘root’@’%’ identified by ‘123456’ with grant option; flush privileges; 修改数据库密码     mysqladmin -u root -p password 123456 mysql 5.6之前版本： update user set password=password(‘abc’) where User=’root’; mysql 5.7版本： update mysql.user set authentication_string=password(‘123456’) where user=’root’ and host=’%’;; mysql 8.0版本：ALTER user ‘root’@’localhost’ IDENTIFIED BY ‘123456’ 显示所有数据库 show databases 创建数据库 创建一个my_test数据库，并将它的数据库编码设置为utf8编码 create database my_test character set utf8; ##character [ˈkærəktɚ]  特征，特点； 选择和进入一个数据库   use my_test; 删除指定数据库   drop database user; 数据库一旦创建，名称是无法修改的，在mysql数据库中，字符串类型和日期类型的数据，必须要使用单双引号</p>
+<h2 id="数据定义语言DDL"><a href="#数据定义语言DDL" class="headerlink" title="数据定义语言DDL"></a>数据定义语言DDL</h2><p><strong>查询</strong> 显示所有表 show tables 查看表字段   desc user ##desc在SQL语言中，代表降序 查看表详细结构，包含创建命令，表编码，表类型 show create table uers; <strong>新增</strong> 新建表 新建一个名称叫user的表，它包含三个字段id设置为整数，username设置为最长10位字符串，password最长为16位 create table user(id int,username varchar(10),password varchar(16)); 新增表字段 在一个表中新增一个mail字段，最大长度为30位 alter table user add mail varchar(30); ##alter [‘ɔltɚ]    变更，改变； <strong>修改</strong> 修改表字段数据类型 修改user表id字段的类型为bigint alter table user modify id bigint; #modify  [ˈmɑdɪfaɪ]    修改，修饰； 修改表的称 将表user改名为users rename table user to users; 修补表编码 修改users表的编码为utf8 alter table users character set utf8; 修改表的字段名（列名） 修改user表下的mail字段，新命名为mails数据类型varchar，限制成30位 alter table users change mail mails varchar(30); <strong>删除</strong> 删除表 drop table users; 删除表字段 删除一列的邮箱字段 alter table user drop mail; ##drop [drɑp] 下降，终止；</p>
+<h2 id="数据操作语言DML"><a href="#数据操作语言DML" class="headerlink" title="数据操作语言DML"></a>数据操作语言DML</h2><p><strong>查询</strong> 查询表数据 查看users表所有数据 select * from users 查询指定列(字段)所有数据 select username,mails from users <strong>新增</strong> 新增(插入)表数据 在users新增一个id为2，名称为admin，密码为123456，邮箱为<a href="mailto:&#49;&#50;&#51;&#64;&#x71;&#113;&#46;&#x63;&#111;&#x6d;">&#49;&#50;&#51;&#64;&#x71;&#113;&#46;&#x63;&#111;&#x6d;</a>的数据，命令全部用空格隔开 insert into users (id,username,password,mails) values (2,’admin’,’123456’,‘123@qq.com’); 新增(插入)表多个数据 插入多个数据时，将多个数据用逗号‘ , ’隔开 insert into users (id,username,password,mails) values (1,’user’,’123456’,‘user@qq.com’),(2,’admin’,’123456’,‘123@qq.com’); <strong>修改</strong> 更改表数据 更新users表id为2的所有数据，将username更为‘admin’，如果没有where指定条件，则会更新这个表的全部数据的username update users set username=’admin’ where id=2; 表数据运算 更新users表username=‘admin’的所有数据，将id加1，除了加法，还可以加减乘除，但必须是数字；如果没有where指定条件，则会更新这个表的全部数据的id update users set id=id+1 where username=’admin’; <strong>删除</strong> 删除表中的所有的所有数据 delete from users; 删除表中的指定数据 删除users表中的id为1的数据 delete from users where id=1 清空表结构，并重新创建同样的表覆盖原表 它跟delete的区别是，delete支持数据找回，truncate不支持数据找回，并且truncate比delete执行速度快 truncate table users;</p>
+<h2 id="数据查询语言DQL"><a href="#数据查询语言DQL" class="headerlink" title="数据查询语言DQL"></a>数据查询语言DQL</h2><p><strong>条件查询</strong> where后面可以跟的查询条件</p>
+<ol>
+<li> =（等于），!=（不等于，&lt;&gt;（不等于），&lt;（大于），&gt;（小于），&lt;=（大于或等于），&gt;=（小于或等于）；</li>
+<li> between ……and :值在什么范围</li>
+<li> in(1,2)    是否在这个范围里面</li>
+<li> is null（为空）和is not null（不为空）</li>
+<li> and: 与</li>
+<li> or：或者</li>
+<li> not；非</li>
+</ol>
+<p>根据上面的查询条件，给一些示例</p>
+<ol>
+<li> 查询id大于3  select * from users where id&gt;3;</li>
+<li> 查询id的值在1和5之间的   select * from users where id between 1 and 5;</li>
+<li> 查询id的值等于1、2和3    select * from users where id in(1,2,3);</li>
+<li> 查询id不为空的   select * from users where id is not null;</li>
+<li> 查询id等于1和username等于a123的     select * from users where id=1 and username=’a123’</li>
+<li> 查询id等于1或者username等于a123的   select * from users where id=1 or usernmae=’a123’</li>
+<li> 查询所有id不是1的    select * from users where not id=1;</li>
+</ol>
+<p><strong>模糊查询</strong> 模糊查询关键字like，%代表任意几个字符，_代表任意一个字符 查询users表username中以a字符开头和a字符结尾的任意字符 SELECT * FROM users WHERE username LIKE ‘a%’ 查询users表username中以a字符开头和a字符结尾的任意4位组成的字符 SELECT * FROM users WHERE username LIKE ‘a__a’ <strong>去重查询</strong> 查询users表中的username字段并且去除重复字段 SELECT DISTINCT username from users; distinct   [dɪˈstɪŋkt]   明显的，清楚的; <strong>查询结果运算</strong> 对查询字段直接进行相加，要输数据都是数字 提取users所有的字段，生成一个新字段，新字段的值为id+3 SELECT *,id+3 as newid from users; 判断如果id大于3就返回1，如果不大于3或者null就返回0 SELECT *,IF(id&gt;3,1,0) as newid from users; IFNULL(expr1,expr2)   expr1为判断对象，如果为null，那么它的值就为expr2 <strong>查询排序</strong> 倒序排序从大到小，默认是ASC从小到大 查询users里面的表，按照id从大到小排序 SELECT * from users ORDER BY id DESC; 指定二级排序 查询users里面的表，按照id从大到小排序，两个id一样时，那两个一样的id就按照number进行从大到小的排序 SELECT * from users ORDER BY id DESC,number DESC; <strong>聚合函数</strong> count 统计 统计表数据总数 统计users表中总共有多少条数据 SELECT COUNT(*) FROM users; 统计字段数据总数 统计在表中有id的数据总共有多少条，如果id为none就不会统计改值 SELECT COUNT(id) FROM users; 它后面还可以更上条件查询where，例如我们想查询id大于3数据的总数 SELECT COUNT(id) FROM users WHERE id&gt;3; AVG 统计平均值，SUM统计总和 统计id值大于3的总和and平均数 SELECT AVG(id),SUM(id) FROM users WHERE id&gt;3; MAX 最大数，MIN最小数 统计id值大于3的最大值and最小值 SELECT MAX(id),MIN(id) FROM users WHERE id&gt;3; GROUP BY分组查询</p>
+<ol>
+<li> GROUP BY  分组统计id字段</li>
+<li> GROUP_CONCAT(score)  统计按照id来进行分组，score字段的所有数据</li>
+<li> MIN(score)      统计每组score中最小值</li>
+<li> MAX(score)     统计每组score中最大值</li>
+</ol>
+<p>SELECT id,GROUP_CONCAT(score),MIN(score),MAX(score) FROM users GROUP BY id; <img src="https://post.332b.com/wp-content/uploads/2019/01/QQ%E6%88%AA%E5%9B%BE20190123172412.png"> Hvaing二次条件查找 除了WHERE可以进行条件查找，HAVING可以根据WHERE查找出来的数据，进行二次查找 SELECT id FROM users WHERE id&gt;2 HAVING s&gt;50; WHERE和HAVING的区别 1.HAVING可以使用聚合函数，而WHERE不能使用聚合函数 2.HAVING可以放在GROUP BY后面，配合它进行结合使用，而WHERE必须放在GROUP BY的前面 SQL查询语句书写循序： select &gt; from &gt; where &gt; GROUP BY &gt; having &gt; order by &gt; limit 选择字段  》 来自哪个表 》查询条件 》分组查询 》二次条件查询 》排序</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/23600133.html" rel="prev" title="VIM操作文档">
+      <i class="fa fa-chevron-left"></i> VIM操作文档
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/3fbe4306.html" rel="next" title="CSS学习：CSS三大特性">
+      CSS学习：CSS三大特性 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80DDL"><span class="nav-number">1.</span> <span class="nav-text">数据定义语言DDL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C%E8%AF%AD%E8%A8%80DML"><span class="nav-number">2.</span> <span class="nav-text">数据操作语言DML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80DQL"><span class="nav-number">3.</span> <span class="nav-text">数据查询语言DQL</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Witt</p>
+  <div class="site-description" itemprop="description">回到原始的初心，记录自己的生活的点点滴滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">149</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Witt</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

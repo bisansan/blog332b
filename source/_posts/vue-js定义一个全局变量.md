@@ -4,6 +4,7 @@ tags: []
 id: '672'
 categories:
   - - Vue.js
+abbrlink: ad5fc467
 date: 2019-06-14 16:05:24
 ---
 

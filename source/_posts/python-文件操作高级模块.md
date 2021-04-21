@@ -4,6 +4,7 @@ tags: []
 id: '842'
 categories:
   - - uncategorized
+abbrlink: c5346ab1
 ---
 
 警告：即使是更高级别的文件复制功能（[`shutil.copy()`](https://docs.python.org/zh-cn/3.7/library/shutil.html#shutil.copy)， [`shutil.copy2()`](https://docs.python.org/zh-cn/3.7/library/shutil.html#shutil.copy2)）也无法复制所有文件元数据。

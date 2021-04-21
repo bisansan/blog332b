@@ -5,6 +5,7 @@ id: '717'
 categories:
   - - django
     - Django Rest Framework
+abbrlink: 23df9497
 date: 2019-08-11 18:44:13
 ---
 

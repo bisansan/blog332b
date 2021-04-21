@@ -4,6 +4,7 @@ tags: []
 id: '24'
 categories:
   - - Python
+abbrlink: b5fc856c
 date: 2018-05-11 15:47:59
 ---
 

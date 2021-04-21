@@ -6,6 +6,7 @@ categories:
   - - '%e7%94%b5%e8%84%91%e7%b3%bb%e7%bb%9f'
     - ubuntu
   - - 技术分享
+abbrlink: 22d4e5c9
 date: 2018-03-31 09:54:00
 ---
 
