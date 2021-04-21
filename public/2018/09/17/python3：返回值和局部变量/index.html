@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"332b.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="def name1(a,b):    if a &gt; b :        a &#x2F; b        return True    else:        a * b        return False print(a,b)    print(“abc”)print(name1(32,8)) return可以返回任何值，他可以是一个变量、字符串或者列表等等，当需要返回多个值时，它默认是以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python3：返回值、局部变量、作用域、匿名函数">
+<meta property="og:url" content="http://332b.com/2018/09/17/python3%EF%BC%9A%E8%BF%94%E5%9B%9E%E5%80%BC%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F/index.html">
+<meta property="og:site_name" content="笔三三博客">
+<meta property="og:description" content="def name1(a,b):    if a &gt; b :        a &#x2F; b        return True    else:        a * b        return False print(a,b)    print(“abc”)print(name1(32,8)) return可以返回任何值，他可以是一个变量、字符串或者列表等等，当需要返回多个值时，它默认是以">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-09-17T08:32:27.000Z">
+<meta property="article:modified_time" content="2021-04-19T08:06:53.666Z">
+<meta property="article:author" content="Witt">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://332b.com/2018/09/17/python3%EF%BC%9A%E8%BF%94%E5%9B%9E%E5%80%BC%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Python3：返回值、局部变量、作用域、匿名函数 | 笔三三博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">笔三三博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://332b.com/2018/09/17/python3%EF%BC%9A%E8%BF%94%E5%9B%9E%E5%80%BC%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Witt">
+      <meta itemprop="description" content="回到原始的初心，记录自己的生活的点点滴滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笔三三博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python3：返回值、局部变量、作用域、匿名函数
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-17 16:32:27" itemprop="dateCreated datePublished" datetime="2018-09-17T16:32:27+08:00">2018-09-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-19 16:06:53" itemprop="dateModified" datetime="2021-04-19T16:06:53+08:00">2021-04-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>def name1(a,b):<br>    if a &gt; b :<br>        a / b<br>        return True<br>    else:<br>        a * b<br>        return False<br> print(a,b)<br>    print(“abc”)<br>print(name1(32,8))</p>
+<p>return可以返回任何值，他可以是一个变量、字符串或者列表等等，当需要返回多个值时，它默认是以元祖的的形式返回，当return没有返回值时，它默认会返回一个None,一个函数只要执行了一次return就代表当前函数终止，不会再执行当前函数的其他命令，例如print(a,b)和print(“abc”) 都不会再执行了。</p>
+<p>x1 = ‘你好，孩子！’<br>x2 = [1,2,3,4,5,6]<br>def name1():<br>    global x1<br>    print(x1)<br>    x1 = “你好，世界!”<br>    print(x1)<br>    del x2[2]<br>    print(x2)<br>name1()<br>print(x1,x2)</p>
+<p>局部变量是指函数里面的变量，在函数里查找变量是由内向外查找，有局部变量就优先使用，没有就向外查找全局变量，在函数里面无法修改全局变量，但如果全局变量是一个列表，那么在函数里，无法修改全部变量的整个列表，但可以修改列表里面的每一个元素。global x1的用法是将全局变量引入到函数来变为可修改。</p>
+<p>n1 = 18<br>def a1():<br>    n1 = 19<br>    print(‘good’)<br>    def a2():<br>        print(n1)<br>    return a2<br>print(a1())<br>a3 = a1()<br>print(a3())<br>print(n1)</p>
+<p>作用域是指代码已经生成作用域已经生成，作用域链向上查找，返回值可以是函数例如return a2，函数也是一个作用域，函数里面镶入一个函数饺子镶套函数，无论是函数里面镶入多少个函数，它的执行永远都是由里到外，查找变量也是由里到外；</p>
+<p>s = lambda x,y:x*3 if x&gt;y else x/y<br>print(s(6,3))<br>k = (list(range(1,10)))<br>def n(x):<br>    return x ** 3<br>print(list(map(n,k)))<br>print(list(map(lambda x:x**3,k))<br>print(abs(-100))</p>
+<p>匿名函数lambda支持简单明了的语句，最大能支持三元运算，它最大的作用是配合其他的语法进行使用，map()函数的基本用法是一个函数接一个列表，它会用函数来遍历列表的每一个元素，abs代表求绝对值，无论正负都会转换成正数</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/09/13/python3%EF%BC%9A%E5%86%99%E4%BB%A3%E7%A0%81%E7%A8%8B%E5%BA%8F%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/" rel="prev" title="Python3：基础函数参数的理解">
+      <i class="fa fa-chevron-left"></i> Python3：基础函数参数的理解
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/09/21/python3%EF%BC%9A%E5%87%BD%E6%95%B0%E9%80%92%E5%BD%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%90%86%E8%A7%A3/" rel="next" title="Python3：函数递归的基本理解">
+      Python3：函数递归的基本理解 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Witt</p>
+  <div class="site-description" itemprop="description">回到原始的初心，记录自己的生活的点点滴滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">149</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Witt</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

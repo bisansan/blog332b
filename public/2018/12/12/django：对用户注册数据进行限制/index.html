@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"332b.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="下面代码实现一个简单的验证，主要作用 1.对输入的手机号检查是否是唯一的手机号 2.对输入的两次密码进行验证 forms.py  表单 from django import formsfrom django.core import validatorsfrom .models import Userclass Index(forms.Form):    user &#x3D; forms.CharField">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django：对用户注册数据进行限制">
+<meta property="og:url" content="http://332b.com/2018/12/12/django%EF%BC%9A%E5%AF%B9%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E9%99%90%E5%88%B6/index.html">
+<meta property="og:site_name" content="笔三三博客">
+<meta property="og:description" content="下面代码实现一个简单的验证，主要作用 1.对输入的手机号检查是否是唯一的手机号 2.对输入的两次密码进行验证 forms.py  表单 from django import formsfrom django.core import validatorsfrom .models import Userclass Index(forms.Form):    user &#x3D; forms.CharField">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-12-12T06:46:21.000Z">
+<meta property="article:modified_time" content="2021-04-19T08:06:53.827Z">
+<meta property="article:author" content="Witt">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://332b.com/2018/12/12/django%EF%BC%9A%E5%AF%B9%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E9%99%90%E5%88%B6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Django：对用户注册数据进行限制 | 笔三三博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">笔三三博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://332b.com/2018/12/12/django%EF%BC%9A%E5%AF%B9%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E9%99%90%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Witt">
+      <meta itemprop="description" content="回到原始的初心，记录自己的生活的点点滴滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笔三三博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Django：对用户注册数据进行限制
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-12 14:46:21" itemprop="dateCreated datePublished" datetime="2018-12-12T14:46:21+08:00">2018-12-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-19 16:06:53" itemprop="dateModified" datetime="2021-04-19T16:06:53+08:00">2021-04-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>下面代码实现一个简单的验证，主要作用 1.对输入的手机号检查是否是唯一的手机号 2.对输入的两次密码进行验证 forms.py  表单</p>
+<p>from django import forms<br>from django.core import validators<br>from .models import User<br>class Index(forms.Form):<br>    user = forms.CharField(max_length=10)<br>    tel = forms.CharField(validators=[validators.RegexValidator(r’1[3456789]\d{9}’,message=’手机号码格式错误’)])<br>    pwd1 = forms.CharField(max_length=16,min_length=6)<br>    pwd2 = forms.CharField(max_length=16, min_length=6)</p>
+<pre><code>def clean\_tel(self):
+    tel = self.cleaned\_data.get(&#39;tel&#39;)  ###可以对tel字段进行二次验证,优先执行本段，然后去执行视图函数中的字段
+    exists = User.objects.filter(tel=tel).exists()   ###查找是否有相同字段
+    if exists:
+        raise forms.ValidationError(message=&#39;tel验证失败，因为已经存在了&#39;) ###抛出异常，停止执行
+    return tel
+
+def clean(self):
+    cleaned\_data = super().clean()
+    pwd1 = cleaned\_data.get(&#39;pwd1&#39;)
+    pwd2 = cleaned\_data.get(&#39;pwd2&#39;)
+    if pwd1 != pwd2:
+        raise forms.ValidationError(message=&#39;两次密码不一样&#39;)
+    else:
+        return cleaned\_data
+</code></pre>
+<p>views.py文件</p>
+<p>from django.views.generic import View<br>from django.shortcuts import render<br>from .models import User<br>from .froms import Index<br>from django.http import HttpResponse<br>class Index1(View):<br>    def get(self,request):<br>        return render(request,’io.html’)<br>    def post(self,request):<br>        form = Index(request.POST)<br>        if form.is_valid():<br>            print(‘good2’)<br>            user1 = form.cleaned_data.get(‘user’)  ###提取已经验证过的数据<br>            tel1 = form.cleaned_data.get(‘tel’)<br>            User.objects.create(user=user1,tel=tel1)<br>            return HttpResponse(‘执行成功’)<br>        else:<br>            print(form.errors.get_json_data())<br>            return HttpResponse(‘执行失败’)</p>
+<p>models.py</p>
+<p>from django.db import models</p>
+<p>class User(models.Model):<br>    user = models.CharField(max_length=10)<br>    tel = models.CharField(max_length=11)</p>
+<p>index.html模板</p>
+<form action="" method="post">
+    <table>
+        <tr>
+            <td>用户名:</td>
+            <td><input type="text" name="user"></td>
+        </tr>
+        <tr>
+            <td>手机号：</td>
+            <td><input type="text" name="tel"></td>
+        </tr>
+        <tr>
+            <td>密码1：</td>
+            <td><input type="password" name="pwd1"></td>
+        </tr>
+        <tr>
+            <td>密码2：</td>
+            <td><input type="password" name="pwd2"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="提交"></td>
+        </tr>
+    </table>
+</form>
+
+<p>用户名和密码 froms.py</p>
+<p>from django import forms<br>from django.core import validators<br>from .models import Book,User</p>
+<p>class AddBookForm(forms.ModelForm):<br>    class Meta:<br>        model = Book<br>        fields = ‘__all__‘<br>        #fields = [‘title’,’page’]<br>        #exclude = [‘price’]<br>        error_messages = {<br>            ‘page’:{<br>                ‘required’:’请传入page参数’,<br>                ‘invalid’:’请输入一个可用的page参数’<br>            },<br>            ‘title’:{<br>                ‘max_length’:’title不能超过100字符’<br>            },<br>            ‘price’:{<br>                ‘max_value’:’最大不能超过100元’<br>            }</p>
+<pre><code>    &#125;
+</code></pre>
+<p>class Reg(forms.ModelForm):<br>    pw1 = forms.CharField(max_length=16,min_length=6)<br>    pw2 = forms.CharField(max_length=16,min_length=6)<br>    def clean(self):<br>        cleaned_data = super().clean()    ###调用自身重写clean<br>        pw1 = cleaned_data.get(‘pw1’)<br>        pw2 = cleaned_data.get(‘pw2’)<br>        if pw1 != pw2:<br>            raise forms.ValidationError(message=’密码两次输入不一致哦’)<br>        return cleaned_data<br>    class Meta:<br>        model = User<br>        exclude = [‘password’]</p>
+<p>models.py</p>
+<p>from django.db import models<br>from django.core import validators<br>class Book(models.Model):<br>    title = models.CharField(max_length=100)<br>    page = models.IntegerField()<br>    price = models.FloatField(validators=[validators.MaxValueValidator(limit_value=100)])</p>
+<p>class User(models.Model):<br>    username = models.CharField(max_length=100)<br>    password = models.CharField(max_length=16)<br>    telephone = models.CharField(max_length=11)</p>
+<h1 id="Create-your-models-here"><a href="#Create-your-models-here" class="headerlink" title="Create your models here."></a>Create your models here.</h1><p>views.py</p>
+<p>from django.shortcuts import render<br>from django.views.generic import View<br>from django.shortcuts import render<br>from .models import User<br>#from .froms import Index<br>#from .froms import AddBookForm<br>from django.views.decorators.http import require_POST<br>from .forms import AddBookForm,Reg<br>from django.http import HttpResponse<br>from django import forms<br>def index(request):<br>    return HttpResponse(‘执行首页’)<br>def add_book(request):<br>    form = AddBookForm(request.POST)<br>    if form.is_valid():<br>        # title = form.cleaned_data.get(‘title’)<br>        # page = form.cleaned_data.get(‘page’)<br>        # price = form.cleaned_data.get(‘price’)<br>        # print(‘title:%s’% title)<br>        # print(‘page:%s’ % page)<br>        # print(‘price:%s’% price)<br>        form.save()<br>        return HttpResponse(‘执行成功’)<br>    else:<br>        print(form.errors.get_json_data())<br>        return HttpResponse(‘执行失败’)</p>
+<p>@require_POST<br>def reg(request):<br>    form = Reg(request.POST)<br>    if form.is_valid():<br>        user = form.save(commit=False)<br>        user.password = form.cleaned_data.get(‘pw1’)<br>        user.save()<br>        return HttpResponse(‘注册成功’)<br>    else:<br>        print(form.errors.get_json_data())<br>        return HttpResponse(‘注册失败’)</p>
+<p>  3       3</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/12/11/django%EF%BC%9A%E8%A1%A8%E5%8D%95%E5%8F%8A%E5%BA%94%E7%94%A8/" rel="prev" title="Django：表单及应用">
+      <i class="fa fa-chevron-left"></i> Django：表单及应用
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/12/14/django%EF%BC%9Amemcached%E7%BC%93%E5%AD%98%E7%B3%BB%E7%BB%9F/" rel="next" title="Django：Memcached缓存系统">
+      Django：Memcached缓存系统 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-your-models-here"><span class="nav-number">1.</span> <span class="nav-text">Create your models here.</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Witt</p>
+  <div class="site-description" itemprop="description">回到原始的初心，记录自己的生活的点点滴滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">149</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Witt</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

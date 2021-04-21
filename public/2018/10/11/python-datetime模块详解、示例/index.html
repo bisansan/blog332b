@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"332b.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="一、datetime模块介绍（一）、datetime模块中包含如下类：类名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python datetime模块详解、示例">
+<meta property="og:url" content="http://332b.com/2018/10/11/python-datetime%E6%A8%A1%E5%9D%97%E8%AF%A6%E8%A7%A3%E3%80%81%E7%A4%BA%E4%BE%8B/index.html">
+<meta property="og:site_name" content="笔三三博客">
+<meta property="og:description" content="一、datetime模块介绍（一）、datetime模块中包含如下类：类名">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-10-11T06:21:29.000Z">
+<meta property="article:modified_time" content="2021-04-19T08:06:53.678Z">
+<meta property="article:author" content="Witt">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://332b.com/2018/10/11/python-datetime%E6%A8%A1%E5%9D%97%E8%AF%A6%E8%A7%A3%E3%80%81%E7%A4%BA%E4%BE%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Python datetime模块详解、示例 | 笔三三博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">笔三三博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://332b.com/2018/10/11/python-datetime%E6%A8%A1%E5%9D%97%E8%AF%A6%E8%A7%A3%E3%80%81%E7%A4%BA%E4%BE%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Witt">
+      <meta itemprop="description" content="回到原始的初心，记录自己的生活的点点滴滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笔三三博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python datetime模块详解、示例
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-11 14:21:29" itemprop="dateCreated datePublished" datetime="2018-10-11T14:21:29+08:00">2018-10-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-19 16:06:53" itemprop="dateModified" datetime="2021-04-19T16:06:53+08:00">2021-04-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="一、datetime模块介绍"><a href="#一、datetime模块介绍" class="headerlink" title="一、datetime模块介绍"></a><strong>一、datetime模块介绍</strong></h3><h4 id="（一）、datetime模块中包含如下类："><a href="#（一）、datetime模块中包含如下类：" class="headerlink" title="（一）、datetime模块中包含如下类："></a><strong>（一）、datetime模块中包含如下类：</strong></h4><p>类名</p>
+<p>功能说明</p>
+<p>date</p>
+<p>日期对象,常用的属性有year, month, day</p>
+<p>time</p>
+<p>时间对象</p>
+<p>datetime</p>
+<p>日期时间对象,常用的属性有hour, minute, second, microsecond</p>
+<p>datetime_CAPI</p>
+<p>日期时间对象C语言接口</p>
+<p>timedelta</p>
+<p>时间间隔，即两个时间点之间的长度</p>
+<p>tzinfo</p>
+<p>时区信息对象</p>
+<h4 id="（二）、datetime模块中包含的常量"><a href="#（二）、datetime模块中包含的常量" class="headerlink" title="（二）、datetime模块中包含的常量"></a><strong>（二）、datetime模块中包含的常量</strong></h4><p>常量</p>
+<p>功能说明</p>
+<p>用法</p>
+<p>返回值</p>
+<p>MAXYEAR</p>
+<p>返回能表示的最大年份</p>
+<p>datetime.MAXYEAR</p>
+<p>9999</p>
+<p>MINYEAR</p>
+<p>返回能表示的最小年份</p>
+<p>datetime.MINYEAR</p>
+<p>1</p>
+<h3 id="二、date类"><a href="#二、date类" class="headerlink" title="二、date类"></a><strong>二、date类</strong></h3><h4 id="（一）、date对象构成"><a href="#（一）、date对象构成" class="headerlink" title="（一）、date对象构成"></a><strong>（一）、date对象构成</strong></h4><p><strong>1、date对象由<code>year</code>年份、<code>month</code>月份及<code>day</code>日期三部分构成：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date（year，month，day)</span><br></pre></td></tr></table></figure>
+
+<p><strong>2、 通过<code>year</code>, <code>month</code>, <code>day</code>三个数据描述符可以进行访问：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.date.today()</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">datetime.date(2017, 3, 22)</span><br><span class="line">&gt;&gt;&gt; a.year</span><br><span class="line">2017</span><br><span class="line">&gt;&gt;&gt; a.month</span><br><span class="line">3</span><br><span class="line">&gt;&gt;&gt; a.day</span><br><span class="line">22 </span><br></pre></td></tr></table></figure>
+
+<p><strong>3、当然，你也可以用<code>__getattribute__(...)</code>方法获得上述值：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a.__getattribute__(&#39;year&#39;)</span><br><span class="line">2017</span><br><span class="line">&gt;&gt;&gt; a.__getattribute__(&#39;month&#39;)</span><br><span class="line">3</span><br><span class="line">&gt;&gt;&gt; a.__getattribute__(&#39;day&#39;)</span><br><span class="line">22</span><br></pre></td></tr></table></figure>
+
+<h4 id="（二）、date对象中包含的方法与属性"><a href="#（二）、date对象中包含的方法与属性" class="headerlink" title="（二）、date对象中包含的方法与属性"></a><strong>（二）、date对象中包含的方法与属性</strong></h4><h5 id="1、用于日期比较大小的方法"><a href="#1、用于日期比较大小的方法" class="headerlink" title="1、用于日期比较大小的方法"></a><strong>1、用于日期比较大小的方法</strong></h5><p>方法名</p>
+<p>方法说明</p>
+<p>用法</p>
+<p>__eq__(…)</p>
+<p>等于(x==y)</p>
+<p>x.__eq__(y)</p>
+<p>__ge__(…)</p>
+<p>大于等于(x&gt;=y)</p>
+<p>x.__ge__(y)</p>
+<p>__gt__(…)</p>
+<p>大于(x&gt;y)</p>
+<p>x.__gt__(y)</p>
+<p>__le__(…)</p>
+<p>小于等于(x&lt;=y)</p>
+<p>x.__le__(y)</p>
+<p>__lt__(…)</p>
+<p>小于(x</p>
+<p>x.__lt__(y)</p>
+<p>__ne__(…)</p>
+<p>不等于(x!=y)</p>
+<p>x.__ne__(y)</p>
+<p>以上方法的返回值为True\False <strong>示例如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;datetime.date(2017,3,1)</span><br><span class="line">&gt;&gt;&gt; b&#x3D;datetime.date(2017,3,15)</span><br><span class="line">&gt;&gt;&gt; a.__eq__(b)</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; a.__ge__(b)</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; a.__gt__(b)</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; a.__le__(b)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; a.__lt__(b)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; a.__ne__(b)</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、获得二个日期相差多少天"><a href="#2、获得二个日期相差多少天" class="headerlink" title="2、获得二个日期相差多少天"></a><strong>2、获得二个日期相差多少天</strong></h5><p>使用**<code>__sub__(...)</code><strong>和</strong><code>__rsub__(...)</code>**方法，其实二个方法差不太多，一个是正向操作，一个是反向操作：</p>
+<p>方法名</p>
+<p>方法说明</p>
+<p>用法</p>
+<p>__sub__(…)</p>
+<p>x - y</p>
+<p>x.__sub__(y)</p>
+<p>__rsub__(…)</p>
+<p>y - x</p>
+<p>x.__rsub__(y)</p>
+<p><strong>示例如下:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a</span><br><span class="line">datetime.date(2017, 3, 22)</span><br><span class="line">&gt;&gt;&gt; b</span><br><span class="line">datetime.date(2017, 3, 15)</span><br><span class="line">&gt;&gt;&gt; a.__sub__(b)</span><br><span class="line">datetime.timedelta(7)</span><br><span class="line">&gt;&gt;&gt; a.__rsub__(b)</span><br><span class="line">datetime.timedelta(-7)</span><br></pre></td></tr></table></figure>
+
+<p>计算结果的返回值类型为<code>datetime.timedelta</code>, 如果获得整数类型的结果则按下面的方法操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a.__sub__(b).days</span><br><span class="line">7</span><br><span class="line">&gt;&gt;&gt; a.__rsub__(b).days</span><br><span class="line">-7</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、ISO标准化日期"><a href="#3、ISO标准化日期" class="headerlink" title="3、ISO标准化日期"></a><strong>3、ISO标准化日期</strong></h5><p>如果想要让所使用的日期符合ISO标准，那么使用如下三个方法: 1).<em>* <code>isocalendar(...)</code>*</em>:返回一个包含三个值的元组，三个值依次为：<code>year</code>年份，<code>week number</code>周数，<code>weekday</code>星期数（周一为1…周日为7)： <strong>示例如下</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.date(2017,3,22)</span><br><span class="line">&gt;&gt;&gt; a.isocalendar()</span><br><span class="line">(2017, 12, 3)</span><br><span class="line">&gt;&gt;&gt; a.isocalendar()[0]</span><br><span class="line">2017</span><br><span class="line">&gt;&gt;&gt; a.isocalendar()[1]</span><br><span class="line">12</span><br><span class="line">&gt;&gt;&gt; a.isocalendar()[2]</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<p>2). <strong><code>isoformat(...)</code></strong>: 返回符合ISO 8601标准 (<code>YYYY-MM-DD</code>) 的日期字符串； <strong>示例如下</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.date(2017,3,22)</span><br><span class="line">&gt;&gt;&gt; a.isoformat()</span><br><span class="line">&#39;2017-03-22&#39;</span><br></pre></td></tr></table></figure>
+
+<p>3). <strong><code>isoweekday(...)</code></strong>: 返回符合ISO标准的指定日期所在的星期数（周一为1…周日为7) <strong>示例如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.date(2017,3,22)</span><br><span class="line">&gt;&gt;&gt; a.isoweekday()</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<p>4).与**<code>isoweekday(...)</code><strong>相似的还有一个</strong><code>weekday(...)</code>**方法，只不过是<code>weekday(...)</code>方法返回的周一为 0, 周日为 6 <strong>示例如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.date(2017,3,22)</span><br><span class="line">&gt;&gt;&gt; a.weekday()</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h5 id="4、其他方法与属性"><a href="#4、其他方法与属性" class="headerlink" title="4、其他方法与属性"></a><strong>4、其他方法与属性</strong></h5><p>1). <strong><code>timetuple(...)</code></strong>:该方法为了兼容<code>time.localtime(...)</code>返回一个类型为<code>time.struct_time</code>的数组，但有关时间的部分元素值为0：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.date(2017,3,22)</span><br><span class="line">&gt;&gt;&gt; a.timetuple()</span><br><span class="line">time.struct_time(tm_year&#x3D;2017, tm_mon&#x3D;3, tm_mday&#x3D;22, tm_hour&#x3D;0, tm_min&#x3D;0, tm_sec&#x3D;0, tm_wday&#x3D;2, tm_yday&#x3D;81, tm_isdst&#x3D;-1)</span><br><span class="line">&gt;&gt;&gt; a.timetuple().tm_year</span><br><span class="line">2017</span><br><span class="line">&gt;&gt;&gt; a.timetuple().tm_mon</span><br><span class="line">3</span><br><span class="line">&gt;&gt;&gt; a.timetuple().tm_mday</span><br><span class="line">22</span><br></pre></td></tr></table></figure>
+
+<p>2).**<code>toordinal(...)</code>**： 返回公元公历开始到现在的天数。公元1年1月1日为1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.date(2017,3,22)</span><br><span class="line">&gt;&gt;&gt; a.toordinal()</span><br><span class="line">736410</span><br></pre></td></tr></table></figure>
+
+<p>3). **<code>replace(...)</code>**：返回一个替换指定日期字段的新date对象。参数3个可选参数，分别为year,month,day。注意替换是产生新对象，不影响原date对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.date(2017,3,22)</span><br><span class="line">&gt;&gt;&gt; b &#x3D; a.replace(2017,2,28)</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">datetime.date(2017, 3, 22)</span><br><span class="line">&gt;&gt;&gt; b</span><br><span class="line">datetime.date(2017, 2, 28)</span><br></pre></td></tr></table></figure>
+
+<p>4).**<code>resolution</code>**：date对象表示日期的最小单位。这里是天。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; datetime.date.resolution</span><br><span class="line">datetime.timedelta(1)</span><br></pre></td></tr></table></figure>
+
+<p>5).**<code>fromordinal(...)</code>**：将Gregorian日历时间转换为date对象；Gregorian Calendar ：一种日历表示方法，类似于我国的农历，西方国家使用比较多。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.date(2017,3,22)</span><br><span class="line">&gt;&gt;&gt; b &#x3D; a.toordinal()</span><br><span class="line">&gt;&gt;&gt; datetime.date.fromordinal(b)</span><br><span class="line">datetime.date(2017, 3, 22)</span><br></pre></td></tr></table></figure>
+
+<p>6).**<code>fromtimestamp(...)</code>**：根据给定的时间戮，返回一个date对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; time.time()</span><br><span class="line">1490165087.2242179</span><br><span class="line">&gt;&gt;&gt; datetime.date.fromtimestamp(time.time())</span><br><span class="line">datetime.date(2017, 3, 22)</span><br></pre></td></tr></table></figure>
+
+<p>7).**<code>today(...)</code>**：返回当前日期</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; datetime.date.today()</span><br><span class="line">datetime.date(2017, 3, 22)</span><br></pre></td></tr></table></figure>
+
+<p>8).**<code>max</code>**： date类能表示的最大的年、月、日的数值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; datetime.date.max</span><br><span class="line">datetime.date(9999, 12, 31)</span><br></pre></td></tr></table></figure>
+
+<p>9).**<code>min</code>**： date类能表示的最小的年、月、日的数值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; datetime.date.min</span><br><span class="line">datetime.date(1, 1, 1)</span><br></pre></td></tr></table></figure>
+
+<h4 id="（三）、日期的字符串输出"><a href="#（三）、日期的字符串输出" class="headerlink" title="（三）、日期的字符串输出"></a><strong>（三）、日期的字符串输出</strong></h4><p><strong>1、如果你想将日期对象转化为字符串对象的话，可以用到<code>__format__(...)</code>方法以指定格式进行日期输出：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.date(2017,3,22)</span><br><span class="line">&gt;&gt;&gt; a.__format__(&#39;%Y-%m-%d&#39;)</span><br><span class="line">&#39;2017-03-22&#39;</span><br><span class="line">&gt;&gt;&gt; a.__format__(&#39;%Y&#x2F;%m&#x2F;%d&#39;)</span><br><span class="line">&#39;2017&#x2F;03&#x2F;22&#39;</span><br><span class="line">&gt;&gt;&gt; a.__format__(&#39;%y&#x2F;%m&#x2F;%d&#39;)</span><br><span class="line">&#39;17&#x2F;03&#x2F;22&#39;</span><br><span class="line">&gt;&gt;&gt; a.__format__(&#39;%D&#39;)</span><br><span class="line">&#39;03&#x2F;22&#x2F;17&#39;</span><br></pre></td></tr></table></figure>
+
+<p>与此方法等价的方法为<code>strftime(...)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a.strftime(&quot;%Y%m%d&quot;)</span><br><span class="line">&#39;20170322&#39;</span><br></pre></td></tr></table></figure>
+
+<p>关于格式化字符串的相关内容，请查阅本文最后的：<strong>附录：python中时间日期格式化符号</strong> <strong>2、如果只是相简单的获得日期的字符串，则使用<code>__str__(...)</code></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a.__str__()</span><br><span class="line">&#39;2017-03-22&#39;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3、如果想要获得ctime样式的格式请使用<code>ctime(...)</code>:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a.ctime()</span><br><span class="line">&#39;Wed Mar 22 00:00:00 2017&#39;</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、time类"><a href="#三、time类" class="headerlink" title="三、time类"></a><strong>三、time类</strong></h3><h4 id="一-、time类的数据构成"><a href="#一-、time类的数据构成" class="headerlink" title="(一)、time类的数据构成"></a><strong>(一)、time类的数据构成</strong></h4><p><code>time</code>类由<code>hour</code>小时、<code>minute</code>分钟、<code>second</code>秒、<code>microsecond</code>毫秒和<code>tzinfo</code>五部分组成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time([hour[, minute[, second[, microsecond[, tzinfo]]]]])</span><br></pre></td></tr></table></figure>
+
+<p>相应的，time类中就有上述五个变量来存储应该的值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.time(12,20,59,899)</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">datetime.time(12, 20, 59, 899)</span><br><span class="line">&gt;&gt;&gt; a.hour</span><br><span class="line">12</span><br><span class="line">&gt;&gt;&gt; a.minute</span><br><span class="line">20</span><br><span class="line">&gt;&gt;&gt; a.second</span><br><span class="line">59</span><br><span class="line">&gt;&gt;&gt; a.microsecond</span><br><span class="line">899</span><br><span class="line">&gt;&gt;&gt; a.tzinfo</span><br></pre></td></tr></table></figure>
+
+<p>与<code>date</code>类一样，<code>time</code>类也包含<code>__getattribute__(...)</code>方法可以读取相关属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a.__getattribute__(&#39;hour&#39;)</span><br><span class="line">12</span><br><span class="line">&gt;&gt;&gt; a.__getattribute__(&#39;minute&#39;)</span><br><span class="line">20</span><br><span class="line">&gt;&gt;&gt; a.__getattribute__(&#39;second&#39;)</span><br><span class="line">59</span><br></pre></td></tr></table></figure>
+
+<h4 id="（二）、time类中的方法和属性"><a href="#（二）、time类中的方法和属性" class="headerlink" title="（二）、time类中的方法和属性"></a><strong>（二）、time类中的方法和属性</strong></h4><h5 id="1、比较时间大小"><a href="#1、比较时间大小" class="headerlink" title="1、比较时间大小"></a><strong>1、比较时间大小</strong></h5><p>相关方法包括：<code>__eq__(...)</code>, <code>__ge__(...)</code>, <code>__gt__(...)</code>, <code>__le__(...)</code>, <code>__lt__(...)</code>， <code>__ne__(...)</code> 这里的方法与<code>date</code>类中定义的方法大同小异，使用方法与一样，这里就不过多介绍了，示例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.time(12,20,59,899)</span><br><span class="line">&gt;&gt;&gt; b &#x3D; datetime.time(11,20,59,889)</span><br><span class="line">&gt;&gt;&gt; a.__eq__(b)</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; a.__ne__(b)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; a.__ge__(b)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; a.__gt__(b)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; a.__le__(b)</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; a.__lt__(b)</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、-nonzero"><a href="#2、-nonzero" class="headerlink" title="2、__nonzero__(...)"></a><strong>2、<code>__nonzero__(...)</code></strong></h5><p>判断时间对象是否非零，返回值为True/False:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.time(12,20,59,899)</span><br><span class="line">&gt;&gt;&gt; a.__nonzero__()</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、其他属性"><a href="#3、其他属性" class="headerlink" title="3、其他属性"></a><strong>3、其他属性</strong></h5><p>1）、**<code>max</code>**：最大的时间表示数值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; datetime.time.max</span><br><span class="line">datetime.time(23, 59, 59, 999999)</span><br></pre></td></tr></table></figure>
+
+<p>2）、**<code>min</code>**：最小的时间表示数值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; datetime.time.min</span><br><span class="line">datetime.time(0, 0)</span><br></pre></td></tr></table></figure>
+
+<p>3）、**<code>resolution</code>**：时间间隔单位为分钟</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; datetime.time.resolution</span><br><span class="line">datetime.timedelta(0, 0, 1)</span><br></pre></td></tr></table></figure>
+
+<h4 id="（三）、时间的字符串输出"><a href="#（三）、时间的字符串输出" class="headerlink" title="（三）、时间的字符串输出"></a><strong>（三）、时间的字符串输出</strong></h4><p><strong>1、如果你想将时间对象转化为字符串对象的话，可以用到<code>__format__(...)</code>方法以指定格式进行时间输出：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.time(12,20,59,899)</span><br><span class="line">&gt;&gt;&gt; a.__format__(&#39;%H:%M:%S&#39;)</span><br><span class="line">&#39;12:20:59&#39;</span><br></pre></td></tr></table></figure>
+
+<p>与此方法等价的方法为<code>strftime(...)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.time(12,20,59,899)</span><br><span class="line">&gt;&gt;&gt; a.strftime(&#39;%H:%M:%S&#39;)</span><br><span class="line">&#39;12:20:59&#39;</span><br></pre></td></tr></table></figure>
+
+<p>关于格式化字符串的相关内容，请查阅本文最后的：<strong>附录：python中时间日期格式化符号</strong> <strong>2、ISO标准输出</strong> 如果要使输出的时间字符符合ISO标准，请使用<code>isoformat(...)</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.time(12,20,59,899)</span><br><span class="line">&gt;&gt;&gt; a.isoformat()</span><br><span class="line">&#39;12:20:59.000899&#39;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3、如果只是相简单的获得时间的字符串，则使用<code>__str__(...)</code></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.time(12,20,59,899)</span><br><span class="line">&gt;&gt;&gt; a.__str__()</span><br><span class="line">&#39;12:20:59.000899&#39;</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、datetime类"><a href="#四、datetime类" class="headerlink" title="四、datetime类"></a><strong>四、datetime类</strong></h3><h4 id="一-、datetime类的数据构成"><a href="#一-、datetime类的数据构成" class="headerlink" title="(一)、datetime类的数据构成"></a><strong>(一)、datetime类的数据构成</strong></h4><p><code>datetime</code>类其实是可以看做是<code>date</code>类和<code>time</code>类的合体，其大部分的方法和属性都继承于这二个类，相关的操作方法请参阅，本文上面关于二个类的介绍。其数据构成也是由这二个类所有的属性所组成的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])</span><br></pre></td></tr></table></figure>
+
+<h4 id="（二）、专属于datetime的方法和属性"><a href="#（二）、专属于datetime的方法和属性" class="headerlink" title="（二）、专属于datetime的方法和属性"></a><strong>（二）、专属于datetime的方法和属性</strong></h4><h5 id="1、-date-…-：返回datetime对象的日期部分："><a href="#1、-date-…-：返回datetime对象的日期部分：" class="headerlink" title="**1、 date(…)**：返回datetime对象的日期部分："></a>**1、 date(…)**：返回datetime对象的日期部分：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.datetime.now()</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">datetime.datetime(2017, 3, 22, 16, 9, 33, 494248)</span><br><span class="line">&gt;&gt;&gt; a.date()</span><br><span class="line">datetime.date(2017, 3, 22)</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、time-…-：返回datetime对象的时间部分："><a href="#2、time-…-：返回datetime对象的时间部分：" class="headerlink" title="**2、time(…)**：返回datetime对象的时间部分："></a>**2、time(…)**：返回datetime对象的时间部分：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.datetime.now()</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">datetime.datetime(2017, 3, 22, 16, 9, 33, 494248)</span><br><span class="line">&gt;&gt;&gt; a.time()</span><br><span class="line">datetime.time(16, 9, 33, 494248)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、utctimetuple-…-：返回UTC时间元组："><a href="#3、utctimetuple-…-：返回UTC时间元组：" class="headerlink" title="**3、utctimetuple(…)**：返回UTC时间元组："></a>**3、utctimetuple(…)**：返回UTC时间元组：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.datetime.now()</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">datetime.datetime(2017, 3, 22, 16, 9, 33, 494248)</span><br><span class="line">&gt;&gt;&gt; a.utctimetuple()</span><br><span class="line">time.struct_time(tm_year&#x3D;2017, tm_mon&#x3D;3, tm_mday&#x3D;22, tm_hour&#x3D;16, tm_min&#x3D;9, tm_sec&#x3D;33, tm_wday&#x3D;2, tm_yday&#x3D;81, tm_isdst&#x3D;0)</span><br></pre></td></tr></table></figure>
+
+<h4 id="4、combine-…-：将一个date对象和一个time对象合并生成一个datetime对象："><a href="#4、combine-…-：将一个date对象和一个time对象合并生成一个datetime对象：" class="headerlink" title="**4、combine(…)**：将一个date对象和一个time对象合并生成一个datetime对象："></a>**4、combine(…)**：将一个date对象和一个time对象合并生成一个datetime对象：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.datetime.now()</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">datetime.datetime(2017, 3, 22, 16, 9, 33, 494248)</span><br><span class="line">&gt;&gt;&gt;datetime.datetime.combine(a.date(),a.time())</span><br><span class="line">datetime.datetime(2017, 3, 22, 16, 9, 33, 494248)</span><br></pre></td></tr></table></figure>
+
+<h4 id="5、now-…-：返回当前日期时间的datetime对象："><a href="#5、now-…-：返回当前日期时间的datetime对象：" class="headerlink" title="**5、now(…)**：返回当前日期时间的datetime对象："></a>**5、now(…)**：返回当前日期时间的datetime对象：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.datetime.now()</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">datetime.datetime(2017, 3, 22, 16, 9, 33, </span><br></pre></td></tr></table></figure>
+
+<h4 id="6、utcnow-…-返回当前日期时间的UTC-datetime对象："><a href="#6、utcnow-…-返回当前日期时间的UTC-datetime对象：" class="headerlink" title="6、utcnow(…):返回当前日期时间的UTC datetime对象："></a><strong>6、utcnow(…)</strong>:返回当前日期时间的UTC datetime对象：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a &#x3D; datetime.datetime.utcnow()</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">datetime.datetime(2017, 3, 22, 8, 26, 54, 935242)</span><br></pre></td></tr></table></figure>
+
+<h4 id="7、strptime-…-：根据string-format-2个参数，返回一个对应的datetime对象："><a href="#7、strptime-…-：根据string-format-2个参数，返回一个对应的datetime对象：" class="headerlink" title="**7、strptime(…)**：根据string, format 2个参数，返回一个对应的datetime对象："></a>**7、strptime(…)**：根据string, format 2个参数，返回一个对应的datetime对象：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; datetime.datetime.strptime(&#39;2017-3-22 15:25&#39;,&#39;%Y-%m-%d %H:%M&#39;)</span><br><span class="line">datetime.datetime(2017, 3, 22, 15, 25)</span><br></pre></td></tr></table></figure>
+
+<h4 id="8、utcfromtimestamp-…-UTC时间戳的datetime对象，时间戳值为time-time-："><a href="#8、utcfromtimestamp-…-UTC时间戳的datetime对象，时间戳值为time-time-：" class="headerlink" title="8、utcfromtimestamp(…):UTC时间戳的datetime对象，时间戳值为time.time()："></a><strong>8、utcfromtimestamp(…)</strong>:UTC时间戳的datetime对象，时间戳值为time.time()：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; datetime.datetime.utcfromtimestamp(time.time())</span><br><span class="line">datetime.datetime(2017, 3, 22, 8, 29, 7, 654272)</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、timedelta类"><a href="#五、timedelta类" class="headerlink" title="五、timedelta类"></a><strong>五、timedelta类</strong></h3><p><code>timedelta</code>类是用来计算二个<code>datetime</code>对象的差值的。 此类中包含如下属性： <strong>1、<code>days</code></strong>:天数 **2、<code>microseconds</code>**：微秒数(&gt;=0 并且 &lt;1秒） **3、<code>seconds</code>**：秒数(&gt;=0 并且 &lt;1天）</p>
+<h3 id="六、日期计算实操"><a href="#六、日期计算实操" class="headerlink" title="六、日期计算实操"></a><strong>六、日期计算实操</strong></h3><h4 id="1-获取当前日期时间："><a href="#1-获取当前日期时间：" class="headerlink" title="1.获取当前日期时间："></a><strong>1.获取当前日期时间：</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; now &#x3D; datetime.datetime.now()</span><br><span class="line">&gt;&gt;&gt; now</span><br><span class="line">datetime.datetime(2017, 3, 22, 16, 55, 49, 148233)</span><br><span class="line">&gt;&gt;&gt; today &#x3D; datetime.date.today()</span><br><span class="line">&gt;&gt;&gt; today</span><br><span class="line">datetime.date(2017, 3, 22)</span><br><span class="line">&gt;&gt;&gt; now.date()</span><br><span class="line">datetime.date(2017, 3, 22)</span><br><span class="line">&gt;&gt;&gt; now.time()</span><br><span class="line">datetime.time(16, 55, 49, 148233)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-获取上个月第一天和最后一天的日期："><a href="#2-获取上个月第一天和最后一天的日期：" class="headerlink" title="2.获取上个月第一天和最后一天的日期："></a><strong>2.获取上个月第一天和最后一天的日期：</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; today &#x3D; datetime.date.today()</span><br><span class="line">&gt;&gt;&gt; today</span><br><span class="line">datetime.date(2017, 3, 22)</span><br><span class="line">&gt;&gt;&gt; mlast_day &#x3D; datetime.date(today.year, today.month, 1) - datetime.timedelta(1)</span><br><span class="line">&gt;&gt;&gt; mlast_day</span><br><span class="line">datetime.date(2017, 2, 28)</span><br><span class="line">&gt;&gt;&gt; mfirst_day &#x3D; datetime.date(mlast_day.year, mlast_day.month, 1)</span><br><span class="line">&gt;&gt;&gt; mfirst_day</span><br><span class="line">datetime.date(2017, 2, 1)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-获取时间差"><a href="#3-获取时间差" class="headerlink" title="3.获取时间差"></a><strong>3.获取时间差</strong></h4><p>时间差单位为秒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; start_time &#x3D; datetime.datetime.now()</span><br><span class="line">&gt;&gt;&gt; end_time &#x3D; datetime.datetime.now()</span><br><span class="line">&gt;&gt;&gt; (end_time - start_time).seconds</span><br><span class="line">7</span><br></pre></td></tr></table></figure>
+
+<p>差值不只是可以查看相差多少秒，还可以查看天(days), 秒(seconds), 微秒(microseconds).</p>
+<h4 id="4-计算当前时间向后8个小时的时间"><a href="#4-计算当前时间向后8个小时的时间" class="headerlink" title="4.计算当前时间向后8个小时的时间"></a><strong>4.计算当前时间向后8个小时的时间</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d1 &#x3D; datetime.datetime.now()</span><br><span class="line">&gt;&gt;&gt; d2 &#x3D; d1 + datetime.timedelta(hours &#x3D; 8)</span><br><span class="line">&gt;&gt;&gt; d2</span><br><span class="line">datetime.datetime(2017, 3, 23, 1, 10, 37, 182240)</span><br></pre></td></tr></table></figure>
+
+<p>可以计算: 天(days), 小时(hours), 分钟(minutes), 秒(seconds), 微秒(microseconds).</p>
+<h4 id="5-计算上周一和周日的日期"><a href="#5-计算上周一和周日的日期" class="headerlink" title="5.计算上周一和周日的日期"></a><strong>5.计算上周一和周日的日期</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">today &#x3D; datetime.date.today()</span><br><span class="line">&gt;&gt;&gt; today</span><br><span class="line">datetime.date(2017, 3, 23)</span><br><span class="line">&gt;&gt;&gt; today_weekday &#x3D; today.isoweekday()</span><br><span class="line">&gt;&gt;&gt; last_sunday &#x3D; today - datetime.timedelta(days&#x3D;today_weekday)</span><br><span class="line">&gt;&gt;&gt; last_monday &#x3D; last_sunday - datetime.timedelta(days&#x3D;6)</span><br><span class="line">&gt;&gt;&gt; last_sunday</span><br><span class="line">datetime.date(2017, 3, 19)</span><br><span class="line">&gt;&gt;&gt; last_monday</span><br><span class="line">datetime.date(2017, 3, 13)</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-计算指定日期当月最后一天的日期和本月天数"><a href="#6-计算指定日期当月最后一天的日期和本月天数" class="headerlink" title="6.计算指定日期当月最后一天的日期和本月天数"></a><strong>6.计算指定日期当月最后一天的日期和本月天数</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; date &#x3D; datetime.date(2017,12,20)</span><br><span class="line">&gt;&gt;&gt; def eomonth(date_object):</span><br><span class="line">...     if date_object.month &#x3D;&#x3D; 12:</span><br><span class="line">...         next_month_first_date &#x3D; datetime.date(date_object.year+1,1,1)</span><br><span class="line">...     else:</span><br><span class="line">...         next_month_first_date &#x3D; datetime.date(date_object.year, date_object.month+1, 1)</span><br><span class="line">...     return next_month_first_date - datetime.timedelta(1)</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; eomonth(date)</span><br><span class="line">datetime.date(2017, 12, 31)</span><br><span class="line">&gt;&gt;&gt; eomonth(date).day</span><br><span class="line">31</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-计算指定日期下个月当天的日期"><a href="#7-计算指定日期下个月当天的日期" class="headerlink" title="7.计算指定日期下个月当天的日期"></a><strong>7.计算指定日期下个月当天的日期</strong></h4><p>这里要调用上一项中的函数<code>eomonth(...)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; date &#x3D; datetime.date(2017,12,20)                                            </span><br><span class="line">&gt;&gt;&gt; def edate(date_object):                                                     </span><br><span class="line">...     if date_object.month &#x3D;&#x3D; 12:                          </span><br><span class="line">...         next_month_date &#x3D; datetime.date(date_object.year+1, 1,date_object.day)</span><br><span class="line">...     else:</span><br><span class="line">...         next_month_first_day &#x3D; datetime.date(date_object.year,date_object.month+1,1)</span><br><span class="line">...         if date_object.day &gt; eomonth(last_month_first_day).day:</span><br><span class="line">...             next_month_date &#x3D; datetime.date(date_object.year,date_object.month+1,eomonth(last_month_first_day).day)</span><br><span class="line">...         else:</span><br><span class="line">...             next_month_date &#x3D; datetime.date(date_object.year, date_object.month+1, date_object.day)</span><br><span class="line">...     return next_month_date</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; edate(date)</span><br><span class="line">datetime.date(2018, 1, 20)</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-获得本周一至今天的时间段并获得上周对应同一时间段"><a href="#8-获得本周一至今天的时间段并获得上周对应同一时间段" class="headerlink" title="8.获得本周一至今天的时间段并获得上周对应同一时间段"></a><strong>8.获得本周一至今天的时间段并获得上周对应同一时间段</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; today &#x3D; datetime.date.today()</span><br><span class="line">&gt;&gt;&gt; this_monday &#x3D; today - datetime.timedelta(today.isoweekday()-1)</span><br><span class="line">&gt;&gt;&gt; last_monday &#x3D; this_monday - datetime.timedelta(7)</span><br><span class="line">&gt;&gt;&gt; last_weekday &#x3D; today -datetime.timedelta(7)</span><br><span class="line">&gt;&gt;&gt; this_monday</span><br><span class="line">datetime.date(2017, 3, 20)</span><br><span class="line">&gt;&gt;&gt; today</span><br><span class="line">datetime.date(2017, 3, 23)</span><br><span class="line">&gt;&gt;&gt; last_monday</span><br><span class="line">datetime.date(2017, 3, 13)</span><br><span class="line">&gt;&gt;&gt; last_weekday</span><br><span class="line">datetime.date(2017, 3, 16)</span><br></pre></td></tr></table></figure>
+
+<h3 id="附录：python中时间日期格式化符号："><a href="#附录：python中时间日期格式化符号：" class="headerlink" title="附录：python中时间日期格式化符号："></a><strong>附录：python中时间日期格式化符号：</strong></h3><p>符号</p>
+<p>说明</p>
+<p><code>%y</code></p>
+<p>两位数的年份表示（00-99）</p>
+<p><code>%Y</code></p>
+<p>四位数的年份表示（000-9999）</p>
+<p><code>%m</code></p>
+<p>月份（01-12）</p>
+<p><code>%d</code></p>
+<p>月内中的一天（0-31）</p>
+<p><code>%H</code></p>
+<p>24小时制小时数（0-23）</p>
+<p><code>%I</code></p>
+<p>12小时制小时数（01-12）</p>
+<p><code>%M</code></p>
+<p>分钟数（00=59）</p>
+<p><code>%S</code></p>
+<p>秒（00-59）</p>
+<p><code>%a</code></p>
+<p>本地简化星期名称</p>
+<p><code>%A</code></p>
+<p>本地完整星期名称</p>
+<p><code>%b</code></p>
+<p>本地简化的月份名称</p>
+<p><code>%B</code></p>
+<p>本地完整的月份名称</p>
+<p><code>%c</code></p>
+<p>本地相应的日期表示和时间表示</p>
+<p><code>%j</code></p>
+<p>年内的一天（001-366）</p>
+<p><code>%p</code></p>
+<p>本地A.M.或P.M.的等价符</p>
+<p><code>%U</code></p>
+<p>一年中的星期数（00-53）星期天为星期的开始</p>
+<p><code>%w</code></p>
+<p>星期（0-6），星期天为星期的开始</p>
+<p><code>%W</code></p>
+<p>一年中的星期数（00-53）星期一为星期的开始</p>
+<p><code>%x</code></p>
+<p>本地相应的日期表示</p>
+<p><code>%X</code></p>
+<p>本地相应的时间表示</p>
+<p><code>%Z</code></p>
+<p>当前时区的名称</p>
+<p><code>%%</code></p>
+<p>%号本身</p>
+<h3 id="——————–-作者：cmzsteven-来源：CSDN-原文：https-blog-csdn-net-cmzsteven-article-details-64906245-utm-source-copy-版权声明：本文为博主原创文章，转载请附上博文链接！"><a href="#——————–-作者：cmzsteven-来源：CSDN-原文：https-blog-csdn-net-cmzsteven-article-details-64906245-utm-source-copy-版权声明：本文为博主原创文章，转载请附上博文链接！" class="headerlink" title="-——————– 作者：cmzsteven 来源：CSDN 原文：https://blog.csdn.net/cmzsteven/article/details/64906245?utm\_source=copy 版权声明：本文为博主原创文章，转载请附上博文链接！"></a>-——————– 作者：cmzsteven 来源：CSDN 原文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/cmzsteven/article/details/64906245?utm%5C_source=copy">https://blog.csdn.net/cmzsteven/article/details/64906245?utm\_source=copy</a> 版权声明：本文为博主原创文章，转载请附上博文链接！</h3>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/10/11/python3%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E4%B8%AD%E6%96%87%E6%97%B6%E9%97%B4%E5%80%BC/" rel="prev" title="Python3:返回一个中文时间值">
+      <i class="fa fa-chevron-left"></i> Python3:返回一个中文时间值
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/10/11/python3%E6%A8%A1%E5%9D%97%EF%BC%9A%E9%9A%8F%E6%9C%BA%E5%8F%96%E6%95%B0random%E6%A8%A1%E5%9D%97/" rel="next" title="Python3模块：随机取数random模块">
+      Python3模块：随机取数random模块 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81datetime%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">一、datetime模块介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E3%80%81datetime%E6%A8%A1%E5%9D%97%E4%B8%AD%E5%8C%85%E5%90%AB%E5%A6%82%E4%B8%8B%E7%B1%BB%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">（一）、datetime模块中包含如下类：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E3%80%81datetime%E6%A8%A1%E5%9D%97%E4%B8%AD%E5%8C%85%E5%90%AB%E7%9A%84%E5%B8%B8%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text">（二）、datetime模块中包含的常量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81date%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">二、date类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E3%80%81date%E5%AF%B9%E8%B1%A1%E6%9E%84%E6%88%90"><span class="nav-number">2.1.</span> <span class="nav-text">（一）、date对象构成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E3%80%81date%E5%AF%B9%E8%B1%A1%E4%B8%AD%E5%8C%85%E5%90%AB%E7%9A%84%E6%96%B9%E6%B3%95%E4%B8%8E%E5%B1%9E%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">（二）、date对象中包含的方法与属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E3%80%81%E7%94%A8%E4%BA%8E%E6%97%A5%E6%9C%9F%E6%AF%94%E8%BE%83%E5%A4%A7%E5%B0%8F%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.1.</span> <span class="nav-text">1、用于日期比较大小的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%E3%80%81%E8%8E%B7%E5%BE%97%E4%BA%8C%E4%B8%AA%E6%97%A5%E6%9C%9F%E7%9B%B8%E5%B7%AE%E5%A4%9A%E5%B0%91%E5%A4%A9"><span class="nav-number">2.2.2.</span> <span class="nav-text">2、获得二个日期相差多少天</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3%E3%80%81ISO%E6%A0%87%E5%87%86%E5%8C%96%E6%97%A5%E6%9C%9F"><span class="nav-number">2.2.3.</span> <span class="nav-text">3、ISO标准化日期</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4%E3%80%81%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95%E4%B8%8E%E5%B1%9E%E6%80%A7"><span class="nav-number">2.2.4.</span> <span class="nav-text">4、其他方法与属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E3%80%81%E6%97%A5%E6%9C%9F%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA"><span class="nav-number">2.3.</span> <span class="nav-text">（三）、日期的字符串输出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81time%E7%B1%BB"><span class="nav-number">3.</span> <span class="nav-text">三、time类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80-%E3%80%81time%E7%B1%BB%E7%9A%84%E6%95%B0%E6%8D%AE%E6%9E%84%E6%88%90"><span class="nav-number">3.1.</span> <span class="nav-text">(一)、time类的数据构成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E3%80%81time%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E5%B1%9E%E6%80%A7"><span class="nav-number">3.2.</span> <span class="nav-text">（二）、time类中的方法和属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E3%80%81%E6%AF%94%E8%BE%83%E6%97%B6%E9%97%B4%E5%A4%A7%E5%B0%8F"><span class="nav-number">3.2.1.</span> <span class="nav-text">1、比较时间大小</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%E3%80%81-nonzero"><span class="nav-number">3.2.2.</span> <span class="nav-text">2、__nonzero__(...)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3%E3%80%81%E5%85%B6%E4%BB%96%E5%B1%9E%E6%80%A7"><span class="nav-number">3.2.3.</span> <span class="nav-text">3、其他属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E3%80%81%E6%97%B6%E9%97%B4%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA"><span class="nav-number">3.3.</span> <span class="nav-text">（三）、时间的字符串输出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81datetime%E7%B1%BB"><span class="nav-number">4.</span> <span class="nav-text">四、datetime类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80-%E3%80%81datetime%E7%B1%BB%E7%9A%84%E6%95%B0%E6%8D%AE%E6%9E%84%E6%88%90"><span class="nav-number">4.1.</span> <span class="nav-text">(一)、datetime类的数据构成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E3%80%81%E4%B8%93%E5%B1%9E%E4%BA%8Edatetime%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E5%B1%9E%E6%80%A7"><span class="nav-number">4.2.</span> <span class="nav-text">（二）、专属于datetime的方法和属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E3%80%81-date-%E2%80%A6-%EF%BC%9A%E8%BF%94%E5%9B%9Edatetime%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%97%A5%E6%9C%9F%E9%83%A8%E5%88%86%EF%BC%9A"><span class="nav-number">4.2.1.</span> <span class="nav-text">**1、 date(…)**：返回datetime对象的日期部分：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%E3%80%81time-%E2%80%A6-%EF%BC%9A%E8%BF%94%E5%9B%9Edatetime%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%97%B6%E9%97%B4%E9%83%A8%E5%88%86%EF%BC%9A"><span class="nav-number">4.2.2.</span> <span class="nav-text">**2、time(…)**：返回datetime对象的时间部分：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81utctimetuple-%E2%80%A6-%EF%BC%9A%E8%BF%94%E5%9B%9EUTC%E6%97%B6%E9%97%B4%E5%85%83%E7%BB%84%EF%BC%9A"><span class="nav-number">4.3.</span> <span class="nav-text">**3、utctimetuple(…)**：返回UTC时间元组：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81combine-%E2%80%A6-%EF%BC%9A%E5%B0%86%E4%B8%80%E4%B8%AAdate%E5%AF%B9%E8%B1%A1%E5%92%8C%E4%B8%80%E4%B8%AAtime%E5%AF%B9%E8%B1%A1%E5%90%88%E5%B9%B6%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AAdatetime%E5%AF%B9%E8%B1%A1%EF%BC%9A"><span class="nav-number">4.4.</span> <span class="nav-text">**4、combine(…)**：将一个date对象和一个time对象合并生成一个datetime对象：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5%E3%80%81now-%E2%80%A6-%EF%BC%9A%E8%BF%94%E5%9B%9E%E5%BD%93%E5%89%8D%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E7%9A%84datetime%E5%AF%B9%E8%B1%A1%EF%BC%9A"><span class="nav-number">4.5.</span> <span class="nav-text">**5、now(…)**：返回当前日期时间的datetime对象：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6%E3%80%81utcnow-%E2%80%A6-%E8%BF%94%E5%9B%9E%E5%BD%93%E5%89%8D%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E7%9A%84UTC-datetime%E5%AF%B9%E8%B1%A1%EF%BC%9A"><span class="nav-number">4.6.</span> <span class="nav-text">6、utcnow(…):返回当前日期时间的UTC datetime对象：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7%E3%80%81strptime-%E2%80%A6-%EF%BC%9A%E6%A0%B9%E6%8D%AEstring-format-2%E4%B8%AA%E5%8F%82%E6%95%B0%EF%BC%8C%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E5%AF%B9%E5%BA%94%E7%9A%84datetime%E5%AF%B9%E8%B1%A1%EF%BC%9A"><span class="nav-number">4.7.</span> <span class="nav-text">**7、strptime(…)**：根据string, format 2个参数，返回一个对应的datetime对象：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8%E3%80%81utcfromtimestamp-%E2%80%A6-UTC%E6%97%B6%E9%97%B4%E6%88%B3%E7%9A%84datetime%E5%AF%B9%E8%B1%A1%EF%BC%8C%E6%97%B6%E9%97%B4%E6%88%B3%E5%80%BC%E4%B8%BAtime-time-%EF%BC%9A"><span class="nav-number">4.8.</span> <span class="nav-text">8、utcfromtimestamp(…):UTC时间戳的datetime对象，时间戳值为time.time()：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81timedelta%E7%B1%BB"><span class="nav-number">5.</span> <span class="nav-text">五、timedelta类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%97%A5%E6%9C%9F%E8%AE%A1%E7%AE%97%E5%AE%9E%E6%93%8D"><span class="nav-number">6.</span> <span class="nav-text">六、日期计算实操</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%EF%BC%9A"><span class="nav-number">6.1.</span> <span class="nav-text">1.获取当前日期时间：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%8E%B7%E5%8F%96%E4%B8%8A%E4%B8%AA%E6%9C%88%E7%AC%AC%E4%B8%80%E5%A4%A9%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9%E7%9A%84%E6%97%A5%E6%9C%9F%EF%BC%9A"><span class="nav-number">6.2.</span> <span class="nav-text">2.获取上个月第一天和最后一天的日期：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%8E%B7%E5%8F%96%E6%97%B6%E9%97%B4%E5%B7%AE"><span class="nav-number">6.3.</span> <span class="nav-text">3.获取时间差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E8%AE%A1%E7%AE%97%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E5%90%91%E5%90%8E8%E4%B8%AA%E5%B0%8F%E6%97%B6%E7%9A%84%E6%97%B6%E9%97%B4"><span class="nav-number">6.4.</span> <span class="nav-text">4.计算当前时间向后8个小时的时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E8%AE%A1%E7%AE%97%E4%B8%8A%E5%91%A8%E4%B8%80%E5%92%8C%E5%91%A8%E6%97%A5%E7%9A%84%E6%97%A5%E6%9C%9F"><span class="nav-number">6.5.</span> <span class="nav-text">5.计算上周一和周日的日期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E8%AE%A1%E7%AE%97%E6%8C%87%E5%AE%9A%E6%97%A5%E6%9C%9F%E5%BD%93%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9%E7%9A%84%E6%97%A5%E6%9C%9F%E5%92%8C%E6%9C%AC%E6%9C%88%E5%A4%A9%E6%95%B0"><span class="nav-number">6.6.</span> <span class="nav-text">6.计算指定日期当月最后一天的日期和本月天数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E8%AE%A1%E7%AE%97%E6%8C%87%E5%AE%9A%E6%97%A5%E6%9C%9F%E4%B8%8B%E4%B8%AA%E6%9C%88%E5%BD%93%E5%A4%A9%E7%9A%84%E6%97%A5%E6%9C%9F"><span class="nav-number">6.7.</span> <span class="nav-text">7.计算指定日期下个月当天的日期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E8%8E%B7%E5%BE%97%E6%9C%AC%E5%91%A8%E4%B8%80%E8%87%B3%E4%BB%8A%E5%A4%A9%E7%9A%84%E6%97%B6%E9%97%B4%E6%AE%B5%E5%B9%B6%E8%8E%B7%E5%BE%97%E4%B8%8A%E5%91%A8%E5%AF%B9%E5%BA%94%E5%90%8C%E4%B8%80%E6%97%B6%E9%97%B4%E6%AE%B5"><span class="nav-number">6.8.</span> <span class="nav-text">8.获得本周一至今天的时间段并获得上周对应同一时间段</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%84%E5%BD%95%EF%BC%9Apython%E4%B8%AD%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%AC%A6%E5%8F%B7%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">附录：python中时间日期格式化符号：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%93-%E4%BD%9C%E8%80%85%EF%BC%9Acmzsteven-%E6%9D%A5%E6%BA%90%EF%BC%9ACSDN-%E5%8E%9F%E6%96%87%EF%BC%9Ahttps-blog-csdn-net-cmzsteven-article-details-64906245-utm-source-copy-%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E%EF%BC%9A%E6%9C%AC%E6%96%87%E4%B8%BA%E5%8D%9A%E4%B8%BB%E5%8E%9F%E5%88%9B%E6%96%87%E7%AB%A0%EF%BC%8C%E8%BD%AC%E8%BD%BD%E8%AF%B7%E9%99%84%E4%B8%8A%E5%8D%9A%E6%96%87%E9%93%BE%E6%8E%A5%EF%BC%81"><span class="nav-number">8.</span> <span class="nav-text">-——————– 作者：cmzsteven 来源：CSDN 原文：https:&#x2F;&#x2F;blog.csdn.net&#x2F;cmzsteven&#x2F;article&#x2F;details&#x2F;64906245?utm\_source&#x3D;copy 版权声明：本文为博主原创文章，转载请附上博文链接！</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Witt</p>
+  <div class="site-description" itemprop="description">回到原始的初心，记录自己的生活的点点滴滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">149</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Witt</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
