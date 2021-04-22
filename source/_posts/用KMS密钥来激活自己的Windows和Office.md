@@ -1,9 +1,9 @@
 ---
 title: 用KMS密钥来激活自己的Windows和Office
-tags: []
+tags: [kms激活,windows]
 id: '668'
 categories:
-  - - 技术分享
+  - - 技术教程
 abbrlink: cdddeb77
 date: 2018-03-24 03:37:00
 ---

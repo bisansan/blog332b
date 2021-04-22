@@ -3,7 +3,7 @@ title: Ubuntu   不能播放html5视频的两种解决方法
 tags: []
 id: '823'
 categories:
-  - - '%e7%94%b5%e8%84%91%e7%b3%bb%e7%bb%9f'
+  - - 主机系统
     - ubuntu
 abbrlink: 190be277
 date: 2019-08-21 12:42:37

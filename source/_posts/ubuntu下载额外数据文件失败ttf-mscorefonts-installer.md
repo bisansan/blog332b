@@ -3,7 +3,7 @@ title: Ubuntu下载额外数据文件失败ttf-mscorefonts-installer
 tags: []
 id: '685'
 categories:
-  - - '%e7%94%b5%e8%84%91%e7%b3%bb%e7%bb%9f'
+  - - 主机系统
     - ubuntu
 abbrlink: d10ebb01
 date: 2019-06-23 06:30:37

@@ -3,7 +3,7 @@ title: lubuntu   自动登录，去除黑边和创建桌面图标
 tags: []
 id: '809'
 categories:
-  - - '%e7%94%b5%e8%84%91%e7%b3%bb%e7%bb%9f'
+  - - 主机系统
     - ubuntu
   - - 技术分享
 abbrlink: b42e815a

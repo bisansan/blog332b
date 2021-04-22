@@ -3,7 +3,7 @@ title: ubuntu 安装VUE并配置多版本管理
 tags: []
 id: '813'
 categories:
-  - - '%e7%94%b5%e8%84%91%e7%b3%bb%e7%bb%9f'
+  - - 主机系统
     - ubuntu
   - - Vue.js
 abbrlink: a5f93eec

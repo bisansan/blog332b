@@ -3,7 +3,7 @@ title: lubuntu   挂机和休眠后黑屏无法启动
 tags: []
 id: '827'
 categories:
-  - - '%e7%94%b5%e8%84%91%e7%b3%bb%e7%bb%9f'
+  - - 主机系统
     - ubuntu
 abbrlink: d14dba64
 date: 2019-08-21 15:22:21

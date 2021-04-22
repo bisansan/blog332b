@@ -3,7 +3,7 @@ title: Deepin安装最新版的火狐、chrome浏览器和Sublime text3
 tags: []
 id: '448'
 categories:
-  - - '%e7%94%b5%e8%84%91%e7%b3%bb%e7%bb%9f'
+  - - 主机系统
     - ubuntu
   - - 技术分享
 abbrlink: 5c87015e

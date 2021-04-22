@@ -3,7 +3,7 @@ title: CrossOver 16.2.0 Centos 和 Ubuntu安装文件
 tags: []
 id: '13'
 categories:
-  - - '%e7%94%b5%e8%84%91%e7%b3%bb%e7%bb%9f'
+  - - 主机系统
     - ubuntu
     - 其他Linux系统
   - - 其他分类

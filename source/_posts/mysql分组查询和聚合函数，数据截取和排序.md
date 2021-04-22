@@ -3,7 +3,7 @@ title: mysql分组查询和聚合函数，数据截取和排序
 tags: []
 id: '888'
 categories:
-  - - '%e6%95%b0%e6%8d%ae%e5%ba%93'
+  - - '数据库'
     - Mysql
 abbrlink: b232ec93
 date: 2019-10-31 15:45:36
