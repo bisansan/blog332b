@@ -1,12 +1,9 @@
 ---
 title: CrossOver 16.2.0 Centos 和 Ubuntu安装文件
-tags: []
+tags: [CrossOver,centos,linux,ubuntu]
 id: '13'
 categories:
-  - - 主机系统
-    - ubuntu
-    - 其他Linux系统
-  - - 其他分类
+  - - 系统运维
 abbrlink: 969aa2f5
 date: 2018-03-27 22:28:00
 ---

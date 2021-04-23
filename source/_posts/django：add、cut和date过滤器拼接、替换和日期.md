@@ -1,9 +1,9 @@
 ---
 title: Django：add、cut和date过滤器拼接、替换和日期
-tags: []
+tags: [python,django]
 id: '201'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 79e67bf9
 date: 2018-10-24 17:13:06
 ---

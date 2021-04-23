@@ -1,10 +1,9 @@
 ---
-title: django rest framework api框架学习
-tags: []
+title: Django Rest Framework api框架学习
+tags: [django,python,Django Rest Framework]
 id: '709'
 categories:
-  - - django
-    - Django Rest Framework
+  - - 计算机编程
 abbrlink: '60028424'
 date: 2019-07-12 13:50:28
 ---

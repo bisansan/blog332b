@@ -1,9 +1,9 @@
 ---
 title: Django：with标签的使用方法
-tags: []
+tags: [django,python]
 id: '186'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: f6555796
 date: 2018-10-23 17:38:26
 ---

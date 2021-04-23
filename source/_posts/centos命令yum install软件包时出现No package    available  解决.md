@@ -1,11 +1,9 @@
 ---
 title: centos命令yum install软件包时出现No package  *  available  解决
-tags: []
+tags: [centos,linux]
 id: '670'
 categories:
-  - - 主机系统
-    - 其他Linux系统
-  - - 技术分享
+  - - 系统运维
 abbrlink: 1d9a4080
 date: 2018-03-23 19:45:00
 ---

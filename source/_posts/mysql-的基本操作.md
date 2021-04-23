@@ -1,10 +1,9 @@
 ---
 title: Mysql 的基本操作
-tags: []
+tags: [mysql]
 id: '460'
 categories:
-  - - '数据库'
-    - Mysql
+  - - 系统运维
 abbrlink: 1b033b27
 date: 2019-01-16 17:29:08
 ---

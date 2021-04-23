@@ -1,9 +1,9 @@
 ---
 title: Django：ORM模型来操作数据库
-tags: []
+tags: [Django,python]
 id: '252'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 8d6e45cc
 date: 2018-11-11 20:41:16
 ---

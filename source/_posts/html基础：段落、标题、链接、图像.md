@@ -1,9 +1,9 @@
 ---
 title: HTML基础：段落、标题、链接、图像
-tags: []
+tags: [html]
 id: '234'
 categories:
-  - - HTML和CSS
+  - - 计算机编程
 abbrlink: ba2aae76
 date: 2018-11-04 15:11:24
 ---

@@ -1,9 +1,9 @@
 ---
 title: 'Python3:返回一个中文时间值'
-tags: []
+tags: [python]
 id: '134'
 categories:
-  - - Python
+  - - 计算机编程
 abbrlink: 6a98a665
 date: 2018-10-11 10:29:34
 ---

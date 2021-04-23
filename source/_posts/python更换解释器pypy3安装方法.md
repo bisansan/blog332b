@@ -1,11 +1,9 @@
 ---
 title: Ubuntu16.04安装Python解释器PyPy3安装方法
-tags: []
+tags: [ubuntu,python,pypy,linux]
 id: '245'
 categories:
-  - - 主机系统
-    - ubuntu
-  - - 技术分享
+  - - 计算机编程
 abbrlink: 16940ee
 date: 2018-11-11 17:00:25
 ---

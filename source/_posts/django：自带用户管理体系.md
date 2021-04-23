@@ -1,9 +1,9 @@
 ---
 title: Django：自带用户管理体系
-tags: []
+tags: [django,python]
 id: '420'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 5c6810d1
 date: 2018-12-29 12:25:22
 ---

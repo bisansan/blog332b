@@ -1,9 +1,9 @@
 ---
 title: Django数据库：ORM模型外键的使用
-tags: []
+tags: [django,python,orm]
 id: '273'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 3fa9f585
 date: 2018-11-13 15:40:24
 ---

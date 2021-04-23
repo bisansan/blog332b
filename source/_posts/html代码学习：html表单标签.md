@@ -1,9 +1,9 @@
 ---
 title: HTML代码学习：HTML表单标签
-tags: []
+tags: [html]
 id: '415'
 categories:
-  - - HTML和CSS
+  - - 计算机编程
 abbrlink: d3122da2
 date: 2018-12-21 22:19:55
 ---
@@ -40,7 +40,7 @@ reset定义重置按钮。重置按钮会清除表单中的所有数据。
 
 <input type="reset" />
 
-hidden 定义隐藏字段。隐藏字段对于用户是不可见的。隐藏字段通常会存储一个默认值，它们的值也可以由 JavaScript 进行修改。
+hidden 定义隐藏字段。隐藏字段对于用户是不可见的。隐藏字段通常会存储一个默认值，它们的值也可以由 javascript 进行修改。
 
 <input type="hidden" name="country" value="Norway" />
 

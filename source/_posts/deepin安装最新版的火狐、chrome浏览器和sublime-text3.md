@@ -1,11 +1,9 @@
 ---
 title: Deepin安装最新版的火狐、chrome浏览器和Sublime text3
-tags: []
+tags: [deepin,linux,chrome,Sublimetext]
 id: '448'
 categories:
-  - - 主机系统
-    - ubuntu
-  - - 技术分享
+  - - 技术教程
 abbrlink: 5c87015e
 date: 2019-01-09 17:58:35
 ---

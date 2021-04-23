@@ -1,10 +1,9 @@
 ---
 title: 代码版本管理：GIT的基本操作
-tags: []
+tags: [windows,git]
 id: '705'
 categories:
-  - - soft
-    - GIT
+  - - 技术教程
 abbrlink: 6ce3e36c
 date: 2019-07-08 11:43:10
 ---

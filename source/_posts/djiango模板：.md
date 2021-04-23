@@ -1,9 +1,9 @@
 ---
 title: Djiango模板：default、first、floatformat过滤器
-tags: []
+tags: [django,python]
 id: '203'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: '77530944'
 date: 2018-10-24 18:04:57
 ---

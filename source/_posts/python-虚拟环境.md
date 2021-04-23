@@ -1,11 +1,9 @@
 ---
 title: ubuntu18.04  python3 和3.7 虚拟环境
-tags: []
+tags: [python,ubuntu]
 id: '648'
 categories:
-  - - Python
-  - - 主机系统
-    - ubuntu
+  - - 计算机编程
 abbrlink: 1a63df8e
 date: 2019-08-11 18:32:54
 ---

@@ -1,9 +1,9 @@
 ---
 title: python 文件操作高级模块
-tags: []
+tags: [python]
 id: '842'
 categories:
-  - - uncategorized
+  - - 计算机编程
 abbrlink: c5346ab1
 ---
 

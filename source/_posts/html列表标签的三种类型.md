@@ -1,9 +1,9 @@
 ---
 title: 'HTML:列表标签的三种类型'
-tags: []
+tags: [html]
 id: '300'
 categories:
-  - - HTML和CSS
+  - - 计算机编程
 abbrlink: 1cedc34a
 date: 2018-11-21 10:26:46
 ---

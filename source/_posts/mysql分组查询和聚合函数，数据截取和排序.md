@@ -1,10 +1,9 @@
 ---
 title: mysql分组查询和聚合函数，数据截取和排序
-tags: []
+tags: [mysql]
 id: '888'
 categories:
-  - - '数据库'
-    - Mysql
+  - - 系统运维
 abbrlink: b232ec93
 date: 2019-10-31 15:45:36
 ---

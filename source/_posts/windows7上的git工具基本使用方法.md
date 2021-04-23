@@ -1,10 +1,9 @@
 ---
 title: WINDOWS7上的GIT工具基本使用方法
-tags: []
+tags: [git,windows]
 id: '664'
 categories:
-  - - soft
-    - GIT
+  - - 技术教程
 abbrlink: ce2b7fa9
 date: 2019-06-05 16:19:22
 ---

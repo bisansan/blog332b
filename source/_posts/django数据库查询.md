@@ -1,9 +1,9 @@
 ---
 title: Django数据库filter的条件查询Field查找
-tags: []
+tags: [django,python]
 id: '288'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 61cb5a6a
 date: 2018-11-16 17:48:07
 ---

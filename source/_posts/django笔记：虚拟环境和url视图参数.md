@@ -1,9 +1,9 @@
 ---
 title: Django笔记：虚拟环境和URL视图参数
-tags: []
+tags: [django,python]
 id: '145'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: cf74a71f
 date: 2018-10-16 16:10:47
 ---

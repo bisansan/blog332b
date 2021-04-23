@@ -1,9 +1,9 @@
 ---
 title: 'Django :URL视图参数'
-tags: []
+tags: [django,python]
 id: '608'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 782b166b
 date: 2019-03-28 17:17:50
 ---

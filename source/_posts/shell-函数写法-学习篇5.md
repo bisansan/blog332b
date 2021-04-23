@@ -1,9 +1,9 @@
 ---
 title: shell 函数写法 学习篇(5)
-tags: []
+tags: [shell,linux]
 id: '955'
 categories:
-  - - uncategorized
+  - - 系统运维
 abbrlink: 8a123831
 date: 2020-05-14 18:28:15
 ---

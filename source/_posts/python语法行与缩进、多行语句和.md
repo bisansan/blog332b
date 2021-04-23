@@ -1,9 +1,9 @@
 ---
 title: 'Python语法:行与缩进、多行语句、数字类型和字符串'
-tags: []
+tags: [python]
 id: '54'
 categories:
-  - - Python
+  - - 计算机编程
 abbrlink: 7e1b9af4
 date: 2018-05-16 11:33:51
 ---

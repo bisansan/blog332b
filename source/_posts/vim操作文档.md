@@ -1,11 +1,9 @@
 ---
 title: VIM操作文档
-tags: []
+tags: [linux,vim,shell]
 id: '456'
 categories:
-  - - 主机系统
-    - ubuntu
-  - - 技术分享
+  - - 系统运维
 abbrlink: '23600133'
 date: 2019-01-14 17:07:57
 ---

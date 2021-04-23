@@ -1,10 +1,9 @@
 ---
 title: makemigrations错误
-tags: []
+tags: [django,python]
 id: '438'
 categories:
-  - - Python
-  - - 技术分享
+  - - 计算机编程
 abbrlink: d601e484
 date: 2019-01-04 11:18:56
 ---

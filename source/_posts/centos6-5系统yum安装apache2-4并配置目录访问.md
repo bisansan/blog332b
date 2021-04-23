@@ -1,11 +1,9 @@
 ---
 title: Centos6.5系统yum安装apache2.4并配置目录浏览访问
-tags: []
+tags: [centos,apache,linux]
 id: '158'
 categories:
-  - - 主机系统
-    - 其他Linux系统
-  - - 技术分享
+  - - 系统运维
 abbrlink: e4168f1d
 date: 2018-10-20 21:15:32
 ---

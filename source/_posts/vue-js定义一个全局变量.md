@@ -1,9 +1,9 @@
 ---
 title: VUE-JS 定义开发环境和生产环境全局变量
-tags: []
+tags: [vuejs,javascript]
 id: '672'
 categories:
-  - - Vue.js
+  - - 计算机编程
 abbrlink: ad5fc467
 date: 2019-06-14 16:05:24
 ---

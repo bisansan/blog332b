@@ -1,9 +1,9 @@
 ---
 title: python ORM数据库操作框架大全
-tags: []
+tags: [mysql,orm]
 id: '882'
 categories:
-  - - uncategorized
+  - - 计算机编程
 abbrlink: c2ed5e85
 date: 2019-10-28 13:49:03
 ---

@@ -1,9 +1,9 @@
 ---
 title: Vue.js：vue-router基本使用
-tags: []
+tags: [vuejs,javascript]
 id: '791'
 categories:
-  - - Vue.js
+  - - 计算机编程
 abbrlink: dec2749b
 date: 2019-08-14 11:44:10
 ---

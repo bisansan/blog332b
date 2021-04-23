@@ -1,9 +1,9 @@
 ---
-title: JavaScript中的ES5和ES6
-tags: []
+title: javascript中的ES5和ES6
+tags: [javascript,es6]
 id: '653'
 categories:
-  - - JavaScript
+  - - 计算机编程
 abbrlink: c739c9e4
 date: 2019-06-03 15:15:50
 ---

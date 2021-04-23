@@ -1,9 +1,9 @@
 ---
-title: Javascript  基本使用方法
-tags: []
+title: javascript  基本使用方法
+tags: [javascript]
 id: '551'
 categories:
-  - - JavaScript
+  - - 计算机编程
 abbrlink: '46115975'
 date: 2019-02-04 12:11:47
 ---
@@ -32,7 +32,7 @@ window.alert('弹出框');
 
   **javascript输出的四种方式** 一、window.alert()       弹出一个对话框 `window.alert('我是对话框')`   二、innerHTML       操作html里面的元素 `<p id='demo'>我是一个段落</p>` `<script>` `document.getElementById("demo").innerHTML = "修改这个段落";` `window.alert(document.getElementById("demo").innerHTML);` `//获取这个元素里面的值` `</script>`   三、document.write()  直接输出内容 `<script>document.write('我是文字')</script>` _如果在文档已完成加载后执行 document.write，整个 HTML 页面将被覆盖。_   四、console.log()  输出到控制台 chrome浏览器中使用 F12 来启用调试模式， 在调试窗口中点击 "Console" 菜单，输入的内容会出现在哪里 `<script>console.log('我是文字，请在控制台查看我');</script>`    
 
-1.当编写 JavaScript 语句时，请留意是否关闭大小写切换键。 函数 **getElementById** 与 **getElementbyID** 是不同的。 同样，变量 **myVariable** 与 **MyVariable** 也是不同的。   2. 单行注释”//“，多行注释以”/\*“开始，用”\*/“来注释   3.关键字
+1.当编写 javascript 语句时，请留意是否关闭大小写切换键。 函数 **getElementById** 与 **getElementbyID** 是不同的。 同样，变量 **myVariable** 与 **MyVariable** 也是不同的。   2. 单行注释”//“，多行注释以”/\*“开始，用”\*/“来注释   3.关键字
 
 语句
 
@@ -177,7 +177,7 @@ delete bbc; //无法删除，只能删除var声明的变量
     }
 </script>
 
-  Break 和 Continue 语句 Break：跳出整个循环（可以在switch和循环中使用） Continue：跳出当前循环，去执行下一个循环（只能在循环中使用）   javascript标签 label: statements 通过标签引用，break 语句可用于跳出任何 JavaScript 代码块   NaN和isNaN 判断这个值是不是数字 详细说明：[http://www.w3school.com.cn/jsref/jsref\_nan\_number.asp](http://www.w3school.com.cn/jsref/jsref_nan_number.asp)   在 JavaScript 中有 5 种不同的数据类型： string number boolean object function 3 种对象类型： Object Date Array 2 个不包含任何值的数据类型： null undefined 判断是不是字符串的方法
+  Break 和 Continue 语句 Break：跳出整个循环（可以在switch和循环中使用） Continue：跳出当前循环，去执行下一个循环（只能在循环中使用）   javascript标签 label: statements 通过标签引用，break 语句可用于跳出任何 javascript 代码块   NaN和isNaN 判断这个值是不是数字 详细说明：[http://www.w3school.com.cn/jsref/jsref\_nan\_number.asp](http://www.w3school.com.cn/jsref/jsref_nan_number.asp)   在 javascript 中有 5 种不同的数据类型： string number boolean object function 3 种对象类型： Object Date Array 2 个不包含任何值的数据类型： null undefined 判断是不是字符串的方法
 
 <script>
     var a = 'aaa';
@@ -244,7 +244,7 @@ delete bbc; //无法删除，只能删除var声明的变量
     <input type="submit">
 </form>
 
-js获取表单值 [http://www.runoob.com/js/js-form-validation.html](http://www.runoob.com/js/js-form-validation.html)   javascript Json JSON.parse() 用于将一个 JSON 字符串转换为 JavaScript 对象。 JSON.stringify() 用于将 JavaScript 值转换为 JSON 字符串。
+js获取表单值 [http://www.runoob.com/js/js-form-validation.html](http://www.runoob.com/js/js-form-validation.html)   javascript Json JSON.parse() 用于将一个 JSON 字符串转换为 javascript 对象。 JSON.stringify() 用于将 javascript 值转换为 JSON 字符串。
 
 <script>
     var asy = \['ad','ac','aqw'\];
@@ -405,7 +405,7 @@ x.addEventListener("click", function(){alert("Hello World!");});
         x.innerHTML=d;
     }
 </script>
-<p>记住 JavaScript 月数是从0至11。10是11月。</p>
+<p>记住 javascript 月数是从0至11。10是11月。</p>
 
   数组对象 合并一个数组或者多个 array1.concat(array2, array3);   如果布尔对象无初始值或者其值为:
 

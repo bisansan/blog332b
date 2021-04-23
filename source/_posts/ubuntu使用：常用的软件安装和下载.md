@@ -1,9 +1,9 @@
 ---
 title: UBuntu使用：常用的软件安装和下载
-tags: []
+tags: [ubuntu,linux]
 id: '342'
 categories:
-  - - 技术分享
+  - - 技术教程
 abbrlink: '36436006'
 date: 2018-12-03 14:16:41
 ---

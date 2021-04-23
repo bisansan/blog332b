@@ -1,9 +1,9 @@
 ---
 title: Django实现首页不带参数访问目录第一页
-tags: []
+tags: [django,python]
 id: '166'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 7882ff88
 date: 2018-10-22 14:35:46
 ---

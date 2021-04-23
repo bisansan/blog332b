@@ -1,9 +1,9 @@
 ---
 title: Django：URL规则re_path使用说明
-tags: []
+tags: [django,python]
 id: '156'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 9ed28e8b
 date: 2018-10-19 16:31:16
 ---

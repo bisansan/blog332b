@@ -1,9 +1,9 @@
 ---
 title: Django：连接mysql数据库方法
-tags: []
+tags: [django,python,mysql]
 id: '238'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 2455b3ee
 date: 2018-11-08 10:08:06
 ---

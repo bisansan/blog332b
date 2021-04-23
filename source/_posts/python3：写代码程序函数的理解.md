@@ -1,9 +1,9 @@
 ---
 title: Python3：基础函数参数的理解
-tags: []
+tags: [python]
 id: '92'
 categories:
-  - - Python
+  - - 计算机编程
 abbrlink: ac93e15
 date: 2018-09-13 10:48:47
 ---

@@ -1,9 +1,9 @@
 ---
 title: Python datetime模块详解、示例
-tags: []
+tags: [python]
 id: '138'
 categories:
-  - - Python
+  - - 计算机编程
 abbrlink: c3d76eda
 date: 2018-10-11 14:21:29
 ---

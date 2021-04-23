@@ -1,9 +1,9 @@
 ---
 title: Django模板：spaceless和autoescape标签去掉多余空格和关闭默认转义
-tags: []
+tags: [django,python]
 id: '196'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 1b5bb0bd
 date: 2018-10-24 15:07:17
 ---

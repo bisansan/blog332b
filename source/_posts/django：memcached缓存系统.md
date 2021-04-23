@@ -1,9 +1,9 @@
 ---
 title: Django：Memcached缓存系统
-tags: []
+tags: [django,Memcached]
 id: '398'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 4b573984
 date: 2018-12-14 17:36:30
 ---

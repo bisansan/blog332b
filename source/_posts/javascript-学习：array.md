@@ -1,9 +1,9 @@
 ---
-title: JavaScript 学习：Array
-tags: []
+title: javascript 学习：Array
+tags: [javascript]
 id: '730'
 categories:
-  - - JavaScript
+  - - 计算机编程
 abbrlink: 578e9f64
 date: 2019-08-01 14:31:54
 ---

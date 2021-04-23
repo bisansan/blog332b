@@ -1,9 +1,9 @@
 ---
 title: SHELL echo printf 和test   学习篇(3)
-tags: []
+tags: [shell,linux]
 id: '940'
 categories:
-  - - uncategorized
+  - - 系统运维
 abbrlink: df2c992a
 date: 2020-05-12 16:58:25
 ---

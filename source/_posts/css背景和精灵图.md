@@ -1,9 +1,9 @@
 ---
 title: CSS学习：背景和精灵图
-tags: []
+tags: [css,html]
 id: '482'
 categories:
-  - - HTML和CSS
+  - - 计算机编程
 abbrlink: 7413711c
 date: 2019-01-23 10:12:52
 ---

@@ -1,9 +1,9 @@
 ---
 title: Django：F表达式和Q表达式
-tags: []
+tags: [python,django]
 id: '315'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 8b9a64b0
 date: 2018-11-22 18:01:52
 ---

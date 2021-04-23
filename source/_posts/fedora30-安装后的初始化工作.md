@@ -1,9 +1,9 @@
 ---
 title: fedora30 安装后的初始化工作
-tags: []
+tags: [fedora,linux]
 id: '864'
 categories:
-  - - uncategorized
+  - - 技术教程
 abbrlink: 1c7081be
 date: 2019-09-30 12:33:11
 ---

@@ -1,9 +1,9 @@
 ---
 title: Django模板：防止模板之间的变量冲突verbatim标签
-tags: []
+tags: [django,python]
 id: '199'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 9d5bc76b
 date: 2018-10-24 15:23:13
 ---

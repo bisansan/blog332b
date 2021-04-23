@@ -1,9 +1,9 @@
 ---
 title: Django：自建计算过去多久时间的过滤器
-tags: []
+tags: [django,python]
 id: '213'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 86ad84ca
 date: 2018-10-26 15:36:10
 ---

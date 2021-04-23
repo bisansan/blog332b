@@ -1,10 +1,9 @@
 ---
 title: 'OperationalError at /onetoone和no such table: auth_use'
-tags: []
+tags: [python,pycharm]
 id: '431'
 categories:
-  - - Python
-  - - 技术分享
+  - - 计算机编程
 abbrlink: 98f95c5b
 date: 2019-01-02 11:55:58
 ---

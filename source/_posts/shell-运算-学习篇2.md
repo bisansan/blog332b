@@ -1,9 +1,9 @@
 ---
 title: Shell    运算符 学习篇(2)
-tags: []
+tags: [shell,linux]
 id: '933'
 categories:
-  - - uncategorized
+  - - 系统运维
 abbrlink: 8eb072d
 date: 2020-04-24 21:38:03
 ---

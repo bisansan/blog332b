@@ -1,9 +1,9 @@
 ---
 title: Django：相关的时间处理pytz模块navie和aware时间
-tags: []
+tags: [django,python]
 id: '262'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 72f1cf69
 date: 2018-11-12 14:06:33
 ---

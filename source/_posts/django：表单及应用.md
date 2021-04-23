@@ -1,9 +1,9 @@
 ---
 title: Django：表单及应用
-tags: []
+tags: [django,python]
 id: '382'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 69f47e64
 date: 2018-12-11 18:02:23
 ---

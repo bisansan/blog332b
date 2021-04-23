@@ -1,11 +1,9 @@
 ---
 title: Ubuntu  开机出现grub无法启动
-tags: []
+tags: [ubuntu,linux]
 id: '794'
 categories:
-  - - 主机系统
-    - ubuntu
-  - - 技术分享
+  - - 技术教程
 abbrlink: 323052d0
 date: 2019-08-14 11:42:31
 ---

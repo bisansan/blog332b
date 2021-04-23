@@ -1,9 +1,9 @@
 ---
 title: python 读取一个文件下面的所有文件和目录
-tags: []
+tags: [python]
 id: '853'
 categories:
-  - - Python
+  - - 计算机编程
 abbrlink: ec26267d
 date: 2019-09-27 14:21:21
 ---

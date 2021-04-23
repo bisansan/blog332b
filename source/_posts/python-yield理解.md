@@ -1,9 +1,9 @@
 ---
 title: python yield理解
-tags: []
+tags: [python]
 id: '855'
 categories:
-  - - Python
+  - - 计算机编程
 abbrlink: 4635b714
 date: 2019-09-28 12:30:09
 ---

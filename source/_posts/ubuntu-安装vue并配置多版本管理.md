@@ -1,11 +1,9 @@
 ---
 title: ubuntu 安装VUE并配置多版本管理
-tags: []
+tags: [ubuntu,vuejs,nodejs,javascript]
 id: '813'
 categories:
-  - - 主机系统
-    - ubuntu
-  - - Vue.js
+  - - 计算机编程
 abbrlink: a5f93eec
 date: 2019-08-15 12:03:36
 ---

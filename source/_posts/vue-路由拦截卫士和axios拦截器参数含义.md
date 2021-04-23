@@ -1,9 +1,9 @@
 ---
 title: VUE 路由拦截卫士和Axios拦截器参数含义
-tags: []
+tags: [vuejs,javascript,axios]
 id: '832'
 categories:
-  - - uncategorized
+  - - 计算机编程
 abbrlink: 6da95e51
 date: 2019-08-26 14:36:32
 ---

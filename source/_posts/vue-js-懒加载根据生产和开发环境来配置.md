@@ -1,9 +1,9 @@
 ---
 title: VUE.js 懒加载根据生产和开发环境来配置
-tags: []
+tags: [nodejs,javascript]
 id: '807'
 categories:
-  - - Vue.js
+  - - 计算机编程
 abbrlink: 1af25f95
 date: 2019-08-14 16:13:34
 ---

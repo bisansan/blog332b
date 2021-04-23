@@ -1,9 +1,9 @@
 ---
 title: Django：聚合函数
-tags: []
+tags: [django,python]
 id: '290'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 7c2366e
 date: 2018-11-21 18:05:28
 ---

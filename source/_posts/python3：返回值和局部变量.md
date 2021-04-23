@@ -1,9 +1,9 @@
 ---
 title: Python3：返回值、局部变量、作用域、匿名函数
-tags: []
+tags: [python]
 id: '111'
 categories:
-  - - Python
+  - - 计算机编程
 abbrlink: aa498e1f
 date: 2018-09-17 16:32:27
 ---

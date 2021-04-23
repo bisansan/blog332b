@@ -1,11 +1,9 @@
 ---
 title: Ubuntu 添加∬上网方法
-tags: []
+tags: [ubuntu,linux]
 id: '819'
 categories:
-  - - 主机系统
-    - ubuntu
-  - - 技术分享
+  - - 技术教程
 abbrlink: b142671a
 date: 2019-08-21 11:53:45
 ---

@@ -1,9 +1,9 @@
 ---
 title: shell  定义变量和传参数学习篇(1)
-tags: []
+tags: [shell,linux]
 id: '925'
 categories:
-  - - uncategorized
+  - - 系统运维
 abbrlink: 5f4c4605
 date: 2020-04-21 10:50:42
 ---

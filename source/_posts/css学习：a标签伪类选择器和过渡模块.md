@@ -1,9 +1,9 @@
 ---
 title: CSS学习：a标签伪类选择器和过渡模块
-tags: []
+tags: [css,html]
 id: '591'
 categories:
-  - - HTML和CSS
+  - - 计算机编程
 abbrlink: '67200049'
 date: 2019-03-25 17:51:13
 ---

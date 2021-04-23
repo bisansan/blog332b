@@ -1,9 +1,9 @@
 ---
 title: 浮动流排版：清楚默认边距和清除浮动的5种方式
-tags: []
+tags: [css,html]
 id: '500'
 categories:
-  - - HTML和CSS
+  - - 计算机编程
 abbrlink: 7146a28f
 date: 2019-01-24 17:30:13
 ---

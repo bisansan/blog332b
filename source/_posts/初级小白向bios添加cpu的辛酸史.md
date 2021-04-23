@@ -1,9 +1,9 @@
 ---
 title: 初级小白向bios添加cpu的辛酸史
-tags: []
+tags: [bios,windows]
 id: '911'
 categories:
-  - - uncategorized
+  - - 技术教程
 abbrlink: a90e412e
 date: 2020-02-14 17:34:10
 ---

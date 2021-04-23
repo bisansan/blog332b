@@ -1,9 +1,9 @@
 ---
 title: 简单的玩一下MYSQL 8.0
-tags: []
+tags: [mysql]
 id: '868'
 categories:
-  - - uncategorized
+  - - 系统运维
 abbrlink: '47070840'
 date: 2019-09-30 15:33:12
 ---

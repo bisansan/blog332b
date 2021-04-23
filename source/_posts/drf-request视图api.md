@@ -1,10 +1,9 @@
 ---
 title: DRF    request视图api
-tags: []
+tags: [django,python,Django Rest Framework]
 id: '717'
 categories:
-  - - django
-    - Django Rest Framework
+  - - 计算机编程
 abbrlink: 23df9497
 date: 2019-08-11 18:44:13
 ---

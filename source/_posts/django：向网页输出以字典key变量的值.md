@@ -1,9 +1,9 @@
 ---
 title: Django：向网页输出以字典key和列表中值
-tags: []
+tags: [django,python]
 id: '170'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: b45c3548
 date: 2018-10-22 17:39:54
 ---

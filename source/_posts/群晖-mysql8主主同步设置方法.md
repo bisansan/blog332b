@@ -1,9 +1,9 @@
 ---
 title: 群晖 mysql8主主同步设置方法
-tags: []
+tags: [synology,mysql]
 id: '1049'
 categories:
-  - - uncategorized
+  - - 技术教程
 abbrlink: ddfd5a8e
 date: 2021-01-08 10:03:11
 ---

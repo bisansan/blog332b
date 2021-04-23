@@ -1,9 +1,9 @@
 ---
-title: MSYQL 重置密码的艰辛过程
-tags: []
+title: mysql 重置密码的艰辛过程
+tags: [mysql,linux]
 id: '860'
 categories:
-  - - uncategorized
+  - - 系统运维
 abbrlink: af5843f4
 date: 2019-09-29 11:28:15
 ---

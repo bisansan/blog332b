@@ -1,11 +1,9 @@
 ---
 title: ubuntu将台式机和手机结合，变成无线耳机
-tags: []
+tags: [ubuntu,linux]
 id: '626'
 categories:
-  - - 主机系统
-    - ubuntu
-  - - 技术分享
+  - - 技术教程
 abbrlink: 2dd0534
 date: 2019-04-09 10:56:55
 ---

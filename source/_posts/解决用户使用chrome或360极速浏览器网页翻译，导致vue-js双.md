@@ -1,9 +1,9 @@
 ---
 title: 解决用户使用chrome或360极速浏览器网页翻译，导致vue.js双向绑定失效
-tags: []
+tags: [chrome,360极速浏览器,vuejs]
 id: '677'
 categories:
-  - - Vue.js
+  - - 计算机编程
 abbrlink: f6261e9d
 date: 2019-06-17 10:52:36
 ---

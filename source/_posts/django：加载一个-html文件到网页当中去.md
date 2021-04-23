@@ -1,9 +1,9 @@
 ---
 title: Django：加载一个.html文件到网页当中去
-tags: []
+tags: [django,python]
 id: '168'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: d4aa466c
 date: 2018-10-22 15:01:35
 ---

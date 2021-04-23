@@ -1,9 +1,9 @@
 ---
 title: 'Python:面向对象的笔记'
-tags: []
+tags: [python]
 id: '174'
 categories:
-  - - Python
+  - - 计算机编程
 abbrlink: 468a0607
 date: 2018-10-23 11:28:18
 ---

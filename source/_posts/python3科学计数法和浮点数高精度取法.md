@@ -1,9 +1,9 @@
 ---
 title: Python3科学计数法，浮点数高精度取法和列表
-tags: []
+tags: [python]
 id: '66'
 categories:
-  - - Python
+  - - 计算机编程
 abbrlink: c835ef79
 date: 2018-06-01 17:21:40
 ---

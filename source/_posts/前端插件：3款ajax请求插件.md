@@ -1,9 +1,9 @@
 ---
 title: 前端插件：3款ajax请求插件
-tags: []
+tags: [ajax,javascript]
 id: '679'
 categories:
-  - - JavaScript
+  - - 计算机编程
 abbrlink: b207b5ae
 date: 2019-06-17 11:44:15
 ---

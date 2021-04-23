@@ -1,9 +1,9 @@
 ---
 title: CSS学习：CSS三大特性
-tags: []
+tags: [css,html]
 id: '471'
 categories:
-  - - HTML和CSS
+  - - 计算机编程
 abbrlink: 3fbe4306
 date: 2019-01-19 16:18:25
 ---

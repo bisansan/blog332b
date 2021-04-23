@@ -1,9 +1,9 @@
 ---
 title: mysql8基础操作（二）
-tags: []
+tags: [mysql]
 id: '1055'
 categories:
-  - - uncategorized
+  - - 系统运维
 abbrlink: de755416
 date: 2020-12-06 21:23:04
 ---

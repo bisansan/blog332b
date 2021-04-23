@@ -1,10 +1,9 @@
 ---
 title: 酷比魔方power M3官方救砖线刷包和GAPP卡刷包
-tags: []
+tags: [酷比魔方,刷机,gapp,android]
 id: '11'
 categories:
-  - - 其他分类
-  - - 软件工具
+  - - 技术教程
 abbrlink: 447c13cc
 date: 2018-03-24 04:26:00
 ---

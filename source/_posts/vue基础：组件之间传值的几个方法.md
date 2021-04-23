@@ -1,9 +1,9 @@
 ---
 title: VUE基础：组件之间传值的几个方法
-tags: []
+tags: [vuejs,javascript,nodejs]
 id: '696'
 categories:
-  - - Vue.js
+  - - 计算机编程
 abbrlink: c79feebc
 date: 2019-07-07 14:26:03
 ---

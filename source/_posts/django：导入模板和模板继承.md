@@ -1,9 +1,9 @@
 ---
 title: Django：导入模板和模板继承
-tags: []
+tags: [django,python]
 id: '223'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 97763a3b
 date: 2018-11-01 15:32:23
 ---

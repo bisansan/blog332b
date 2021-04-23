@@ -1,9 +1,9 @@
 ---
 title: python @property  动态属性和setter重新赋值
-tags: []
+tags: [python]
 id: '858'
 categories:
-  - - uncategorized
+  - - 计算机编程
 abbrlink: 1e12185b
 date: 2019-09-28 17:45:02
 ---

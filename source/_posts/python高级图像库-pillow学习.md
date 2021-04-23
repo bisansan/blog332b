@@ -1,9 +1,9 @@
 ---
 title: python高级图像库 Pillow学习
-tags: []
+tags: [python,pillow]
 id: '635'
 categories:
-  - - Python
+  - - 计算机编程
 abbrlink: f4ebfb31
 date: 2019-04-22 15:18:18
 ---

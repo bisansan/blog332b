@@ -1,9 +1,9 @@
 ---
 title: python  列表解析式、三元表达式和lambda
-tags: []
+tags: [python]
 id: '840'
 categories:
-  - - Python
+  - - 计算机编程
 abbrlink: f87a8e5c
 date: 2019-09-10 10:12:22
 ---

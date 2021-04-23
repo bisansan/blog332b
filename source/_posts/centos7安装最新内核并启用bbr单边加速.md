@@ -1,11 +1,9 @@
 ---
 title: Centos7安装最新内核并启用BBR单边加速
-tags: []
+tags: [centos,linux]
 id: '218'
 categories:
-  - - 主机系统
-    - 其他Linux系统
-  - - 技术分享
+  - - 系统运维
 abbrlink: 9c5d6626
 date: 2018-10-28 15:23:45
 ---

@@ -1,9 +1,9 @@
 ---
 title: Django模板：静态模板存放规则和目录
-tags: []
+tags: [django,python]
 id: '226'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 51508a34
 date: 2018-11-02 16:07:33
 ---

@@ -1,9 +1,9 @@
 ---
 title: Python3格式化输出文本语法
-tags: []
+tags: [python]
 id: '26'
 categories:
-  - - Python
+  - - 计算机编程
 abbrlink: '88977851'
 date: 2018-05-23 16:22:13
 ---

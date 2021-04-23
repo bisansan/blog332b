@@ -1,9 +1,9 @@
 ---
 title: Linux    命令
-tags: []
+tags: [linux,shell]
 id: '976'
 categories:
-  - - uncategorized
+  - - 系统运维
 abbrlink: b0ba923a
 ---
 

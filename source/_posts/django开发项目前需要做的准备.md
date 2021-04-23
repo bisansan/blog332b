@@ -1,9 +1,9 @@
 ---
 title: Django开发项目前需要做的准备
-tags: []
+tags: [django,python]
 id: '603'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 6dfa40a3
 date: 2019-03-28 15:59:43
 ---

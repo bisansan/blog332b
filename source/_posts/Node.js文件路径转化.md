@@ -1,9 +1,9 @@
 ---
 title: Path.resolve()   Node.js文件路径转化
-tags: []
+tags: [nodejs,javascript]
 id: '788'
 categories:
-  - - JavaScript
+  - - 计算机编程
 abbrlink: '93471434'
 date: 2019-08-12 11:03:27
 ---

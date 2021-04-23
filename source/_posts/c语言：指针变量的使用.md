@@ -1,9 +1,9 @@
 ---
 title: C语言：指针变量的使用
-tags: []
+tags: [c语言]
 id: '748'
 categories:
-  - - C语言
+  - - 计算机编程
 abbrlink: a1291b2d
 date: 2019-08-09 17:32:05
 ---

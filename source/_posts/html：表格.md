@@ -1,9 +1,9 @@
 ---
 title: HTML：表格
-tags: []
+tags: [css,html]
 id: '295'
 categories:
-  - - HTML和CSS
+  - - 计算机编程
 abbrlink: 9f83832e
 date: 2018-11-23 15:05:59
 ---

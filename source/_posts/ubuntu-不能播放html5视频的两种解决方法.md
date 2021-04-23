@@ -1,10 +1,9 @@
 ---
 title: Ubuntu   不能播放html5视频的两种解决方法
-tags: []
+tags: [ubuntu,html5]
 id: '823'
 categories:
-  - - 主机系统
-    - ubuntu
+  - - 技术教程
 abbrlink: 190be277
 date: 2019-08-21 12:42:37
 ---

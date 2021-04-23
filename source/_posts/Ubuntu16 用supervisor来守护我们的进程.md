@@ -1,11 +1,9 @@
 ---
 title: Ubuntu16 用supervisor来守护我们的进程
-tags: []
+tags: [python,supervisor]
 id: '14'
 categories:
-  - - 主机系统
-    - ubuntu
-  - - 技术分享
+  - - 计算机编程
 abbrlink: 22d4e5c9
 date: 2018-03-31 09:54:00
 ---

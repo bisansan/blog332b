@@ -1,11 +1,9 @@
 ---
 title: 腾讯云Ubuntu 18.04 监控工具zabbix安装方法
-tags: []
+tags: [ubuntu,zabbix,linux]
 id: '658'
 categories:
-  - - 主机系统
-    - ubuntu
-  - - 技术分享
+  - - 系统运维
 abbrlink: 889db087
 date: 2019-06-04 17:04:53
 ---

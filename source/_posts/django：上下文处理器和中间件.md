@@ -1,9 +1,9 @@
 ---
 title: Django：上下文处理器和中间件
-tags: []
+tags: [django,python]
 id: '409'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 7eb155a5
 date: 2018-12-19 17:46:51
 ---

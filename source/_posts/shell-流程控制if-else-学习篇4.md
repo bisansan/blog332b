@@ -1,9 +1,9 @@
 ---
 title: Shell  流程控制if...else 学习篇(4)
-tags: []
+tags: [shell,linux]
 id: '952'
 categories:
-  - - uncategorized
+  - - 系统运维
 abbrlink: cc166f12
 date: 2020-05-14 18:03:23
 ---

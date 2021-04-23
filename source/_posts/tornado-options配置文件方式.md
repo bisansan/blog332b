@@ -1,9 +1,9 @@
 ---
 title: tornado.options配置文件方式
-tags: []
+tags: [torado,python]
 id: '850'
 categories:
-  - - uncategorized
+  - - 计算机编程
 abbrlink: 67c2328e
 date: 2019-09-25 10:58:26
 ---

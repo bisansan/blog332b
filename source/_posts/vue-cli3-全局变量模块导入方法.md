@@ -1,9 +1,9 @@
 ---
 title: VUE-CLI3  全局变量模块导入方法
-tags: []
+tags: [vuejs,javascript]
 id: '723'
 categories:
-  - - Vue.js
+  - - 计算机编程
 abbrlink: 7750a09b
 date: 2019-07-22 17:32:20
 ---

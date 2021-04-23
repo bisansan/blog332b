@@ -1,9 +1,9 @@
 ---
 title: zxinc ipv6数据库python3 解析脚本
-tags: []
+tags: [ipv6,python]
 id: '846'
 categories:
-  - - Python
+  - - 计算机编程
 abbrlink: f681aab2
 date: 2019-09-24 09:12:21
 ---

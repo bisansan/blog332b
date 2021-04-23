@@ -1,9 +1,9 @@
 ---
 title: Django模板：URL标签使用以及制作简易导航栏
-tags: []
+tags: [django,python]
 id: '193'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: a40e252b
 date: 2018-10-24 14:11:21
 ---

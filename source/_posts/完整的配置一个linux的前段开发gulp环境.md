@@ -1,12 +1,9 @@
 ---
 title: 完整的配置一个linux的前段开发gulp环境
-tags: []
+tags: [linux,gulp]
 id: '629'
 categories:
-  - - JavaScript
-  - - 主机系统
-    - ubuntu
-  - - 技术分享
+  - - 计算机编程
 abbrlink: f47af58d
 date: 2019-04-10 15:23:14
 ---

@@ -1,9 +1,9 @@
 ---
 title: python 类对象私有属性
-tags: []
+tags: [python]
 id: '902'
 categories:
-  - - uncategorized
+  - - 计算机编程
 abbrlink: 4eac8846
 ---
 

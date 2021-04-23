@@ -1,9 +1,9 @@
 ---
 title: Python的基础语法：编码、标识符和注释
-tags: []
+tags: [python]
 id: '52'
 categories:
-  - - Python
+  - - 计算机编程
 abbrlink: d1a42a19
 date: 2018-05-14 15:46:31
 ---

@@ -1,9 +1,9 @@
 ---
 title: Django模板：自定义一个过滤器
-tags: []
+tags: [django,python]
 id: '208'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 697646bf
 date: 2018-10-26 11:06:21
 ---

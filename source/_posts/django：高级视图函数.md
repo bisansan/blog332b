@@ -1,9 +1,9 @@
 ---
 title: Django：高级视图函数
-tags: []
+tags: [django,python]
 id: '671'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 1787f2fd
 date: 2018-11-30 15:37:49
 ---

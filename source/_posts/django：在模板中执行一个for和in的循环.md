@@ -1,9 +1,9 @@
 ---
 title: Django：在模板中执行for...in的循环和列表显示文字
-tags: []
+tags: [django,python]
 id: '182'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 8c1091f5
 date: 2018-10-23 17:03:38
 ---

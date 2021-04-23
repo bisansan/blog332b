@@ -1,9 +1,9 @@
 ---
 title: Django：cookie 和session
-tags: []
+tags: [django,python]
 id: '403'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 292a9e36
 date: 2018-12-18 17:54:42
 ---
@@ -14,7 +14,7 @@ date: 2018-12-18 17:54:42
 
 ## 在 django 中操作cookie 和session:
 
-操作cookie: 设cookie是设置给浏览器的。因此我们需要通过response的对象来设置cookie可以通过response.set\_cookie来设置,这个方法的相关参数如下： 设置cookie是设S值给浏览器的。因此我们需要通过response的对象来设设S cookie可以通过response.set\_cookie来设 S,这个方法的相关参数如下： 1. key :这个 cookie 的 key 2. value :这个 cookie 的 value 3. max\_age :最长的生命周期。单位是秒。 4. expires :过期时间。跟max\_age是类似的，只不过这个参数需要传递一个具体的日期，比如datetime或者是符合日期格式的字 符串，如果设置了 max\_age ,那么这个参数设置将无效。 5. path :对域名下哪个路径有效。默认是对域名下所有路径都有效。 6. domain :针对哪个域名有效。 7. secure :是否是安全的，如果设置为True，那么只能在https协议下才可用 8. httponly :默认是False 如果为True，那么在客户端不能通过JavaScript进行操作。 给cookies设置一个有效时间
+操作cookie: 设cookie是设置给浏览器的。因此我们需要通过response的对象来设置cookie可以通过response.set\_cookie来设置,这个方法的相关参数如下： 设置cookie是设S值给浏览器的。因此我们需要通过response的对象来设设S cookie可以通过response.set\_cookie来设 S,这个方法的相关参数如下： 1. key :这个 cookie 的 key 2. value :这个 cookie 的 value 3. max\_age :最长的生命周期。单位是秒。 4. expires :过期时间。跟max\_age是类似的，只不过这个参数需要传递一个具体的日期，比如datetime或者是符合日期格式的字 符串，如果设置了 max\_age ,那么这个参数设置将无效。 5. path :对域名下哪个路径有效。默认是对域名下所有路径都有效。 6. domain :针对哪个域名有效。 7. secure :是否是安全的，如果设置为True，那么只能在https协议下才可用 8. httponly :默认是False 如果为True，那么在客户端不能通过javascript进行操作。 给cookies设置一个有效时间
 
 def index(request):
     reponse = HttpResponse('index')

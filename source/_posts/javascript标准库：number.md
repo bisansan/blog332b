@@ -1,9 +1,9 @@
 ---
-title: Javascript标准库：Number
-tags: []
+title: javascript标准库：Number
+tags: [javascript]
 id: '742'
 categories:
-  - - JavaScript
+  - - 计算机编程
 abbrlink: cc46bdda
 date: 2019-08-11 18:23:40
 ---

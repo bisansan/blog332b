@@ -1,9 +1,9 @@
 ---
 title: Python首次安装，以及输出hello world!
-tags: []
+tags: [python]
 id: '24'
 categories:
-  - - Python
+  - - 计算机编程
 abbrlink: b5fc856c
 date: 2018-05-11 15:47:59
 ---

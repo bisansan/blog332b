@@ -1,9 +1,9 @@
 ---
 title: Django模板：join、length、lower、random、safe、truncatechars标签
-tags: []
+tags: [django,python]
 id: '206'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 27538b55
 date: 2018-10-25 17:01:35
 ---

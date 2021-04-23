@@ -1,9 +1,9 @@
 ---
 title: CSS样式学习：CSS的基本格式和选择器
-tags: []
+tags: [css,html]
 id: '422'
 categories:
-  - - HTML和CSS
+  - - 计算机编程
 abbrlink: fa1535a
 date: 2018-12-27 21:15:22
 ---

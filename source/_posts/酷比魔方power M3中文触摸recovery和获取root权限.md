@@ -1,10 +1,9 @@
 ---
 title: 酷比魔方power M3中文触摸recovery和获取root权限
-tags: []
+tags: [酷比魔方,recovery,root,android]
 id: '9'
 categories:
-  - - 其他分类
-  - - 技术分享
+  - - 技术教程
 abbrlink: f69a1f40
 date: 2018-03-24 03:58:00
 ---

@@ -1,9 +1,9 @@
 ---
 title: Django：对用户注册数据进行限制
-tags: []
+tags: [django,python]
 id: '385'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 98c3e256
 date: 2018-12-12 14:46:21
 ---

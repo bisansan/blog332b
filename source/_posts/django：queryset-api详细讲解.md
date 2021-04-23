@@ -1,9 +1,9 @@
 ---
 title: Django：QuerySet API详细讲解
-tags: []
+tags: [django,python]
 id: '327'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 61c31679
 date: 2018-11-30 10:01:09
 ---

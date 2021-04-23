@@ -1,9 +1,9 @@
 ---
-title: Javascript 标准库：Object
-tags: []
+title: javascript 标准库：Object
+tags: [javascript]
 id: '743'
 categories:
-  - - JavaScript
+  - - 计算机编程
 abbrlink: ac170978
 date: 2019-08-05 18:06:27
 ---

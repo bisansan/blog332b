@@ -1,11 +1,9 @@
 ---
 title: linux系统：玩转ubuntu18.04 LTS长期稳定版(一)
-tags: []
+tags: [linux,ubuntu]
 id: '518'
 categories:
-  - - 主机系统
-    - ubuntu
-  - - 技术分享
+  - - 技术教程
 abbrlink: f1958246
 date: 2019-01-30 17:15:56
 ---

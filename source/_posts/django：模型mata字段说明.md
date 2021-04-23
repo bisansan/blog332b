@@ -1,9 +1,9 @@
 ---
 title: DJango：模型MATA字段说明
-tags: []
+tags: [django,python]
 id: '271'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 3a680437
 date: 2018-11-13 15:07:58
 ---

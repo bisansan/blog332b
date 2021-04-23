@@ -1,9 +1,9 @@
 ---
 title: C语言基础：指针函数
-tags: []
+tags: [c语言]
 id: '731'
 categories:
-  - - C语言
+  - - 计算机编程
 abbrlink: a721b297
 date: 2019-07-31 18:01:47
 ---

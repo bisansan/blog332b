@@ -1,9 +1,9 @@
 ---
 title: VUE-CLI3 中引入laydate日期选择插件
-tags: []
+tags: [vuejs,javascript]
 id: '721'
 categories:
-  - - Vue.js
+  - - 计算机编程
 abbrlink: e09f509
 date: 2019-07-22 17:26:36
 ---

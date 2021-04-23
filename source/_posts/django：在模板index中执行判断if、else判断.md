@@ -1,9 +1,9 @@
 ---
 title: Django：在模板index中执行判断if、else判断
-tags: []
+tags: [django,python]
 id: '180'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: 56aab06b
 date: 2018-10-23 15:32:03
 ---

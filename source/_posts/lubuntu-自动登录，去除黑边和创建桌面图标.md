@@ -1,11 +1,9 @@
 ---
 title: lubuntu   自动登录，去除黑边和创建桌面图标
-tags: []
+tags: [ubuntu,linux,搜狗输入法]
 id: '809'
 categories:
-  - - 主机系统
-    - ubuntu
-  - - 技术分享
+  - - 技术教程
 abbrlink: b42e815a
 date: 2019-08-15 11:35:47
 ---

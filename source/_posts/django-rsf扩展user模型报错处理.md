@@ -1,15 +1,14 @@
 ---
 title: django RSF扩展USER模型报错处理
-tags: []
+tags: [django,python,Django Rest Framework]
 id: '718'
 categories:
-  - - django
-    - Django Rest Framework
+  - - 计算机编程
 abbrlink: c7b478
 date: 2019-07-17 15:58:01
 ---
 
-Django REST Framework
+Django Rest Framework
 
 ```
 'User' object has no attribute 'tracks'

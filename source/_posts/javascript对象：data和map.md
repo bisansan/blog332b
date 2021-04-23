@@ -1,9 +1,9 @@
 ---
-title: Javascript对象：Data和map
-tags: []
+title: javascript对象：Data和map
+tags: [javascript]
 id: '736'
 categories:
-  - - JavaScript
+  - - 计算机编程
 abbrlink: bda254b7
 date: 2019-08-01 17:45:14
 ---

@@ -1,9 +1,9 @@
 ---
 title: css布局flex大致用法
-tags: []
+tags: [css,flex,html,javascript]
 id: '874'
 categories:
-  - - uncategorized
+  - - 计算机编程
 abbrlink: 40758ff2
 date: 2019-10-12 11:21:45
 ---

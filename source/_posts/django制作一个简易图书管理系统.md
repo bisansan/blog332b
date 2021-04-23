@@ -1,9 +1,9 @@
 ---
 title: Django制作一个简易图书管理系统
-tags: []
+tags: [django,python]
 id: '240'
 categories:
-  - - Django
+  - - 计算机编程
 abbrlink: d414b178
 date: 2018-11-09 16:52:05
 ---
