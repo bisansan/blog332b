@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.4.0">
+<script>
+/**
+ * 判断是否是IE浏览器，支持IE6-IE11
+ */
+function isIE() { //ie?
+    if (!!window.ActiveXObject || "ActiveXObject" in window)
+        window.location.href="http://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href);
+    else
+        return false;
+}
+isIE()
+</script>
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.ico">
 
@@ -15,7 +27,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.332b.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.332b.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="一、修改&#x2F;etc&#x2F;mysql&#x2F;my.conf 找到bind-address &#x3D; 127.0.0.1这一行 改为bind-address &#x3D; 0.0.0.0即可 二、为需要远程登录的用户赋予权限 1、新建用户远程连接mysql数据库 grant all on *.* to admin@’%’ identified by ‘123456’ with grant option; flush privil">
@@ -25,13 +37,13 @@
 <meta property="og:site_name" content="笔三三博客">
 <meta property="og:description" content="一、修改&#x2F;etc&#x2F;mysql&#x2F;my.conf 找到bind-address &#x3D; 127.0.0.1这一行 改为bind-address &#x3D; 0.0.0.0即可 二、为需要远程登录的用户赋予权限 1、新建用户远程连接mysql数据库 grant all on *.* to admin@’%’ identified by ‘123456’ with grant option; flush privil">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://post.332b.com/wp-content/uploads/2019/01/QQ%E6%88%AA%E5%9B%BE20190123172412.png">
+<meta property="og:image" content="https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/01/QQ%E6%88%AA%E5%9B%BE20190123172412.png">
 <meta property="article:published_time" content="2019-01-16T09:29:08.000Z">
-<meta property="article:modified_time" content="2021-04-23T01:31:21.509Z">
+<meta property="article:modified_time" content="2021-04-25T10:09:38.552Z">
 <meta property="article:author" content="Witt">
 <meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://post.332b.com/wp-content/uploads/2019/01/QQ%E6%88%AA%E5%9B%BE20190123172412.png">
+<meta name="twitter:image" content="https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/01/QQ%E6%88%AA%E5%9B%BE20190123172412.png">
 
 <link rel="canonical" href="http://blog.332b.com/posts/1b033b27.html">
 
@@ -224,7 +236,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-23 09:31:21" itemprop="dateModified" datetime="2021-04-23T09:31:21+08:00">2021-04-23</time>
+                <time title="修改时间：2021-04-25 18:09:38" itemprop="dateModified" datetime="2021-04-25T18:09:38+08:00">2021-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -237,6 +249,22 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/posts/1b033b27.html#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="posts/1b033b27.html" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
 
         </div>
       </header>
@@ -249,7 +277,7 @@
       
         <p><strong>一、修改/etc/mysql/my.conf</strong> 找到bind-address = 127.0.0.1这一行 改为bind-address = 0.0.0.0即可 <strong>二、为需要远程登录的用户赋予权限</strong> 1、新建用户远程连接mysql数据库 grant all on *.* to admin@’%’ identified by ‘123456’ with grant option; flush privileges; 允许任何ip地址(%表示允许任何ip地址)的电脑用admin帐户和密码(123456)来访问这个mysql server。 注意admin账户不一定要存在。 2、支持root用户允许远程连接mysql数据库 grant all privileges on *.* to ‘root’@’%’ identified by ‘123456’ with grant option; flush privileges; 修改数据库密码     mysqladmin -u root -p password 123456 mysql 5.6之前版本： update user set password=password(‘abc’) where User=’root’; mysql 5.7版本： update mysql.user set authentication_string=password(‘123456’) where user=’root’ and host=’%’;; mysql 8.0版本：ALTER user ‘root’@’localhost’ IDENTIFIED BY ‘123456’ 显示所有数据库 show databases 创建数据库 创建一个my_test数据库，并将它的数据库编码设置为utf8编码 create database my_test character set utf8; ##character [ˈkærəktɚ]  特征，特点； 选择和进入一个数据库   use my_test; 删除指定数据库   drop database user; 数据库一旦创建，名称是无法修改的，在mysql数据库中，字符串类型和日期类型的数据，必须要使用单双引号</p>
 <h2 id="数据定义语言DDL"><a href="#数据定义语言DDL" class="headerlink" title="数据定义语言DDL"></a>数据定义语言DDL</h2><p><strong>查询</strong> 显示所有表 show tables 查看表字段   desc user ##desc在SQL语言中，代表降序 查看表详细结构，包含创建命令，表编码，表类型 show create table uers; <strong>新增</strong> 新建表 新建一个名称叫user的表，它包含三个字段id设置为整数，username设置为最长10位字符串，password最长为16位 create table user(id int,username varchar(10),password varchar(16)); 新增表字段 在一个表中新增一个mail字段，最大长度为30位 alter table user add mail varchar(30); ##alter [‘ɔltɚ]    变更，改变； <strong>修改</strong> 修改表字段数据类型 修改user表id字段的类型为bigint alter table user modify id bigint; #modify  [ˈmɑdɪfaɪ]    修改，修饰； 修改表的称 将表user改名为users rename table user to users; 修补表编码 修改users表的编码为utf8 alter table users character set utf8; 修改表的字段名（列名） 修改user表下的mail字段，新命名为mails数据类型varchar，限制成30位 alter table users change mail mails varchar(30); <strong>删除</strong> 删除表 drop table users; 删除表字段 删除一列的邮箱字段 alter table user drop mail; ##drop [drɑp] 下降，终止；</p>
-<h2 id="数据操作语言DML"><a href="#数据操作语言DML" class="headerlink" title="数据操作语言DML"></a>数据操作语言DML</h2><p><strong>查询</strong> 查询表数据 查看users表所有数据 select * from users 查询指定列(字段)所有数据 select username,mails from users <strong>新增</strong> 新增(插入)表数据 在users新增一个id为2，名称为admin，密码为123456，邮箱为<a href="mailto:&#49;&#x32;&#51;&#x40;&#x71;&#x71;&#x2e;&#99;&#x6f;&#x6d;">&#49;&#x32;&#51;&#x40;&#x71;&#x71;&#x2e;&#99;&#x6f;&#x6d;</a>的数据，命令全部用空格隔开 insert into users (id,username,password,mails) values (2,’admin’,’123456’,‘123@qq.com’); 新增(插入)表多个数据 插入多个数据时，将多个数据用逗号‘ , ’隔开 insert into users (id,username,password,mails) values (1,’user’,’123456’,‘user@qq.com’),(2,’admin’,’123456’,‘123@qq.com’); <strong>修改</strong> 更改表数据 更新users表id为2的所有数据，将username更为‘admin’，如果没有where指定条件，则会更新这个表的全部数据的username update users set username=’admin’ where id=2; 表数据运算 更新users表username=‘admin’的所有数据，将id加1，除了加法，还可以加减乘除，但必须是数字；如果没有where指定条件，则会更新这个表的全部数据的id update users set id=id+1 where username=’admin’; <strong>删除</strong> 删除表中的所有的所有数据 delete from users; 删除表中的指定数据 删除users表中的id为1的数据 delete from users where id=1 清空表结构，并重新创建同样的表覆盖原表 它跟delete的区别是，delete支持数据找回，truncate不支持数据找回，并且truncate比delete执行速度快 truncate table users;</p>
+<h2 id="数据操作语言DML"><a href="#数据操作语言DML" class="headerlink" title="数据操作语言DML"></a>数据操作语言DML</h2><p><strong>查询</strong> 查询表数据 查看users表所有数据 select * from users 查询指定列(字段)所有数据 select username,mails from users <strong>新增</strong> 新增(插入)表数据 在users新增一个id为2，名称为admin，密码为123456，邮箱为<a href="mailto:&#49;&#x32;&#51;&#64;&#x71;&#x71;&#46;&#99;&#111;&#109;">&#49;&#x32;&#51;&#64;&#x71;&#x71;&#46;&#99;&#111;&#109;</a>的数据，命令全部用空格隔开 insert into users (id,username,password,mails) values (2,’admin’,’123456’,‘123@qq.com’); 新增(插入)表多个数据 插入多个数据时，将多个数据用逗号‘ , ’隔开 insert into users (id,username,password,mails) values (1,’user’,’123456’,‘user@qq.com’),(2,’admin’,’123456’,‘123@qq.com’); <strong>修改</strong> 更改表数据 更新users表id为2的所有数据，将username更为‘admin’，如果没有where指定条件，则会更新这个表的全部数据的username update users set username=’admin’ where id=2; 表数据运算 更新users表username=‘admin’的所有数据，将id加1，除了加法，还可以加减乘除，但必须是数字；如果没有where指定条件，则会更新这个表的全部数据的id update users set id=id+1 where username=’admin’; <strong>删除</strong> 删除表中的所有的所有数据 delete from users; 删除表中的指定数据 删除users表中的id为1的数据 delete from users where id=1 清空表结构，并重新创建同样的表覆盖原表 它跟delete的区别是，delete支持数据找回，truncate不支持数据找回，并且truncate比delete执行速度快 truncate table users;</p>
 <h2 id="数据查询语言DQL"><a href="#数据查询语言DQL" class="headerlink" title="数据查询语言DQL"></a>数据查询语言DQL</h2><p><strong>条件查询</strong> where后面可以跟的查询条件</p>
 <ol>
 <li> =（等于），!=（不等于，&lt;&gt;（不等于），&lt;（大于），&gt;（小于），&lt;=（大于或等于），&gt;=（小于或等于）；</li>
@@ -277,7 +305,7 @@
 <li> MIN(score)      统计每组score中最小值</li>
 <li> MAX(score)     统计每组score中最大值</li>
 </ol>
-<p>SELECT id,GROUP_CONCAT(score),MIN(score),MAX(score) FROM users GROUP BY id; <img src="https://post.332b.com/wp-content/uploads/2019/01/QQ%E6%88%AA%E5%9B%BE20190123172412.png"> Hvaing二次条件查找 除了WHERE可以进行条件查找，HAVING可以根据WHERE查找出来的数据，进行二次查找 SELECT id FROM users WHERE id&gt;2 HAVING s&gt;50; WHERE和HAVING的区别 1.HAVING可以使用聚合函数，而WHERE不能使用聚合函数 2.HAVING可以放在GROUP BY后面，配合它进行结合使用，而WHERE必须放在GROUP BY的前面 SQL查询语句书写循序： select &gt; from &gt; where &gt; GROUP BY &gt; having &gt; order by &gt; limit 选择字段  》 来自哪个表 》查询条件 》分组查询 》二次条件查询 》排序</p>
+<p>SELECT id,GROUP_CONCAT(score),MIN(score),MAX(score) FROM users GROUP BY id; <img src="https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/01/QQ%E6%88%AA%E5%9B%BE20190123172412.png"> Hvaing二次条件查找 除了WHERE可以进行条件查找，HAVING可以根据WHERE查找出来的数据，进行二次查找 SELECT id FROM users WHERE id&gt;2 HAVING s&gt;50; WHERE和HAVING的区别 1.HAVING可以使用聚合函数，而WHERE不能使用聚合函数 2.HAVING可以放在GROUP BY后面，配合它进行结合使用，而WHERE必须放在GROUP BY的前面 SQL查询语句书写循序： select &gt; from &gt; where &gt; GROUP BY &gt; having &gt; order by &gt; limit 选择字段  》 来自哪个表 》查询条件 》分组查询 》二次条件查询 》排序</p>
 
     </div>
 
@@ -317,7 +345,7 @@
           
     
   <div class="comments">
-    <div id="lv-container" data-id="city" data-uid="MTAyMC81MjEzNC8yODYxNA=="></div>
+    <div id="SOHUCS"></div>
   </div>
   
 
@@ -486,21 +514,19 @@
 
   
 
-<script>
-NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
-  window.livereOptions = {
-    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
-  };
-  (function(d, s) {
-    var j, e = d.getElementsByTagName(s)[0];
-    if (typeof LivereTower === 'function') { return; }
-    j = d.createElement(s);
-    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-    j.async = true;
-    e.parentNode.insertBefore(j, e);
-  })(document, 'script');
-});
-</script>
+  <script>
+  NexT.utils.loadComments(document.querySelector('#SOHUCS'), () => {
+    var appid = 'cytP0uCuv';
+    var conf = 'eec945e2266ea163b4cb836867aecb5e';
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
+    } else {
+      var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})});
+    }
+  });
+  </script>
+  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
 
 </body>
 </html>

@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.4.0">
+<script>
+/**
+ * 判断是否是IE浏览器，支持IE6-IE11
+ */
+function isIE() { //ie?
+    if (!!window.ActiveXObject || "ActiveXObject" in window)
+        window.location.href="http://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href);
+    else
+        return false;
+}
+isIE()
+</script>
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.ico">
 
@@ -15,7 +27,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.332b.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.332b.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="ORM模型更方便我们来操作数据库，原生的SQL容易遭到攻击，ORM模型就可以尽可能的去避免这些事情的发生，经测试使用后性能损失不到5% 下面是已经创建了一个book的app，建好了数据库连接，已经将book安装到了setting.py里去了，下面这个对应的是book的models.py文件 from django.db import modelsclass book(models.Model):">
@@ -25,15 +37,15 @@
 <meta property="og:site_name" content="笔三三博客">
 <meta property="og:description" content="ORM模型更方便我们来操作数据库，原生的SQL容易遭到攻击，ORM模型就可以尽可能的去避免这些事情的发生，经测试使用后性能损失不到5% 下面是已经创建了一个book的app，建好了数据库连接，已经将book安装到了setting.py里去了，下面这个对应的是book的models.py文件 from django.db import modelsclass book(models.Model):">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://post.332b.com/wp-content/uploads/2018/11/20181111174010.png">
-<meta property="og:image" content="https://post.332b.com/wp-content/uploads/2018/11/20181111175828.png">
+<meta property="og:image" content="https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/11/20181111174010.png">
+<meta property="og:image" content="https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/11/20181111175828.png">
 <meta property="article:published_time" content="2018-11-11T12:41:16.000Z">
-<meta property="article:modified_time" content="2021-04-23T01:31:23.672Z">
+<meta property="article:modified_time" content="2021-04-25T10:09:38.170Z">
 <meta property="article:author" content="Witt">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="Django">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://post.332b.com/wp-content/uploads/2018/11/20181111174010.png">
+<meta name="twitter:image" content="https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/11/20181111174010.png">
 
 <link rel="canonical" href="http://blog.332b.com/posts/8d6e45cc.html">
 
@@ -226,7 +238,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-23 09:31:23" itemprop="dateModified" datetime="2021-04-23T09:31:23+08:00">2021-04-23</time>
+                <time title="修改时间：2021-04-25 18:09:38" itemprop="dateModified" datetime="2021-04-25T18:09:38+08:00">2021-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,6 +251,22 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/posts/8d6e45cc.html#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="posts/8d6e45cc.html" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
 
         </div>
       </header>
@@ -253,7 +281,7 @@
 <p>from django.db import models<br>class book(models.Model):<br>    id = models.AutoField(primary_key=True)    ##将id设置成自动增涨，并设置为关键key<br>    name = models.CharField(max_length=100,null=False)   ###将name设置为字符串，长度为100个字符，null不能为空<br>    author = models.CharField(max_length=100,null=False)   ###同上<br>    price = models.FloatField(null=False,default=0)    ##将price设置为浮点数，null不能为空，如果没有值默认是0</p>
 <p>下面生成迁移脚本和建立数据库连接关系</p>
 <p>manage.py makemigrations ##生成迁移脚本<br>manage.py migrate ###映射数据库关系</p>
-<p><img src="https://post.332b.com/wp-content/uploads/2018/11/20181111174010.png"> 如果你没有写数据库名字，那么他创建的数据库表就是，就是book_book（app的名字+class的名字），下面图片就是刚刚创建的 <img src="https://post.332b.com/wp-content/uploads/2018/11/20181111175828.png"> 猜猜这段代码什么意思？要不要自己动手试试效果</p>
+<p><img src="https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/11/20181111174010.png"> 如果你没有写数据库名字，那么他创建的数据库表就是，就是book_book（app的名字+class的名字），下面图片就是刚刚创建的 <img src="https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/11/20181111175828.png"> 猜猜这段代码什么意思？要不要自己动手试试效果</p>
 <p>def __str__(self):<br>    return “<a href="Book:({name},{author},{price})">Book:({name},{author},{price})</a>“.format(name=self.name,author=self.author,price=self.price)</p>
 <p>一些在视图函数views.py中操作CRM增删改查的方法</p>
 <p>from .models import Book    ##先载入一下ORM模块<br>from django.http import HttpResponse<br>def index(requset):<br>    #一、增加数据<br>    # book = Book(name=’西游记’,author=’吴晨歌’,price=’501’)<br>    # book.save()<br>    #二、查询数据  1.通过主键key来查找   2.根据其他条件查询<br>    # book = Book.objects.get(pk=1)  ##get=只查找一条，通过key来查询，pk为primary key的缩写<br>    # print(book)<br>    # book = Book.objects.filter(name=’西游记’) ###通过其他条件查询，返回的是一个所有包含这个值的列表，可以在后面加个.first来获取第一个值<br>    # print(book)<br>    #三、删除数据<br>    # book = Book.objects.get(pk=1)  ##通过get到key之后，再进行删除<br>    # book.delete()<br>    #四、更改数据<br>    # book = Book.objects.get(pk=2)  ##先get到key，再直接通过属性进行修改<br>    # book.price = 2000<br>    # book.save()<br>    return HttpResponse(“书籍操作”)</p>
@@ -314,7 +342,7 @@
           
     
   <div class="comments">
-    <div id="lv-container" data-id="city" data-uid="MTAyMC81MjEzNC8yODYxNA=="></div>
+    <div id="SOHUCS"></div>
   </div>
   
 
@@ -483,21 +511,19 @@
 
   
 
-<script>
-NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
-  window.livereOptions = {
-    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
-  };
-  (function(d, s) {
-    var j, e = d.getElementsByTagName(s)[0];
-    if (typeof LivereTower === 'function') { return; }
-    j = d.createElement(s);
-    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-    j.async = true;
-    e.parentNode.insertBefore(j, e);
-  })(document, 'script');
-});
-</script>
+  <script>
+  NexT.utils.loadComments(document.querySelector('#SOHUCS'), () => {
+    var appid = 'cytP0uCuv';
+    var conf = 'eec945e2266ea163b4cb836867aecb5e';
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
+    } else {
+      var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})});
+    }
+  });
+  </script>
+  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
 
 </body>
 </html>
