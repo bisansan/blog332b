@@ -135,7 +135,7 @@ export default {
 
 当用户访问/user/:id/aa 和/user/:id/的区别如下
 
-![](https://post.332b.com/wp-content/uploads/2019/08/2018194545-1024x321.jpg)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/08/2018194545-1024x321.jpg)
 
 命名路由和命名视图
 
@@ -202,7 +202,7 @@ router.push({ name: 'user', params: { userId: 123 } })
   </div>
 ```
 
-![](https://post.332b.com/wp-content/uploads/2019/08/dfgdsfsdasas-1024x301.jpg)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/08/dfgdsfsdasas-1024x301.jpg)
 
 别名和重定向
 

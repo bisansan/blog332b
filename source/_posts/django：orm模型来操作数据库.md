@@ -22,7 +22,7 @@ class book(models.Model):
 manage.py makemigrations ##生成迁移脚本
 manage.py migrate ###映射数据库关系
 
-![](https://post.332b.com/wp-content/uploads/2018/11/20181111174010.png) 如果你没有写数据库名字，那么他创建的数据库表就是，就是book\_book（app的名字+class的名字），下面图片就是刚刚创建的 ![](https://post.332b.com/wp-content/uploads/2018/11/20181111175828.png) 猜猜这段代码什么意思？要不要自己动手试试效果
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/11/20181111174010.png) 如果你没有写数据库名字，那么他创建的数据库表就是，就是book\_book（app的名字+class的名字），下面图片就是刚刚创建的 ![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/11/20181111175828.png) 猜猜这段代码什么意思？要不要自己动手试试效果
 
 def \_\_str\_\_(self):
     return "<Book:({name},{author},{price})>".format(name=self.name,author=self.author,price=self.price)

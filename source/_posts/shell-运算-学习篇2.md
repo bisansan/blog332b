@@ -150,8 +150,8 @@ fi
 
 5.字符串运算符
 
-![](https://post.332b.com/wp-content/uploads/2020/04/screenshot-www.runoob.com-2020.04.24-21_37_21.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2020/04/screenshot-www.runoob.com-2020.04.24-21_37_21.png)
 
 6.文件关系运算符
 
-![](https://post.332b.com/wp-content/uploads/2020/04/screenshot-www.runoob.com-2020.04.24-21_35_01-721x1024.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2020/04/screenshot-www.runoob.com-2020.04.24-21_35_01-721x1024.png)

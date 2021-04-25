@@ -18,4 +18,4 @@ dpkg -i http://archive.ubuntu.com/ubuntu/pool/main/f/firefox/firefox\_64.0+build
 git clone https://github.com/Firef0x/SublimeText-i18n-zh.git
 ```
 
-或者直接下载[foo.zip](https://post.332b.com/wp-content/uploads/2019/01/foo.zip) 然后解压后给执行权限执行目录里的 chmod 777 sublime-imfix && ./sublime-imfix
+或者直接下载[foo.zip](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/01/foo.zip) 然后解压后给执行权限执行目录里的 chmod 777 sublime-imfix && ./sublime-imfix

@@ -20,6 +20,6 @@ ttf-mscorefonts-installer
 
 备用地址：[https://sourceforge.net/projects/corefonts/files/the%20fonts/final/](https://sourceforge.net/projects/corefonts/files/the%20fonts/final/)
 
-[font字体](https://post.332b.com/wp-content/uploads/2019/06/font.zip)[下载](https://post.332b.com/wp-content/uploads/2019/06/font.zip)
+[font字体](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/06/font.zip)[下载](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/06/font.zip)
 
 `sudo dpkg-reconfigure ttf-mscorefonts-installer`

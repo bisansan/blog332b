@@ -213,7 +213,7 @@ class Article(models.Model):
     content = models.TextField()
     author = models.ForeignKey(get\_user\_model(),on\_delete=models.CASCADE)
 
-权限和分组 登录、登录限制和注销，下面是代码演示下载，[login\_and\_logout.zip](https://post.332b.com/wp-content/uploads/2018/12/login_and_logout.zip) 登录from django.contrib.auth import login 使用方法
+权限和分组 登录、登录限制和注销，下面是代码演示下载，[login\_and\_logout.zip](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/12/login_and_logout.zip) 登录from django.contrib.auth import login 使用方法
 
 def my\_login(request):    ###千万不要直接用login函数，否则会跟django自带的函数冲突
     if request.method == 'GET':

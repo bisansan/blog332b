@@ -65,4 +65,4 @@ def index(request):
         print('%s/%s'% (book.name,book.total))
     return HttpResponse('执行成功')
 
-[聚合函数](https://post.332b.com/wp-content/uploads/2018/11/聚合函数.zip)
+[聚合函数](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/11/聚合函数.zip)

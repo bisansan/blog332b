@@ -18,8 +18,8 @@ sudo apt install gnome-screensaver
 
 然后在设置中找到会话启动，设置 =》会话和启动
 
-![](https://post.332b.com/wp-content/uploads/2019/08/2019-08-21_15-16.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/08/2019-08-21_15-16.png)
 
 点击应用程序自启动，然后取消勾选Light locker，也就是锁屏锁，重启后就正常了
 
-![](https://post.332b.com/wp-content/uploads/2019/08/2019-08-21_15-20.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/08/2019-08-21_15-20.png)

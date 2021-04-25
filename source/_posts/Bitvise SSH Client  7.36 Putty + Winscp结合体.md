@@ -12,4 +12,4 @@ WINSCP+PUTTY结合体，可惜是纯英文，没有中文，功能很多需要�
 
 链接: [https://pan.baidu.com/s/1nwM4sxb](https://pan.baidu.com/s/1nwM4sxb) 密码: xzqi
 
-![20180118172903-300x149.png](http://post.332b.com/usr/uploads/2018/03/2340276161.png "20180118172903-300x149.png")
+![20180118172903-300x149.png](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/03/2340276161.png "20180118172903-300x149.png")

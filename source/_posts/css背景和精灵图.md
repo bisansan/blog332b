@@ -23,7 +23,7 @@ background-image: url(/img/photo.png);
     background-repeat: repeat;
 }
 
-  background-position 控制定位 控制图片no-repeat（不填充）的位置，如下图默认是左上角 ![](https://post.332b.com/wp-content/uploads/2019/01/20190122162855.png) background-position第一个为水平方向，第二为树直方向 x轴三个方向的关键词：left center right y轴三个方向的关键词：top center bottom 除了用关键词以外，还可以用像素，第一个水平向右偏移多少，第二个是向下偏移多少，写法background-position: 100px 120px; 像素是可以接受负数的，具体使用请百度，当背景颜色和图片同时存在时，图片会覆盖颜色
+  background-position 控制定位 控制图片no-repeat（不填充）的位置，如下图默认是左上角 ![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/01/20190122162855.png) background-position第一个为水平方向，第二为树直方向 x轴三个方向的关键词：left center right y轴三个方向的关键词：top center bottom 除了用关键词以外，还可以用像素，第一个水平向右偏移多少，第二个是向下偏移多少，写法background-position: 100px 120px; 像素是可以接受负数的，具体使用请百度，当背景颜色和图片同时存在时，图片会覆盖颜色
 
 .b123 {
     background-image: url(/img/photo.png);

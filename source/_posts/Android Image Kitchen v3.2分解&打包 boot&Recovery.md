@@ -19,4 +19,4 @@ date: 2018-03-24 04:14:00
 5）最后支持cleanup.bat来清理文件夹并重置为初始状态，消除以下文件与文件夹：split\_img + ramdisk的目录和任何新的打包的ramdisk或img文件。
 
 链接: [https://pan.baidu.com/s/1FC0l6zi3Je2bREhxFJhqQw](https://pan.baidu.com/s/1FC0l6zi3Je2bREhxFJhqQw) 密码: sww4  
-![15887885545.png](http://post.332b.com/usr/uploads/2018/03/1090277441.png "15887885545.png")
+![15887885545.png](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/03/1090277441.png "15887885545.png")

@@ -42,7 +42,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
 
 line-height: 20px;
 
-1.在企业开发中，我们要保证一行文字正好在一个文本框中居中，最常见的就是直接将行高和盒子的高度设置成一样 2.如果是两行或者多行的话，我们可以这样设置，通过padding内边距来控制，然后用box-sizing:border-box;把文字固定到一个文本框中 ![](https://post.332b.com/wp-content/uploads/2019/01/QQ截图20190124152329.png)
+1.在企业开发中，我们要保证一行文字正好在一个文本框中居中，最常见的就是直接将行高和盒子的高度设置成一样 2.如果是两行或者多行的话，我们可以这样设置，通过padding内边距来控制，然后用box-sizing:border-box;把文字固定到一个文本框中 ![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/01/QQ截图20190124152329.png)
 
 <head>
     <meta charset="UTF-8">

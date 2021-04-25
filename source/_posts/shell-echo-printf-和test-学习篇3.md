@@ -45,7 +45,7 @@ echo '$name \n'
 echo `date`
 ```
 
-![](https://post.332b.com/wp-content/uploads/2020/05/20200511145250.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2020/05/20200511145250.png)
 
 2.prinf 使用大全
 
@@ -72,7 +72,7 @@ printf "%20s \n" $var2
 printf "%20s \n" "val: $var2"
 ```
 
-![](https://post.332b.com/wp-content/uploads/2020/05/20200511153815.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2020/05/20200511153815.png)
 
 3.test 使用方法
 
@@ -135,7 +135,7 @@ fi
 
 c.判断文件
 
-![](https://post.332b.com/wp-content/uploads/2020/05/20200511174553.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2020/05/20200511174553.png)
 
 ```
 #!/bin/bash

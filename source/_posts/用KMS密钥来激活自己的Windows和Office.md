@@ -47,4 +47,4 @@ cscript ospp.vbs /dstatus
 
 Windows 10系统自动激活程序下载，3KB大小2017年9月份亲测可用    
 
-下载地址：Win10\_KMS\_Activation[Win10\_KMS\_Activation.zip](http://post.332b.com/usr/uploads/2018/03/3058077553.zip)
+下载地址：Win10\_KMS\_Activation[Win10\_KMS\_Activation.zip](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/03/3058077553.zip)

@@ -15,6 +15,6 @@ date: 2018-03-24 03:58:00
 3.想root的同学只需要刷recovery和boot，将root卡刷包提前复制到内存卡插入机器，进recovery后直接卡刷不会破坏数据  
 4.想要中文的界面的同学，第一次进入设置Setting选择Simplified Chinese，并且这个设置是可以被保存的哦  
 链接: [https://pan.baidu.com/s/1Mp-h7Ty91mbct-DYLckLew](https://pan.baidu.com/s/1Mp-h7Ty91mbct-DYLckLew) 密码: 2t7b  
-![458836d3d539b6002092dcb1e550352ac65cb71a.jpg](http://post.332b.com/usr/uploads/2018/03/1471652536.jpg "458836d3d539b6002092dcb1e550352ac65cb71a.jpg")
+![458836d3d539b6002092dcb1e550352ac65cb71a.jpg](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/03/1471652536.jpg "458836d3d539b6002092dcb1e550352ac65cb71a.jpg")
 
-![c21ed109b3de9c82b6b729896081800a18d843a8.jpg](http://post.332b.com/usr/uploads/2018/03/2394244304.jpg "c21ed109b3de9c82b6b729896081800a18d843a8.jpg")
+![c21ed109b3de9c82b6b729896081800a18d843a8.jpg](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/03/2394244304.jpg "c21ed109b3de9c82b6b729896081800a18d843a8.jpg")

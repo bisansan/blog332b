@@ -8,7 +8,7 @@ abbrlink: c2ed5e85
 date: 2019-10-28 13:49:03
 ---
 
-![](https://post.332b.com/wp-content/uploads/2019/10/ORM_Perf-1024x451.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/10/ORM_Perf-1024x451.png)
 
 python ORM框架对比图，来自 Tortoise ORM 官网，仅供参考
 

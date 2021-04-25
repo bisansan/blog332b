@@ -26,7 +26,7 @@ def index(request):
 
 { { baidu } }     ####index.html
 
-如果将这个字典的key值直接输入到网页就是这样 ![](https://post.332b.com/wp-content/uploads/2018/10/20181024150256-300x38.png) 如果你使用了autoescape，那么它就会还原它本来的模样，将它变成超链接
+如果将这个字典的key值直接输入到网页就是这样 ![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/10/20181024150256-300x38.png) 如果你使用了autoescape，那么它就会还原它本来的模样，将它变成超链接
 
 { % autoescape off %}
     { { baidu } }

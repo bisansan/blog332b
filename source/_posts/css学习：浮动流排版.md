@@ -15,7 +15,7 @@ date: 2019-01-24 17:30:13
 2.如果父元素的宽度不能显示所有浮动元素, 那么会从最后一个元开始往前贴靠
 3.如果贴靠了前面所有浮动元素之后都不能显示, 最终会贴靠到父元素的边框底下
 
-![](https://post.332b.com/wp-content/uploads/2019/01/1.png)   浮动元素字围现象 浮动的元素不会盖住没有浮动元素中的文字，没有浮动元素中的文字会给浮动的元素让位置，字围效果可以用来做图文混排 ![](https://post.332b.com/wp-content/uploads/2019/01/2.png) **清除浮动方式** 例如下面代码，会向下面这样显示，因为它的p标签是浮动，div已经被清除了margin和padding，所以没有占面积，如果我们要清除浮动，下面就介绍清除方式 ![](https://post.332b.com/wp-content/uploads/2019/01/20190125154627.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/01/1.png)   浮动元素字围现象 浮动的元素不会盖住没有浮动元素中的文字，没有浮动元素中的文字会给浮动的元素让位置，字围效果可以用来做图文混排 ![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/01/2.png) **清除浮动方式** 例如下面代码，会向下面这样显示，因为它的p标签是浮动，div已经被清除了margin和padding，所以没有占面积，如果我们要清除浮动，下面就介绍清除方式 ![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/01/20190125154627.png)
 
  <style type="text/css">
            body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td {
@@ -54,7 +54,7 @@ date: 2019-01-24 17:30:13
     </p>
 </div>
 
-1.给div设置高度，例如给a1设置100的高度，后面的p标签就不会找它，但是因为我们在开发能不设置高度，就不要高度（这个方法不常用） ![](https://post.332b.com/wp-content/uploads/2019/01/20190125154706.png) 2.给p标签添加clear: left;，就会向下面这样显示，clear有both(两边都不要浮动),left（左不要浮动）,right（右边不要浮动） ![](https://post.332b.com/wp-content/uploads/2019/01/20190125154930.png) 3.内墙法和外墙法 他们的不同之处和相同点 他们两个共同点都是隔开两个元素，都需要如下的一个div代码，都可以让第二个盒子设置margin-top属性
+1.给div设置高度，例如给a1设置100的高度，后面的p标签就不会找它，但是因为我们在开发能不设置高度，就不要高度（这个方法不常用） ![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/01/20190125154706.png) 2.给p标签添加clear: left;，就会向下面这样显示，clear有both(两边都不要浮动),left（左不要浮动）,right（右边不要浮动） ![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/01/20190125154930.png) 3.内墙法和外墙法 他们的不同之处和相同点 他们两个共同点都是隔开两个元素，都需要如下的一个div代码，都可以让第二个盒子设置margin-top属性
 
 <div style="clear:both"></div>
 

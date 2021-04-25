@@ -16,4 +16,4 @@ or Wget:
 
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh  bash
 
-注意：如果无法执行，请用安装wget和curl工具 安装完后重启一下就可以执行nvm命令，执行下面命令是全局 `export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"` `[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm`   查看所有node版本（推荐6.4版本）：[https://nodejs.org/zh-cn/download/releases/](https://nodejs.org/zh-cn/download/releases/) `nvm install 6.17.1` `nvm use 6.17.1` 接下来就可以用npm安装包了,下面是我的配置文件 [gulp.zip](https://post.332b.com/wp-content/uploads/2019/04/gulp.zip)
+注意：如果无法执行，请用安装wget和curl工具 安装完后重启一下就可以执行nvm命令，执行下面命令是全局 `export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"` `[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm`   查看所有node版本（推荐6.4版本）：[https://nodejs.org/zh-cn/download/releases/](https://nodejs.org/zh-cn/download/releases/) `nvm install 6.17.1` `nvm use 6.17.1` 接下来就可以用npm安装包了,下面是我的配置文件 [gulp.zip](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/04/gulp.zip)

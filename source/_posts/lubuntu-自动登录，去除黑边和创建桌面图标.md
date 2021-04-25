@@ -47,7 +47,7 @@ User=yourname
 
 二、除去输入法黑边框和黑块背景
 
-![](https://post.332b.com/wp-content/uploads/2019/08/e03a5fff42e2cde863e50f04ef9b655e992807d2.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/08/e03a5fff42e2cde863e50f04ef9b655e992807d2.png)
 
 搜狗的皮肤严重依赖混成，可以用xcompmgr轻量级混成管理器来解决
 

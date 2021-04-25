@@ -26,13 +26,13 @@ for infile in sys.argv\[1:\]:
         except IOError:
             print("cannot create thumbnail for", infile)
 
-  **截取图片的某个区域的矩形** 尺寸排序为 (左, 上, 右, 下)，截取的部分就是一个坐标系 ![](https://post.332b.com/wp-content/uploads/2019/04/20190422163547.png)  
+  **截取图片的某个区域的矩形** 尺寸排序为 (左, 上, 右, 下)，截取的部分就是一个坐标系 ![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/04/20190422163547.png)  
 
 box \= (100, 100, 400, 400)
 region \= im.crop(box)
 region.show() 
 
-  **将某个图片复制到另外一张** ![](https://post.332b.com/wp-content/uploads/2019/04/113214214124.jpg)     **将截图的某个图片进行平铺**
+  **将某个图片复制到另外一张** ![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/04/113214214124.jpg)     **将截图的某个图片进行平铺**
 
 from PIL import Image
 im = Image.open('xej.jpg')
@@ -43,7 +43,7 @@ region = region.transpose(Image.ROTATE\_180)   #旋转180度
 im.paste(region, box)
 im.show()
 
-![](https://post.332b.com/wp-content/uploads/2019/04/20190422163027.png)     **图片旋转** 图片围绕着自身旋转，默认是自身为中心点旋转，当是正数是则为逆时针旋转
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/04/20190422163027.png)     **图片旋转** 图片围绕着自身旋转，默认是自身为中心点旋转，当是正数是则为逆时针旋转
 
 out = im.rotate(-45)
 out.show()
@@ -53,16 +53,16 @@ out.show()
 out = im.transpose(Image.FLIP\_LEFT\_RIGHT)
 out.show()
 
-![](https://post.332b.com/wp-content/uploads/2019/04/20190422165246.png)   图片翻转
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/04/20190422165246.png)   图片翻转
 
 out = im.transpose(Image.FLIP\_TOP\_BOTTOM)
 out.show()
 
-![](https://post.332b.com/wp-content/uploads/2019/04/20190422165724.png)   它也可以根据度数来旋转，不过只有三个固定的度数90、180和270度
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/04/20190422165724.png)   它也可以根据度数来旋转，不过只有三个固定的度数90、180和270度
 
 out = im.transpose(Image.ROTATE\_90)
 
-  它的旋转和im.rotate()是右区别的，让他们都旋转90度，左为im.rotate()，不会改变图片的尺寸但不能完全显示；右边为im.transpose(Image.ROTATE\_90)，会改变图片尺寸能完全显示 ![](https://post.332b.com/wp-content/uploads/2019/04/20190422170521.png) **图片模式转换** 在L模式下图片色彩会变成黑白的
+  它的旋转和im.rotate()是右区别的，让他们都旋转90度，左为im.rotate()，不会改变图片的尺寸但不能完全显示；右边为im.transpose(Image.ROTATE\_90)，会改变图片尺寸能完全显示 ![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/04/20190422170521.png) **图片模式转换** 在L模式下图片色彩会变成黑白的
 
 im = im.convert("L")
 

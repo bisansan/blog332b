@@ -8,7 +8,7 @@ abbrlink: b232ec93
 date: 2019-10-31 15:45:36
 ---
 
-![](https://post.332b.com/wp-content/uploads/2019/10/20191031142611.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/10/20191031142611.png)
 
 如图所示的上表，group by分组必须在select中存在，就在这样
 
@@ -27,7 +27,7 @@ SELECT * FROM demo GROUP BY zuming
 
 SELECT zuming AS new\_id FROM demo GROUP BY zuming;查询如图
 
-![](https://post.332b.com/wp-content/uploads/2019/10/20191031143806.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/10/20191031143806.png)
 
 如果我们要查询这个组的某个字段有那些值，我们可以用GROUP\_CONCAT
 
@@ -35,7 +35,7 @@ SELECT zuming AS new\_id FROM demo GROUP BY zuming;查询如图
 SELECT zuming,GROUP_CONCAT(name),GROUP_CONCAT(age) FROM demo GROUP BY zuming
 ```
 
-![](https://post.332b.com/wp-content/uploads/2019/10/20191031144501.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/10/20191031144501.png)
 
 如果GROUP BY指定了两个字段，就会这样，ORDER BY指定排序字段， DESC 可以让排序相反
 
@@ -43,7 +43,7 @@ SELECT zuming,GROUP_CONCAT(name),GROUP_CONCAT(age) FROM demo GROUP BY zuming
 SELECT name,age,zuming,GROUP_CONCAT(salary),COUNT(age) FROM demo GROUP BY zuming,name,age ORDER BY zuming DESC
 ```
 
-![](https://post.332b.com/wp-content/uploads/2019/10/20191031151117.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/10/20191031151117.png)
 
 GROUP BY 可以配合聚合函数来统计分组组的salary的总和，AS可以将字段改名
 
@@ -51,7 +51,7 @@ GROUP BY 可以配合聚合函数来统计分组组的salary的总和，AS可以
 SELECT zuming,GROUP_CONCAT(name),GROUP_CONCAT(salary),SUM(salary) as salary_count FROM demo GROUP BY zuming
 ```
 
-![](https://post.332b.com/wp-content/uploads/2019/10/20191031153129.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/10/20191031153129.png)
 
 Limit number,number 第一个数字指定从第几个开始截取，第二个指定截取多少个
 
@@ -59,4 +59,4 @@ Limit number,number 第一个数字指定从第几个开始截取，第二个指
 SELECT * FROM demo LIMIT 0,5
 ```
 
-![](https://post.332b.com/wp-content/uploads/2019/10/20191031154311.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/10/20191031154311.png)

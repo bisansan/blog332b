@@ -20,7 +20,7 @@ ch341a硬件驱动和提取软件，下面是下载链接
 
 [http://www.downcc.com/soft/20312.html](http://www.downcc.com/soft/20312.html)
 
-![](https://post.332b.com/wp-content/uploads/2020/02/20200211181332.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2020/02/20200211181332.png)
 
 2.bios修改工具UBU
 
@@ -64,21 +64,21 @@ ch341a硬件驱动和提取软件，下面是下载链接
 
 1.我们先将nvme按图片上的操作将nvme模块插入到bios中
 
-![](https://post.332b.com/wp-content/uploads/2020/02/20200214170051-1024x882.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2020/02/20200214170051-1024x882.png)
 
 2.按图片检查nvme模块是否插入成功
 
-![](https://post.332b.com/wp-content/uploads/2020/02/20200214170810-1024x587.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2020/02/20200214170810-1024x587.png)
 
 四、将微码文件添加Bios中，准备打卡UBU文件工具，我用的是1.76版本
 
 1.打卡ubu工具选择这个
 
-![](https://post.332b.com/wp-content/uploads/2020/02/20200214171404.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2020/02/20200214171404.png)
 
 2.解压bios自带的所有微码
 
-![](https://post.332b.com/wp-content/uploads/2020/02/20200214171542.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2020/02/20200214171542.png)
 
 3.一般解压文件在当前软件目录/Extracted/Intel，我们打开后会看到一个或多个文件，他们全是都是微码文件，现在我们要把主板自带和需要添加的微码文件进行合并，合并后，再替换bios的微码库，就可以支持我们想要支持的cpu了，现在开动
 
@@ -88,10 +88,10 @@ copy /b cpu\_file1.bin + cpu\_file3.bin + cpu\_file3.bin = done.bin
 
 4.生成微码文件后，点击这里选择合并后的文件进行替换
 
-![](https://post.332b.com/wp-content/uploads/2020/02/20200214172741.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2020/02/20200214172741.png)
 
 5.替换完后，按0进入主菜单，再选择0 EXIT，再选择Rename to mod\_bios.bin，就会生成修改后的bios文件
 
-![](https://post.332b.com/wp-content/uploads/2020/02/20200214173054.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2020/02/20200214173054.png)
 
 到这里，整个教程就完了，得到修改后的bios文件后，可以直接刷入机器使用

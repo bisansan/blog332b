@@ -53,4 +53,4 @@ func3 1 2 3 4
 
 4.一些注意事项
 
-![](https://post.332b.com/wp-content/uploads/2020/05/screenshot-www.runoob.com-2020.05.14-18_23_17.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2020/05/screenshot-www.runoob.com-2020.05.14-18_23_17.png)

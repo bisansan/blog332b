@@ -47,4 +47,4 @@ date: 2019-01-16 17:29:08
 3.  MIN(score)      统计每组score中最小值
 4.  MAX(score)     统计每组score中最大值
 
-SELECT id,GROUP\_CONCAT(score),MIN(score),MAX(score) FROM users GROUP BY id; ![](https://post.332b.com/wp-content/uploads/2019/01/QQ截图20190123172412.png) Hvaing二次条件查找 除了WHERE可以进行条件查找，HAVING可以根据WHERE查找出来的数据，进行二次查找 SELECT id FROM users WHERE id>2 HAVING s>50; WHERE和HAVING的区别 1.HAVING可以使用聚合函数，而WHERE不能使用聚合函数 2.HAVING可以放在GROUP BY后面，配合它进行结合使用，而WHERE必须放在GROUP BY的前面 SQL查询语句书写循序： select > from > where > GROUP BY > having > order by > limit 选择字段  》 来自哪个表 》查询条件 》分组查询 》二次条件查询 》排序
+SELECT id,GROUP\_CONCAT(score),MIN(score),MAX(score) FROM users GROUP BY id; ![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2019/01/QQ截图20190123172412.png) Hvaing二次条件查找 除了WHERE可以进行条件查找，HAVING可以根据WHERE查找出来的数据，进行二次查找 SELECT id FROM users WHERE id>2 HAVING s>50; WHERE和HAVING的区别 1.HAVING可以使用聚合函数，而WHERE不能使用聚合函数 2.HAVING可以放在GROUP BY后面，配合它进行结合使用，而WHERE必须放在GROUP BY的前面 SQL查询语句书写循序： select > from > where > GROUP BY > having > order by > limit 选择字段  》 来自哪个表 》查询条件 》分组查询 》二次条件查询 》排序

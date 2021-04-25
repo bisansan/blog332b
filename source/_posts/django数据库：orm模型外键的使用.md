@@ -39,7 +39,7 @@ def index(request):
     article = Article.objects.first()
     print(article.category.name)
 
-# ![](https://post.332b.com/wp-content/uploads/2018/11/20181113160324.png)一对多的关系示意
+# ![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/11/20181113160324.png)一对多的关系示意
 
 向外键的第一个ID添加值进去,下面是models
 

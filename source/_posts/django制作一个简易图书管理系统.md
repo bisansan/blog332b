@@ -20,4 +20,4 @@ def func(request):
     if request.method == 'get':  ####可以获取访问清单的状态
         pass
 
-效果图片展示 ![](https://post.332b.com/wp-content/uploads/2018/11/20181109164710.png)
+效果图片展示 ![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/11/20181109164710.png)

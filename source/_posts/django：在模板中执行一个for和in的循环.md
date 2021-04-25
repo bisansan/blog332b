@@ -84,4 +84,4 @@ index.html文件
 </body>
 </html>
 
-![](https://post.332b.com/wp-content/uploads/2018/10/20181023170213-256x300.png)
+![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/10/20181023170213-256x300.png)

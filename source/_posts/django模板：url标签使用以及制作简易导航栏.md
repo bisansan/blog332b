@@ -92,4 +92,4 @@ index.html文件
 </body>
 </html
 
-截图 ![](https://post.332b.com/wp-content/uploads/2018/10/20181024141000-300x39.png)
+截图 ![](https://gitee.com/wittzhang/pic332b/raw/master/wp-content/uploads/2018/10/20181024141000-300x39.png)
