@@ -28,6 +28,13 @@
             var m = url.match(/^(https?\:\/\/[^/]+\/)index\.html$/);
             targetUrlHTML = '&nbsp;<a href="'+url+'" onclick="alert(\'点击右键“复制快捷方式”（复制链接）到更先进的浏览器访问。\');return false;" rel="noreferrer">'+(m ? m[1] : url)+'</a>&nbsp;';
         }
+        function isIE() { //ie?
+            if (!!window.ActiveXObject || "ActiveXObject" in window)
+            window.location.href="/upgrade_browser/index.html";
+            else
+            window.location.href="/";
+        }
+        isIE()
     </script>
 </head>
 <body>
